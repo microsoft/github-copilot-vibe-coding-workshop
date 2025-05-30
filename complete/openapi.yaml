@@ -1,485 +1,402 @@
-openapi: 3.0.3
+openapi: 3.0.1
 info:
-  title: "Simple Social Media Application API"
-  description: "Backend API for the Simple Social Media Application"
-  version: "1.0.0"
+  title: Simple Social Media Application API
+  description: A basic Social Networking Service (SNS) API that allows users to create, retrieve, update, and delete posts; add comments; and like/unlike posts.
+  version: 1.0.0
   contact:
-    name: "API Support"
-    email: "api.support@contoso.com"
+    name: Product Owner / Tech Lead at Contoso
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
 
 servers:
-  - url: http://localhost:8000/api
-
-tags:
-  - name: "Posts"
-  - name: "Comments"
-  - name: "Likes"
+  - url: http://localhost:8080/api
+    description: Local development server
 
 paths:
   /posts:
     get:
-      tags: ["Posts"]
       summary: List all posts
-      description: "Retrieve a list of all posts in the social media application."
-      operationId: getPosts
+      description: Retrieve all recent posts for browsing
+      operationId: listPosts
+      tags:
+        - Posts
       responses:
-        "200":
-          description: "Successfully retrieved the list of posts."
+        '200':
+          description: Successfully retrieved posts
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Post"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                  $ref: '#/components/schemas/Post'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    
     post:
-      tags: ["Posts"]
       summary: Create a new post
-      description: "Create a new post in the social media application."
+      description: Create a new post to share with others
       operationId: createPost
+      tags:
+        - Posts
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreatePostRequest"
+              $ref: '#/components/schemas/CreatePostRequest'
       responses:
-        "201":
-          description: "Successfully created a new post."
+        '201':
+          description: Post created successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Post"
-        "400":
-          description: "Bad request"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/Post'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
   /posts/{postId}:
+    parameters:
+      - $ref: '#/components/parameters/PostId'
+    
     get:
-      tags: ["Posts"]
-      summary: Retrieve a specific post by ID
-      description: "Retrieve a specific post by its ID."
+      summary: Get a specific post
+      description: Retrieve a specific post by its ID
       operationId: getPost
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post to retrieve"
+      tags:
+        - Posts
       responses:
-        "200":
-          description: "Successfully retrieved the post."
+        '200':
+          description: Successfully retrieved post
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Post"
-        "404":
-          description: "Post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/Post'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    
     patch:
-      tags: ["Posts"]
-      summary: Update a specific post by ID
-      description: "Update a specific post."
+      summary: Update a post
+      description: Update an existing post content
       operationId: updatePost
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post to update"
+      tags:
+        - Posts
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdatePostRequest"
+              $ref: '#/components/schemas/UpdatePostRequest'
       responses:
-        "200":
-          description: "Successfully updated the post."
+        '200':
+          description: Post updated successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Post"
-        "400":
-          description: "Bad request"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "404":
-          description: "Post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/Post'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    
     delete:
-      tags: ["Posts"]
-      summary: Delete a specific post by ID
-      description: "Delete a specific post."
+      summary: Delete a post
+      description: Delete a specific post
       operationId: deletePost
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post to delete"
+      tags:
+        - Posts
       responses:
-        "204":
-          description: "Successfully deleted the post."
-        "404":
-          description: "Post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+        '204':
+          description: Post deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
   /posts/{postId}/comments:
+    parameters:
+      - $ref: '#/components/parameters/PostId'
+    
     get:
-      tags: ["Comments"]
-      summary: Retrieve a list of comments for a specific post
-      description: "Retrieve a list of comments for a specific post."
-      operationId: getComments
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post to retrieve comments for"
+      summary: List comments for a post
+      description: Retrieve all comments for a specific post
+      operationId: listComments
+      tags:
+        - Comments
       responses:
-        "200":
-          description: "Successfully retrieved the list of comments."
+        '200':
+          description: Successfully retrieved comments
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Comment"
-        "404":
-          description: "Post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                  $ref: '#/components/schemas/Comment'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    
     post:
-      tags: ["Comments"]
-      summary: Create a comment on a specific post
-      description: "Create a comment on a specific post."
+      summary: Create a comment
+      description: Add a new comment to a post
       operationId: createComment
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post to create a comment on"
+      tags:
+        - Comments
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateCommentRequest"
+              $ref: '#/components/schemas/CreateCommentRequest'
       responses:
-        "201":
-          description: "Successfully created a comment."
+        '201':
+          description: Comment created successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Comment"
-        "400":
-          description: 잘못된 요청
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "404":
-          description: 포스트를 찾을 수 없음
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/Comment'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
   /posts/{postId}/comments/{commentId}:
+    parameters:
+      - $ref: '#/components/parameters/PostId'
+      - $ref: '#/components/parameters/CommentId'
+    
     get:
-      tags: ["Comments"]
-      summary: Retrieve a specific comment by ID
-      description: "Retrieve a specific comment by its ID."
+      summary: Get a specific comment
+      description: Retrieve a specific comment by its ID
       operationId: getComment
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post the comment belongs to"
-        - name: commentId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the comment to retrieve"
+      tags:
+        - Comments
       responses:
-        "200":
-          description: "Successfully retrieved the comment."
+        '200':
+          description: Successfully retrieved comment
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Comment"
-        "404":
-          description: 댓글 또는 포스트를 찾을 수 없음
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/Comment'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    
     patch:
-      tags: ["Comments"]
-      summary: Update a specific comment by ID
-      description: "Update a specific comment."
+      summary: Update a comment
+      description: Update an existing comment
       operationId: updateComment
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: ID of the post the comment belongs to
-        - name: commentId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: ID of the comment to update
+      tags:
+        - Comments
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateCommentRequest"
+              $ref: '#/components/schemas/UpdateCommentRequest'
       responses:
-        "200":
-          description: 댓글 수정 성공
+        '200':
+          description: Comment updated successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Comment"
-        "400":
-          description: "Bad request"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "404":
-          description: "Comment or post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/Comment'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    
     delete:
-      tags: ["Comments"]
-      summary: Delete a specific comment by ID
-      description: "Delete a specific comment."
+      summary: Delete a comment
+      description: Delete a specific comment
       operationId: deleteComment
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post the comment belongs to"
-        - name: commentId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the comment to delete"
+      tags:
+        - Comments
       responses:
-        "204":
-          description: "Successfully deleted the comment."
-        "404":
-          description: "Comment or post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+        '204':
+          description: Comment deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
   /posts/{postId}/likes:
+    parameters:
+      - $ref: '#/components/parameters/PostId'
+    
     post:
-      tags: ["Likes"]
-      summary: Like a specific post
-      description: "Like a specific post."
+      summary: Like a post
+      description: Add a like to a specific post
       operationId: likePost
-      parameters:
-        - name: postId
-          in: path
-          required: true
-          schema:
-            type: integer
-          description: "ID of the post to like"
+      tags:
+        - Likes
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/LikeRequest"
+              $ref: '#/components/schemas/LikeRequest'
       responses:
-        "201":
-          description: "Successfully liked the post."
-        "400":
-          description: "Bad request"
+        '201':
+          description: Post liked successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "404":
-          description: "Post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: '#/components/schemas/LikeResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    
     delete:
-      tags: ["Likes"]
-      summary: Unlike a specific post
-      description: "Unlike a specific post."
+      summary: Unlike a post
+      description: Remove a like from a specific post
       operationId: unlikePost
+      tags:
+        - Likes
       parameters:
-        - name: postId
-          in: path
+        - name: username
+          in: query
           required: true
+          description: Username of the user removing the like
           schema:
-            type: integer
-          description: "ID of the post to unlike"
+            type: string
+            minLength: 1
+            maxLength: 50
       responses:
-        "204":
-          description: "Successfully unliked the post."
-        "400":
-          description: "Bad request"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "404":
-          description: "Post not found"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
-        "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ErrorResponse"
+        '204':
+          description: Post unliked successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 
 components:
+  parameters:
+    PostId:
+      name: postId
+      in: path
+      required: true
+      description: Unique identifier for a post
+      schema:
+        type: string
+        format: uuid
+    
+    CommentId:
+      name: commentId
+      in: path
+      required: true
+      description: Unique identifier for a comment
+      schema:
+        type: string
+        format: uuid
+
   schemas:
     Post:
       type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        username:
-          type: string
-          example: "alice"
-        content:
-          type: string
-          example: "Hello, this is my first post!"
-        createdAt:
-          type: string
-          format: date-time
-          example: "2025-01-01T12:34:56Z"
-        updatedAt:
-          type: string
-          format: date-time
-          example: "2025-01-01T12:40:00Z"
-        likeCount:
-          type: integer
-          example: 3
-        commentCount:
-          type: integer
-          example: 10
       required:
         - id
         - username
         - content
         - createdAt
         - updatedAt
-        - likeCount
-        - commentCount
+        - likesCount
+        - commentsCount
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the post
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        username:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: Username of the post author
+          example: "john_doe"
+        content:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: Content of the post
+          example: "Just had an amazing hiking experience with Contoso gear!"
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the post was created
+          example: "2025-05-30T10:30:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the post was last updated
+          example: "2025-05-30T10:30:00Z"
+        likesCount:
+          type: integer
+          minimum: 0
+          description: Number of likes on the post
+          example: 15
+        commentsCount:
+          type: integer
+          minimum: 0
+          description: Number of comments on the post
+          example: 3
+
+    Comment:
+      type: object
+      required:
+        - id
+        - postId
+        - username
+        - content
+        - createdAt
+        - updatedAt
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the comment
+          example: "456e7890-e89b-12d3-a456-426614174001"
+        postId:
+          type: string
+          format: uuid
+          description: ID of the post this comment belongs to
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        username:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: Username of the comment author
+          example: "jane_smith"
+        content:
+          type: string
+          minLength: 1
+          maxLength: 500
+          description: Content of the comment
+          example: "Great post! I love their outdoor equipment too."
+        createdAt:
+          type: string
+          format: date-time
+          description: Timestamp when the comment was created
+          example: "2025-05-30T11:15:00Z"
+        updatedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the comment was last updated
+          example: "2025-05-30T11:15:00Z"
 
     CreatePostRequest:
       type: object
@@ -489,50 +406,35 @@ components:
       properties:
         username:
           type: string
-          example: "alice"
+          minLength: 1
+          maxLength: 50
+          description: Username of the post author
+          example: "john_doe"
         content:
           type: string
-          example: "Hello, this is my first post!"
+          minLength: 1
+          maxLength: 1000
+          description: Content of the post
+          example: "Just had an amazing hiking experience with Contoso gear!"
 
     UpdatePostRequest:
       type: object
-      properties:
-        content:
-          type: string
-          example: "Updated content of the post"
       required:
-        - content
-
-    Comment:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 100
-        postId:
-          type: integer
-          example: 1
-        username:
-          type: string
-          example: "bob"
-        content:
-          type: string
-          example: "Nice post!"
-        createdAt:
-          type: string
-          format: date-time
-          example: "2025-01-01T13:00:00Z"
-        updatedAt:
-          type: string
-          format: date-time
-          example: "2025-01-01T13:10:00Z"
-      required:
-        - id
-        - postId
         - username
         - content
-        - createdAt
-        - updatedAt
+      properties:
+        username:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: Username of the post author (for validation)
+          example: "john_doe"
+        content:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          description: Updated content of the post
+          example: "Just had an amazing hiking experience with Contoso gear! Highly recommend their backpacks."
 
     CreateCommentRequest:
       type: object
@@ -542,19 +444,35 @@ components:
       properties:
         username:
           type: string
-          example: "bob"
+          minLength: 1
+          maxLength: 50
+          description: Username of the comment author
+          example: "jane_smith"
         content:
           type: string
-          example: "Nice post!"
+          minLength: 1
+          maxLength: 500
+          description: Content of the comment
+          example: "Great post! I love their outdoor equipment too."
 
     UpdateCommentRequest:
       type: object
+      required:
+        - username
+        - content
       properties:
+        username:
+          type: string
+          minLength: 1
+          maxLength: 50
+          description: Username of the comment author (for validation)
+          example: "jane_smith"
         content:
           type: string
-          example: "Updated comment."
-      required:
-        - content
+          minLength: 1
+          maxLength: 500
+          description: Updated content of the comment
+          example: "Great post! I love their outdoor equipment too. Where did you buy it?"
 
     LikeRequest:
       type: object
@@ -563,13 +481,90 @@ components:
       properties:
         username:
           type: string
-          example: "charlie"
+          minLength: 1
+          maxLength: 50
+          description: Username of the user liking the post
+          example: "mike_wilson"
+
+    LikeResponse:
+      type: object
+      required:
+        - postId
+        - username
+        - likedAt
+      properties:
+        postId:
+          type: string
+          format: uuid
+          description: ID of the liked post
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        username:
+          type: string
+          description: Username of the user who liked the post
+          example: "mike_wilson"
+        likedAt:
+          type: string
+          format: date-time
+          description: Timestamp when the like was added
+          example: "2025-05-30T12:00:00Z"
 
     ErrorResponse:
       type: object
+      required:
+        - error
+        - message
       properties:
+        error:
+          type: string
+          description: Error type
+          example: "BadRequest"
         message:
           type: string
-          example: "Bad Request, Not Found or Internal Server Error"
-      required:
-        - message
+          description: Human-readable error message
+          example: "The request is invalid or missing required fields"
+        details:
+          type: object
+          description: Additional error details
+          additionalProperties: true
+
+  responses:
+    BadRequest:
+      description: Bad request - Invalid input or missing required fields
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: "BadRequest"
+            message: "The request is invalid or missing required fields"
+            details:
+              field: "username"
+              issue: "Username is required and cannot be empty"
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: "NotFound"
+            message: "The requested resource was not found"
+
+    InternalServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+          example:
+            error: "InternalServerError"
+            message: "An unexpected error occurred while processing the request"
+
+tags:
+  - name: Posts
+    description: Operations related to post management
+  - name: Comments
+    description: Operations related to comment management
+  - name: Likes
+    description: Operations related to post likes

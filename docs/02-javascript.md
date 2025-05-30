@@ -1,4 +1,4 @@
-# 02: JavaScript 앱 개발
+# 02: JavaScript
 
 ## 시나리오
 
