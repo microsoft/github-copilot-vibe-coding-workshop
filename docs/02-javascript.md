@@ -70,7 +70,7 @@ Refer to the [README](../README.md) doc for preparation.
     I'd like to scaffold a React web app. Follow the instructions below.
     
     - Your working directory is `javascript`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Use ViteJS as the frontend app framework.
     - Use default settings when initializing the project.
     - Use `SimpleSocialMediaApplication` as the name of the project while initializing.
@@ -131,7 +131,7 @@ Refer to the [README](../README.md) doc for preparation.
     I'd like to build a React web app. Follow the instructions below.
     
     - Your working directory is `javascript`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - There's a backend API app running on `http://localhost:5050`.
     - Use `openapi.yaml` that describes all the endpoints and data schema.
     - Create all the UI components defined in this link: {{FIGMA_SECTION_LINK}}.

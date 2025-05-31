@@ -305,7 +305,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Here's the PRD for you. Carefully read through the entire PRD and do the following for me.
     
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Generate an OpenAPI document in YAML format.
     - The OpenAPI document should capture all API endpoints, parameters and request/response payloads.
     - Assume the API server is `http://localhost:8080` and the base URL is `/api`.
