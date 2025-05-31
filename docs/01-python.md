@@ -104,7 +104,7 @@ Refer to the [README](../README.md) doc for preparation.
     If app running fails, analyze the issues and fix them.
     ```
 
-1. Open a web browser and navigate to `http://localhost:8080`.
+1. Open a web browser and navigate to `http://localhost:5050`.
 
 1. Click the `[keep]` button of GitHub Copilot to take the changes.
 
