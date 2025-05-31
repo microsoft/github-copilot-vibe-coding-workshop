@@ -14,11 +14,11 @@ But here's the situation...
 
 - Build applications using GitHub Copilot Agent Mode.
 - Add custom instruction to GitHub Copilot so that you have more control over GitHub Copilot.
-- Add various MCP servers to GitHub Copilot에 so that you build the applications more precisely.
+- Add various MCP servers to GitHub Copilot so that you build the applications more precisely.
 
 ## Prerequisites
 
-During this workshop, [GitHub Codespaces](https://docs.github.com/ko/codespaces/about-codespaces/what-are-codespaces) is highly recommended because there's no need for preparation, except a web browser. However, if you really need to use your machine, make sure you've installed everything identified below.
+During this workshop, [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces) is highly recommended because there's no need for preparation, except a web browser. However, if you really need to use your machine, make sure you've installed everything identified below.
 
 ### Common
 
@@ -61,7 +61,7 @@ During this workshop, [GitHub Codespaces](https://docs.github.com/ko/codespaces/
 
 ## Product Requirements Document
 
-First and the foremost place for you to start is this [PRD (Product Requirements Document)](./product-requirements.md). This document will give you better understanding what todo and how to do.
+First and foremost, the place for you to start is this [PRD (Product Requirements Document)](./product-requirements.md). This document will give you a better understanding of what to do and how to do it.
 
 ## Workshop Instructions
 
@@ -90,9 +90,9 @@ Check out the complete example of each application. They're also vibe-coded with
 
 ## Read More...
 
-- [GitHub Codespaces](https://docs.github.com/ko/codespaces/about-codespaces/what-are-codespaces)
-- [GitHub Copilot](https://docs.github.com/ko/copilot/about-github-copilot/what-is-github-copilot)
+- [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)
+- [GitHub Copilot](https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot)
 - [GitHub Copilot: Agent Mode](https://code.visualstudio.com/blogs/2025/04/07/agentMode)
 - [GitHub Copilot: MCP](https://code.visualstudio.com/blogs/2025/05/12/agent-mode-meets-mcp)
 - [GitHub Copilot: Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
-- [GitHub Copilot: Changing AI Models](https://docs.github.com/ko/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
+- [GitHub Copilot: Changing AI Models](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)

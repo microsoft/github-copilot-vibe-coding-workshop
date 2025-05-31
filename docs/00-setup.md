@@ -231,8 +231,8 @@ Refer to the [README](../README.md) doc for preparation.
    You should be able to see the following. If you see `microsoft` in `origin`, you should clone it again from your forked repository.
 
     ```bash
-    origin  https://github.com/<자신의 GitHub ID>/github-copilot-vibe-coding-workshop.git (fetch)
-    origin  https://github.com/<자신의 GitHub ID>/github-copilot-vibe-coding-workshop.git (push)
+    origin  https://github.com/<your GitHub ID>/github-copilot-vibe-coding-workshop.git (fetch)
+    origin  https://github.com/<your GitHub ID>/github-copilot-vibe-coding-workshop.git (push)
     upstream        https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (fetch)
     upstream        https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (push)
     ```
