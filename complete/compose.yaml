@@ -1,27 +1,25 @@
 services:
-  contoso-java:
+  contoso-backend:
     build:
       context: .
       dockerfile: Dockerfile.java
-    container_name: contoso-java
+    container_name: contoso-backend
     ports:
       - "5050:8080"
-    volumes:
-      - ./java/demo/sns.db:/app/sns.db
     networks:
       - contoso
 
-  contoso-dotnet:
+  contoso-frontend:
     build:
       context: .
       dockerfile: Dockerfile.dotnet
-    container_name: contoso-dotnet
+    container_name: contoso-frontend
     ports:
       - "3000:8080"
     depends_on:
-      - contoso-java
+      - contoso-backend
     environment:
-      - ApiBaseUrl=http://contoso-java:8080
+      - ApiBaseUrl=http://contoso-backend:8080
     networks:
       - contoso
 

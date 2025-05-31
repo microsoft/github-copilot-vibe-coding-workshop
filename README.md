@@ -75,12 +75,13 @@ This is a self-paced workshop by following the links below:
 
 Check out the complete example of each application. They're also vibe-coded with GitHub Copilot, therefore, they might not be perfect, and you don't have to follow the app.
 
-| Language   | Location                    |
-|------------|-----------------------------|
-| Python     | [python](./python/)         |
-| JavaScript | [javascript](./javascript/) |
-| Java       | [java](./java/)             |
-| .NET       | [dotnet](./dotnet/)         |
+| Language         | Location                             |
+|------------------|--------------------------------------|
+| Python           | [python](./complete/python/)         |
+| JavaScript       | [javascript](./complete/javascript/) |
+| Java             | [java](./complete/java/)             |
+| .NET             | [dotnet](./complete/dotnet/)         |
+| Containerization | [containerization](./complete/)      |
 
 ## Read More...
 

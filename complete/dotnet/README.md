@@ -1,14 +1,18 @@
-# .NET 앱 완성본
+# .NET App Sample
 
-## 시작하기
+## Prerequisites
 
-### Java 백엔드 시작하기
+Refer to the [README](../../README.md) doc for preparation.
 
-[Java 백엔드 완성본 앱](../complete/java/) 문서를 참조하여 실행시킵니다.
+## Getting Started
 
-### .NET 프론트엔드 시작하기
+### Run Spring Boot Backend
 
-1. 리포지토리 루트를 확인합니다.
+Use [Java App Sample](../complete/java/).
+
+### Run Blazor Frontend
+
+1. Get the repository root.
 
     ```bash
     # bash/zsh
@@ -20,12 +24,10 @@
     $REPOSITORY_ROOT = git rev-parse --show-toplevel
     ```
 
-1. 앱을 실행시킵니다.
+1. Run the app.
 
     ```bash
-    dotnet run --project $REPOSITORY_ROOT/complete/dotnet/ContosoSnsWebApp/ContosoSnsWebApp.csproj
+    dotnet watch run --project $REPOSITORY_ROOT/complete/dotnet/Contoso.BlazorApp/Contoso.BlazorApp.csproj
     ```
 
-1. 터미널에 보이는 `http://localhost:5090` 링크를 `Ctrl` + 왼쪽 마우스 클릭(윈도우) 또는 `Cmd` + 왼쪽 마우스 클릭(맥 OS)으로 클릭하여 웹 브라우저로 접속합니다.
-
-1. 웹 애플리케이션이 정상적으로 동작하는 것을 확인합니다.
+1. Verify if the web application is running properly.

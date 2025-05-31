@@ -1,11 +1,12 @@
-# 학습 문서
+# Self-Paced Learning Instruction
 
-아래 문서를 통해 자기주도학습의 형태로 직접 애플리케이션을 개발해 보세요!
+Here are the self-paced learning instruction materials. Use them and build apps!
 
-| 순서                   | 링크                                   |
-|------------------------|----------------------------------------|
-| 00: 개발 환경  설정    | [00-setup.md](./00-setup.md)           |
-| 01: Python 앱 개발     | [01-python.md](./01-python.md)         |
-| 02: JavaScript 앱 개발 | [02-javascript.md](./02-javascript.md) |
-| 03: Java 앱 개발       | [03-java.md](./03-java.md)             |
-| 04: .NET 앱 개발       | [04-dotnet.md](./04-dotnet.md)         |
+| Step                        | Link                                               |
+|-----------------------------|----------------------------------------------------|
+| 00: Development Environment | [00-setup.md](./00-setup.md)                       |
+| 01: Python                  | [01-python.md](./01-python.md)                     |
+| 02: JavaScript              | [02-javascript.md](./02-javascript.md)             |
+| 03: Java                    | [03-java.md](./03-java.md)                         |
+| 04: .NET                    | [04-dotnet.md](./04-dotnet.md)                     |
+| 05: Containerization        | [05-containerization.md](./05-containerization.md) |

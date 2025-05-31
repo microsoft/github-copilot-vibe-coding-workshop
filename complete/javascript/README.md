@@ -1,27 +1,41 @@
-# JavaScript React 앱
+# JavaScript App Sample
 
-## 사용 기술
-- React
-- Vite
-- Tailwind CSS
-- Yarn 패키지 매니저
+## Prerequisites
 
-## 시작하기
+Refer to the [README](../../README.md) doc for preparation.
 
-### 필요 조건
-- Node.js (14.x 이상)
+## Getting Started
 
-### 설치 및 실행
-```bash
-# 의존성 설치
-yarn install
+### Run FastAPI Backend
 
-# 개발 서버 실행
-yarn dev
+Use [Python App Sample](../complete/python/).
 
-# 프로덕션 빌드
-yarn build
+### Run React Frontend
 
-# 빌드 미리보기
-yarn preview
-```
+1. Get the repository root.
+
+    ```bash
+    # bash/zsh
+    REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+    ```
+
+    ```powershell
+    # PowerShell
+    $REPOSITORY_ROOT = git rev-parse --show-toplevel
+    ```
+
+1. Install npm packages.
+
+    ```bash
+    cd $REPOSITORY_ROOT
+    npm install
+    ```
+
+1. Run the app.
+
+    ```bash
+    npm run start
+    ```
+
+1. Open a web browser and navigate to `http://localhost:3000`.
+1. Verify if the web application is running properly.
