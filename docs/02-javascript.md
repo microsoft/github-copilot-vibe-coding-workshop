@@ -74,7 +74,7 @@ Refer to the [README](../README.md) doc for preparation.
     - Use ViteJS as the frontend app framework.
     - Use default settings when initializing the project.
     - Use `SimpleSocialMediaApplication` as the name of the project while initializing.
-    - Use the port number of `3030`.
+    - Use the port number of `3000`.
     ```
 
 ### Set-up Figma MCP Server

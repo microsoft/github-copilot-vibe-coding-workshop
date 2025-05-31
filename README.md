@@ -48,6 +48,9 @@ During this workshop, [GitHub Codespaces](https://docs.github.com/ko/codespaces/
 
 - [SDKMAN](https://sdkman.io/)
 - [OpenJDK 21](https://learn.microsoft.com/java/openjdk/download) through SDKMAN
+- [Apache Maven](https://maven.apache.org/download.cgi) through SDKMAN
+- [Gradle Build Tool](https://docs.gradle.org/current/userguide/installation.html) through SDKMAN
+- [Spring Boot Initializr](https://docs.spring.io/spring-boot/cli/installation.html) through SDKMAN
 - VS Code [Extension Pack for Java](https://marketplace.visualstudio.com/items/?itemName=vscjava.vscode-java-pack) Extension
 - VS Code [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items/?itemName=vmware.vscode-boot-dev-pack) Extension
 

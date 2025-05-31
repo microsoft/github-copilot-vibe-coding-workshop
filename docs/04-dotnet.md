@@ -73,6 +73,7 @@ Refer to the [README](../README.md) doc for preparation.
     - Show me the list of .NET projects related to Blazor and ask me to choose.
     - Generate a Blazor project.
     - Use the project name of `Contoso.BlazorApp`.
+    - Update `launchSettings.json` to change the port number of `3030` for HTTP, `43030` for HTTPS.
     - Create a solution, `ContosoWebApp`, and add the Blazor project into this solution.
     - Build the Blazor app and verify if the app is built properly.
     - Run this Blazor app and verify if the app is running properly.
@@ -89,7 +90,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Now, we're migrating the existing React-based web app to Blazor web app. Follow the instructions below for the migration.
     
-    - The existing React application is located at `complete/javascript`.
+    - The existing React application is located at `javascript`.
     - Your working directory is `dotnet/Contoso.BlazorApp`.
     - Identify all the steps first, which is you're going to do.
     - Analyze the application structure of the existing React app.

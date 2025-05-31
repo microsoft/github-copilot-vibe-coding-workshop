@@ -88,7 +88,7 @@ Refer to the [README](../README.md) doc for preparation.
     - Use in-memory feature of SQLite.
     - The database should always be initialized whenever starting the app.
     - Use `openapi.yaml` that describes all the endpoints and data schema.
-    - Use the port number of `5050`.
+    - Use the port number of `8000`.
     - Entrypoint is `main.py`.
     - The API application should render Swagger UI page through a default endpoint.
     - The API application should render exactly the same OpenAPI document through a default endpoint.
@@ -105,7 +105,7 @@ Refer to the [README](../README.md) doc for preparation.
     If app running fails, analyze the issues and fix them.
     ```
 
-1. Open a web browser and navigate to `http://localhost:5050`.
+1. Open a web browser and navigate to `http://localhost:8000`.
 1. Click the `[keep]` button of GitHub Copilot to take the changes.
 
 ---
