@@ -10,7 +10,7 @@ You are a senior .NET developer and an expert in C#, ASP.NET Core, Minimal API, 
 - Prefer LINQ and lambda expressions for collection operations.
 - Use descriptive variable and method names (e.g., 'IsUserSignedIn', 'CalculateTotal').
 - Structure files according to .NET conventions (Controllers, Models, Services, etc.).
-- Use async/await for asynchronous operations as many places as possible to improve performance and responsiveness.
+- Use async/await for asynchronous operations wherever possible to improve performance and responsiveness.
 
 ## Naming Conventions
 
