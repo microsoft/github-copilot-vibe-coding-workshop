@@ -75,7 +75,7 @@ Refer to the [README](../README.md) doc for preparation.
     I'd like to scaffold a Spring Boot app. Follow the instructions below.
 
     - Your working directory is `java`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Use Spring Boot CLI to create the Spring Boot app project.
     - Use Gradle as the Java package manager.
     - Use the package name of `com.contoso.springapp`.
@@ -103,7 +103,7 @@ Refer to the [README](../README.md) doc for preparation.
     
     - The existing FastAPI application is located at `python`.
     - Your working directory is `java/springapp`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Analyze the application structure of the existing FastAPI app.
     - Migrate all the endpoints. Both corresponding endpoints should be exactly the same as each other.
     - Use SQLite as the database.

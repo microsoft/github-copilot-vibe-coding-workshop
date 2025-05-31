@@ -71,7 +71,7 @@ Refer to the [README](../README.md) doc for preparation.
 
     - The Java app is located at `complete/java`.
     - Your working directory is the repository root.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Create a Dockerfile, `Dockerfile.java`.
     - Use Microsoft OpenJDK 21.
     - Use multi-stage build approach.
@@ -112,7 +112,7 @@ Refer to the [README](../README.md) doc for preparation.
 
     - The .NET app is located at `complete/dotnet`.
     - Your working directory is the repository root.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Create a Dockerfile, `Dockerfile.dotnet`.
     - Use .NET 9.
     - Use multi-stage build approach.

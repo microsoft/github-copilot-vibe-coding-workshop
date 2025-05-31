@@ -231,8 +231,8 @@ Refer to the [README](../README.md) doc for preparation.
    You should be able to see the following. If you see `microsoft` in `origin`, you should clone it again from your forked repository.
 
     ```bash
-    origin  https://github.com/<자신의 GitHub ID>/github-copilot-vibe-coding-workshop.git (fetch)
-    origin  https://github.com/<자신의 GitHub ID>/github-copilot-vibe-coding-workshop.git (push)
+    origin  https://github.com/<your GitHub ID>/github-copilot-vibe-coding-workshop.git (fetch)
+    origin  https://github.com/<your GitHub ID>/github-copilot-vibe-coding-workshop.git (push)
     upstream        https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (fetch)
     upstream        https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (push)
     ```
@@ -305,7 +305,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Here's the PRD for you. Carefully read through the entire PRD and do the following for me.
     
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Generate an OpenAPI document in YAML format.
     - The OpenAPI document should capture all API endpoints, parameters and request/response payloads.
     - Assume the API server is `http://localhost:8080` and the base URL is `/api`.

@@ -67,7 +67,7 @@ Refer to the [README](../README.md) doc for preparation.
     I'd like to write a Python application. But before that, I need to set up a virtual environment. Follow the instructions below.
     
     - Your working directory is `python`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Use `.venv` for the virtual environment.
     - Use `uv` as the Python package manager.
     ```
@@ -82,7 +82,7 @@ Refer to the [README](../README.md) doc for preparation.
     I'd like to build a FastAPI application as a backend API. Carefully read the entire PRD and `openapi.yaml`. Then, follow the instructions below.
     
     - Your working directory is `python`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Use FastAPI as the API app framework.
     - Use SQLite as the database.
     - Use in-memory feature of SQLite.

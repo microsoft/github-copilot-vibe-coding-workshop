@@ -69,7 +69,7 @@ Refer to the [README](../README.md) doc for preparation.
     I'd like to scaffold a Blazor web app. Follow the instructions below.
 
     - Your working directory is `dotnet`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Show me the list of .NET projects related to Blazor and ask me to choose.
     - Generate a Blazor project.
     - Use the project name of `Contoso.BlazorApp`.
@@ -92,12 +92,12 @@ Refer to the [README](../README.md) doc for preparation.
     
     - The existing React application is located at `javascript`.
     - Your working directory is `dotnet/Contoso.BlazorApp`.
-    - Identify all the steps first, which is you're going to do.
+    - Identify all the steps first, which you're going to do.
     - Analyze the application structure of the existing React app.
     - Migrate all the React components to Blazor ones. Both corresponding components should be as exactly close to each other as possible.
     - Migrate all necessary CSS elements from React to Blazor.
     - While migrating JavaScript elements from React to Blazor, maximize using Blazor's native features as much as possible. If you have to use JavaScript, use Blazor's JSInterop features.
-    - If necessary, add NuGet packages that is compatible with .NET 9.
+    - If necessary, add NuGet packages that are compatible with .NET 9.
     ```
 
 1. Once migration is over, use prompt like below to verify the migration result.
