@@ -317,4 +317,4 @@ Refer to the [README](../README.md) doc for preparation.
 
 ---
 
-OK. You've completed the "Development Environment" step. Let's move onto [STEP 01: Python](./01-python.md).
+OK. You've completed the "Development Environment" step. Let's move onto [STEP 01: Python Backend Development](./01-python.md).

@@ -77,13 +77,13 @@ This is a self-paced workshop by following the links below:
 
 Check out the complete example of each application. They're also vibe-coded with GitHub Copilot, therefore, they might not be perfect, and you don't have to follow the app.
 
-| Language         | Location                             |
-|------------------|--------------------------------------|
-| Python           | [python](./complete/python/)         |
-| JavaScript       | [javascript](./complete/javascript/) |
-| Java             | [java](./complete/java/)             |
-| .NET             | [dotnet](./complete/dotnet/)         |
-| Containerization | [containerization](./complete/)      |
+| Language            | Application | Location                             |
+|---------------------|-------------|--------------------------------------|
+| Python Backend      | FastAPI     | [python](./complete/python/)         |
+| JavaScript Frontend | React       | [javascript](./complete/javascript/) |
+| Java Backend        | Spring Boot | [java](./complete/java/)             |
+| .NET Frontend       | Blazor      | [dotnet](./complete/dotnet/)         |
+| Containerization    | Container   | [containerization](./complete/)      |
 
 ## Read More...
 

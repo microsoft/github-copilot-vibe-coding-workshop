@@ -1,4 +1,4 @@
-# 02: JavaScript
+# 02: JavaScript Frontend Development
 
 ## 시나리오
 
