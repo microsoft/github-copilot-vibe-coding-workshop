@@ -31,7 +31,7 @@ Refer to the [README](../README.md) doc for preparation.
 
 1. Open a web browser and navigate to `http://localhost:3000`.
 1. Verify if the web application is running properly.
-1. 아래 명령어를 실행시켜 컨테이너 앱을 삭제합니다.
+1. Clean up by running the following command to remove the containerized apps.
 
     ```bash
     docker compose down --rmi all

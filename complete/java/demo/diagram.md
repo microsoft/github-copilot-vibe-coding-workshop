@@ -1,29 +1,29 @@
-# SNS API 서비스 다이어그램
+# SNS API Service Diagram
 
-## 전체 시스템 구조
+## Overall System Architecture
 
 ```
 +--------------------------------------------+
-|                FastAPI 애플리케이션          |
+|                FastAPI Application         |
 +--------------------------------------------+
-| - title: "Simple SNS API"                  |
-| - CORS 미들웨어 추가                         |
-| - API 라우터 설정 (/api)                    |
+| - title: "Simple SNS API"                 |
+| - CORS middleware added                    |
+| - API router configuration (/api)         |
 +--------------------------------------------+
                |
-               | 사용
+               | uses
                v
 +--------------------------------------------+
-|                데이터베이스                  |
+|                Database                    |
 +--------------------------------------------+
 | - SQLite                                   |
-| - 테이블: posts, comments, likes           |
+| - Tables: posts, comments, likes           |
 +--------------------------------------------+
                |
-               | 포함
+               | contains
                v
 +--------------------------------------------+
-|                데이터 모델                   |
+|                Data Models                 |
 +--------------------------------------------+
 |          |           |           |         |
 |          v           v           v         |
@@ -32,32 +32,32 @@
 +----------+    +------+    +------+         |
 +--------------------------------------------+
                |
-               | 구현
+               | implements
                v
 +--------------------------------------------+
-|                 API 엔드포인트              |
+|                API Endpoints               |
 +--------------------------------------------+
-| 포스트 관련:                                |
+| Post-related:                              |
 | - GET /api/posts                          |
 | - POST /api/posts                         |
 | - GET /api/posts/{postId}                 |
 | - PATCH /api/posts/{postId}               |
 | - DELETE /api/posts/{postId}              |
 |                                            |
-| 댓글 관련:                                  |
+| Comment-related:                           |
 | - GET /api/posts/{postId}/comments        |
 | - POST /api/posts/{postId}/comments       |
 | - GET /api/posts/{postId}/comments/{id}   |
 | - PATCH /api/posts/{postId}/comments/{id} |
 | - DELETE /api/posts/{postId}/comments/{id}|
 |                                            |
-| 좋아요 관련:                                |
+| Like-related:                              |
 | - POST /api/posts/{postId}/likes          |
 | - DELETE /api/posts/{postId}/likes        |
 +--------------------------------------------+
 ```
 
-## 데이터 모델 상세 다이어그램
+## Detailed Data Model Diagram
 
 ```
 +----------------+       +----------------+       +----------------+
@@ -89,7 +89,7 @@
 +----------------+       +----------------+
 ```
 
-## 데이터베이스 스키마 다이어그램
+## Database Schema Diagram
 
 ```
 +----------------+       +----------------+       +----------------+
@@ -107,32 +107,32 @@
         |                       +------------------------+
         |                       |                        |
         +-----------------------+------------------------+
-                       외래 키 관계
+                       Foreign Key Relationships
 ```
 
-## API 흐름 다이어그램
+## API Flow Diagram
 
 ```
-클라이언트 → HTTP 요청 → FastAPI 애플리케이션 → API 라우터 → 비즈니스 로직 → 
-SQLite 데이터베이스 → 결과 → Pydantic 모델 변환 → JSON 응답 → 클라이언트
+Client → HTTP Request → FastAPI Application → API Router → Business Logic → 
+SQLite Database → Results → Pydantic Model Conversion → JSON Response → Client
 ```
 
-## API 엔드포인트 설명
+## API Endpoint Descriptions
 
-1. **포스트 관련 API**
-   - `GET /api/posts`: 모든 포스트 목록 조회
-   - `POST /api/posts`: 새 포스트 작성
-   - `GET /api/posts/{postId}`: 특정 포스트 조회
-   - `PATCH /api/posts/{postId}`: 특정 포스트 수정
-   - `DELETE /api/posts/{postId}`: 특정 포스트 삭제
+1. **Post-related APIs**
+   - `GET /api/posts`: Retrieve all posts
+   - `POST /api/posts`: Create a new post
+   - `GET /api/posts/{postId}`: Retrieve a specific post
+   - `PATCH /api/posts/{postId}`: Update a specific post
+   - `DELETE /api/posts/{postId}`: Delete a specific post
 
-2. **댓글 관련 API**
-   - `GET /api/posts/{postId}/comments`: 특정 포스트의 댓글 목록 조회
-   - `POST /api/posts/{postId}/comments`: 특정 포스트에 댓글 작성
-   - `GET /api/posts/{postId}/comments/{commentId}`: 특정 댓글 조회
-   - `PATCH /api/posts/{postId}/comments/{commentId}`: 특정 댓글 수정
-   - `DELETE /api/posts/{postId}/comments/{commentId}`: 특정 댓글 삭제
+2. **Comment-related APIs**
+   - `GET /api/posts/{postId}/comments`: Retrieve comments for a specific post
+   - `POST /api/posts/{postId}/comments`: Create a comment on a specific post
+   - `GET /api/posts/{postId}/comments/{commentId}`: Retrieve a specific comment
+   - `PATCH /api/posts/{postId}/comments/{commentId}`: Update a specific comment
+   - `DELETE /api/posts/{postId}/comments/{commentId}`: Delete a specific comment
 
-3. **좋아요 관련 API**
-   - `POST /api/posts/{postId}/likes`: 특정 포스트에 좋아요 추가
-   - `DELETE /api/posts/{postId}/likes`: 특정 포스트의 좋아요 취소
+3. **Like-related APIs**
+   - `POST /api/posts/{postId}/likes`: Add a like to a specific post
+   - `DELETE /api/posts/{postId}/likes`: Remove a like from a specific post
