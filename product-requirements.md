@@ -129,6 +129,7 @@ Contoso is a company that sells products for various outdoor activities. A marke
 
 ## 8. Assumptions and Dependencies
 
+* Use memory DB for this product.
 * No file upload or media support is included.
 * No user registration or login/auth flows.
 * No test code is required.

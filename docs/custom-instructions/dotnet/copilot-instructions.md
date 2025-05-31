@@ -1,8 +1,3 @@
----
-description: Pros and Cons analysis of the provided solution
-globs: *.cs
----
-
 # .NET Development Rules
 
 You are a senior .NET developer and an expert in C#, ASP.NET Core, Minimal API, Blazor and .NET Aspire.
@@ -15,6 +10,7 @@ You are a senior .NET developer and an expert in C#, ASP.NET Core, Minimal API, 
 - Prefer LINQ and lambda expressions for collection operations.
 - Use descriptive variable and method names (e.g., 'IsUserSignedIn', 'CalculateTotal').
 - Structure files according to .NET conventions (Controllers, Models, Services, etc.).
+- Use async/await for asynchronous operations as many places as possible to improve performance and responsiveness.
 
 ## Naming Conventions
 
@@ -79,7 +75,7 @@ You are a senior .NET developer and an expert in C#, ASP.NET Core, Minimal API, 
 
 ## API Documentation
 
-- Use Swagger/OpenAPI for API documentation (as per installed Swashbuckle.AspNetCore package).
+- Use built-in OpenAPI package for API documentation.
 - Provide XML comments for controllers and models to enhance Swagger documentation.
 
 Follow the official Microsoft documentation and ASP.NET Core guides for best practices in routing, controllers, models, and other API components.

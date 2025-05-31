@@ -17,6 +17,7 @@ Refer to the [README](../README.md) doc for preparation.
   - [Install Visual Studio Code](#install-visual-studio-code)
   - [Start Visual Studio Code](#start-visual-studio-code)
 - [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode)
+- [Prepare Custom Instructions](#prepare-custom-instructions)
 - [Analyze Product Requirements Document (PRD) and Design API](#analyze-product-requirements-document-prd-and-design-api)
 
 ## Use GitHub Codespaces
@@ -267,7 +268,7 @@ Refer to the [README](../README.md) doc for preparation.
 
 1. Select model to either `GPT-4.1` or `Claude Sonnet 4`.
 
-## Analyze Product Requirements Document (PRD) and Design API
+## Prepare Custom Instructions
 
 1. Set the environment variable of `$REPOSITORY_ROOT`.
 
@@ -295,7 +296,9 @@ Refer to the [README](../README.md) doc for preparation.
               -Destination $REPOSITORY_ROOT/.github/ -Recurse -Force
     ```
 
-1. Make sure that you're using GitHub Copilot Agent Mode.
+## Analyze Product Requirements Document (PRD) and Design API
+
+1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
 1. Add [`product-requirements.md`](../product-requirements.md) to GitHub Copilot.
 1. Enter the prompt like the following for GitHub Copilot Agent to generate an OpenAPI document for you. This OpenAPI document will be the base of your entire application.
 
