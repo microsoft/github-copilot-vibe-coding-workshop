@@ -12,10 +12,10 @@ Refer to the [README](../README.md) doc for preparation.
 
 ## Getting Started
 
-  - [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode)
-  - [Prepare Custom Instructions](#prepare-custom-instructions)
-  - [Prepare Virtual Environment](#prepare-virtual-environment)
-  - [Build FastAPI Backend App](#build-fastapi-backend-app)
+- [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode)
+- [Prepare Custom Instructions](#prepare-custom-instructions)
+- [Prepare Virtual Environment](#prepare-virtual-environment)
+- [Build FastAPI Backend App](#build-fastapi-backend-app)
 
 ### Check GitHub Copilot Agent Mode
 
@@ -96,16 +96,16 @@ Refer to the [README](../README.md) doc for preparation.
     - DO NOT modify anything defined in `openapi.yaml`.
     ```
 
+1. Click the `[keep]` button of GitHub Copilot to take the changes.
 1. Once the application is built, verify if it's written properly or not.
 
     ```text
-    Run the Python app and verify if the app is properly running. Also verify the OpenAPI endpoint renders exactly the same content as `openapi.yaml`.
+    Run the FastAPI app and verify if the app is properly running. Also verify the OpenAPI endpoint renders exactly the same content as `openapi.yaml`.
 
     If app running fails, analyze the issues and fix them.
     ```
 
 1. Open a web browser and navigate to `http://localhost:5050`.
-
 1. Click the `[keep]` button of GitHub Copilot to take the changes.
 
 ---

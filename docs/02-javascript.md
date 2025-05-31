@@ -1,59 +1,168 @@
 # 02: JavaScript Frontend Development
 
-## 시나리오
+## Scenario
 
-Contoso 아웃도어 컴파니의 마케팅 팀에서는 제품 홍보를 위한 마이크로 소셜 미디어 웹사이트를 빠르게 론칭하고 싶어 합니다. 개발팀의 JavaScript 개발자인 당신은 GitHub Codespaces 안에서 GitHub Copilot을 이용해 간단한 프론트엔드 웹 UI를 React 기반으로 만들어 달라는 요청을 받았습니다.
+Contoso is a company that sells products for various outdoor activities. A marketing department of Contoso would like to launch a micro social media website to promote their products for existing and potential customers.
 
-## 사전 준비사항
+As a JavaScript developer, you're going to build a JavaScript frontend app using React communicating to the Python backend API app.
 
-[README](../README.md) 문서를 참조하여 개발 환경을 준비합니다.
+## Prerequisites
 
-## 순서
+Refer to the [README](../README.md) doc for preparation.
 
-- [개발 과정 프롬프트](#개발-과정-프롬프트)
-  - [React 앱 프로젝트 준비](#react-앱-프로젝트-준비)
-  - [React 앱 프로젝트 구축](#react-앱-프로젝트-구축)
+## Getting Started
 
-## 개발 과정 프롬프트
+- [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode)
+- [Prepare Custom Instructions](#prepare-custom-instructions)
+- [Prepare Application Project](#prepare-application-project)
+- [Set-up Figma MCP Server](#set-up-figma-mcp-server)
+- [Generate UI Components from Figma](#generate-ui-components-from-figma)
+- [Build React Frontend App](#build-react-frontend-app)
+- [Verify React Frontend App](#verify-react-frontend-app)
 
-### React 앱 프로젝트 준비
+### Check GitHub Copilot Agent Mode
 
-1. GitHub Copilot이 현재 에이전트모드인지 확인합니다. 모델은 `Claude 3.7 Sonnet`을 선택하세요.
+1. Click the GitHub Copilot icon on the top of GitHub Codespace or VS Code and open GitHub Copilot window.
 
-1. React 앱을 스캐폴딩(프로젝트 기본 구조 자동 생성)합니다. 아래와 같은 프롬프트를 이용해 보세요.
+   ![Open GitHub Copilot Chat](./images/setup-02.png)
 
-    ```text
-    `javascript` 폴더 안에 React를 사용한 프론트엔드 앱을 구성하려합니다. 패키지매니저는 `npm`, 빌드 툴은 `vite`, 언어는 JavaScript를 사용할 예정이고 AI를 사용한 빠른 마크업 개발을 위해 CSS 프레임워크론 Tailwind CSS를 사용할 예정입니다. 새로운 폴더를 만들지 말고 `javascript` 폴더에 React 앱 스캐폴딩을 시작해주세요.
+1. If you're asked to login or sign up, do it. It's free of charge.
+1. Make sure you're using GitHub Copilot Agent Mode.
+
+   ![GitHub Copilot Agent Mode](./images/setup-03.png)
+
+1. Select model to either `GPT-4.1` or `Claude Sonnet 4`.
+
+### Prepare Custom Instructions
+
+1. Set the environment variable of `$REPOSITORY_ROOT`.
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. Copy custom instructions.
+
+    ```bash
+    # bash/zsh
+    cp -r $REPOSITORY_ROOT/docs/custom-instructions/javascript/. \
+          $REPOSITORY_ROOT/.github/
     ```
 
-1. 스캐폴딩이 잘 마무리 되었는지 확인합니다.
-
-    ```text
-    React 개발 서버를 실행해 애플리케이션이 잘 작동하는지 확인해주세요.
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/custom-instructions/javascript/* `
+              -Destination $REPOSITORY_ROOT/.github/ -Recurse -Force
     ```
 
-1. 프로젝트에 필요한 `.gitignore` 파일을 추가합니다.
+### Prepare Application Project
+
+1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Use prompt like below to scaffold a React web app project.
 
     ```text
-    `.gitignore`같은 필수 파일이 빠져있으니 추가해주세요.
+    I'd like to scaffold a React web app. Follow the instructions below.
+    
+    - Your working directory is `javascript`.
+    - Identify all the steps first, which is you're going to do.
+    - Use ViteJS as the frontend app framework.
+    - Use default settings when initializing the project.
+    - Use `SimpleSocialMediaApplication` as the name of the project while initializing.
+    - Use the port number of `3030`.
     ```
 
-### React 앱 프로젝트 구축
+### Set-up Figma MCP Server
 
-1. 이제 Contoso 아웃도어 컴파니의 제품 홍보를 위한 마이크로 소셜 미디어 웹사이트의 기능을 구현합니다. 백엔드와 연동 전 먼저 UI 작업을 시작합니다. (API 스키마를 컨택스트로 주입)
+1. Get the personal access token (PAT) from [Figma](https://www.figma.com/).
+1. Set the environment variable of `$REPOSITORY_ROOT`.
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. Copy MCP server settings.
+
+    ```bash
+    # bash/zsh
+    cp -r $REPOSITORY_ROOT/docs/.vscode/. \
+          $REPOSITORY_ROOT/.vscode/
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/* `
+              -Destination $REPOSITORY_ROOT/.vscode/ -Recurse -Force
+    ```
+
+1. Open Command Palette by typing F1 or `Ctrl`+`Shift`+`P` on Windows or `Cmd`+`Shift`+`P` on Mac OS, and search `MCP: List Servers`.
+1. Choose `Framelink Figma MCP` then click `Start Server`.
+1. Enter the PAT you get issued from Figma.
+
+### Generate UI Components from Figma
+
+1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that you're running the Figma MCP server.
+1. Copy the [Figma design template](https://www.figma.com/community/file/1495954632647006209) to your account.
+
+   ![Figma design template page](./images/javascript-01.png)
+
+1. Right-click each section - `Home`, `Search`, `Post Details`, `Post Modal` and `Name Input Modal` 👉 Select `Copy/Paste as` 👉 Select `Copy link to selection` to get the link to each section. Take note all five links.
+
+### Build React Frontend App
+
+1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that you have all the Figma section links of 5 retrieved from the [previous section](#generate-ui-components-from-figma).
+1. Add [`product-requirements.md`](../product-requirements.md) and [`openapi.yaml`](../openapi.yaml) to GitHub Copilot.
+1. Use prompt like below to build the application based on the requirements and OpenAPI document.
 
     ```text
-    백엔드 개발자에게 전달받은 API 스키마 정보를 바탕으로 구현 가능한 기능을 스스로 판단하여 UI를 먼저 구현해주세요. 반응형 디자인으로 모바일과 데스크탑 모두를 지원해야하고, TailwindCSS를 활용해 깔끔하고 현대적인 UI를 구현해주세요.
-
-    모든 작업은 `javascript`폴더 안에서 진행되어야 합니다.
+    I'd like to build a React web app. Follow the instructions below.
+    
+    - Your working directory is `javascript`.
+    - Identify all the steps first, which is you're going to do.
+    - There's a backend API app running on `http://localhost:5050`.
+    - Use `openapi.yaml` that describes all the endpoints and data schema.
+    - Create all the UI components defined in this link: {{FIGMA_SECTION_LINK}}.
+    - DO NOT add anything not defined in `openapi.yaml`.
+    - DO NOT modify anything defined in `openapi.yaml`.
+    - Give visual indication when the backend API is unavailable or unreachable for any reason.
     ```
 
-2. 백엔드 port 정보를 받아 실제 백엔드 연동을 진행합니다.
+1. Repeat four more times for the rest four Figma design links.
+1. Click the `[keep]` button of GitHub Copilot to take the changes.
+
+### Verify React Frontend App
+
+1. Make sure that the FastAPI backend app is up and running.
 
     ```text
-    백엔드 엔지니어에게 받은 포트 번호는 `8000`이야. 우리는 모노레포로 작업중이니까 포트번호만 변경해서 실제 연동을 진행해줘. 
+    Run the FastAPI backend API, which is located at the `python` directory.
     ```
+
+1. Verify if it's built properly or not.
+
+    ```text
+    Run the React app and verify if the app is properly running.
+
+    If app running fails, analyze the issues and fix them.
+    ```
+
+1. Open a web browser and navigate to `http://localhost:3030`.
+1. Verify if both frontend and backend apps are running properly.
+1. Click the `[keep]` button of GitHub Copilot to take the changes.
 
 ---
 
-축하합니다! **JavaScript 앱 개발** 실습이 끝났습니다. 이제 [STEP 03: Java 앱 개발](./03-java.md) 단계로 넘어가세요.
+OK. You've completed the "JavaScript" step. Let's move onto [STEP 03: Java Migration from Python](./03-java.md).
