@@ -65,7 +65,7 @@ Refer to the [README](../README.md) doc for preparation.
 
    If you see something different from above, delete the GitHub Codespace instance and recreate it.
 
-1. Move down to the [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode) section.
+2. Move down to the [Set-up MCP Servers](#set-up-mcp-servers) section.
 
 **👇👇👇 Instead, if you'd like to use VS Code on your local machine, follow the instruction below. The section below doesn't apply to those who use GitHub Codespaces. 👇👇👇**
 
@@ -254,6 +254,37 @@ Refer to the [README](../README.md) doc for preparation.
     ```bash
     code --install-extension "github.copilot" --force && code --install-extension "github.copilot-chat" --force
     ```
+
+### Set-up MCP Servers
+
+1. Set the environment variable of `$REPOSITORY_ROOT`.
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. Copy MCP server settings.
+
+    ```bash
+    # bash/zsh
+    cp -r $REPOSITORY_ROOT/docs/.vscode/. \
+          $REPOSITORY_ROOT/.vscode/
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/* `
+              -Destination $REPOSITORY_ROOT/.vscode/ -Recurse -Force
+    ```
+
+1. Open Command Palette by typing F1 or `Ctrl`+`Shift`+`P` on Windows or `Cmd`+`Shift`+`P` on Mac OS, and search `MCP: List Servers`.
+1. Choose `context7` then click `Start Server`.
 
 ## Check GitHub Copilot Agent Mode
 

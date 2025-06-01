@@ -31,6 +31,7 @@ Refer to the [README](../README.md) doc for preparation.
    ![GitHub Copilot Agent Mode](./images/setup-03.png)
 
 1. Select model to either `GPT-4.1` or `Claude Sonnet 4`.
+1. Make sure that you've configured [MCP Servers](./00-setup.md#set-up-mcp-servers).
 
 ### Prepare Custom Instructions
 
@@ -74,6 +75,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     I'd like to scaffold a Spring Boot app. Follow the instructions below.
 
+    - Use context7.
     - Your working directory is `java`.
     - Identify all the steps first, which you're going to do.
     - Use Spring Boot CLI to create the Spring Boot app project.
@@ -101,6 +103,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Now, we're migrating the existing FastAPI-based API app to Spring Boot API app. Carefully read the entire PRD and `openapi.yaml`. Follow the instructions below for the migration.
     
+    - Use context7.
     - The existing FastAPI application is located at `python`.
     - Your working directory is `java/springapp`.
     - Identify all the steps first, which you're going to do.
@@ -118,12 +121,31 @@ Refer to the [README](../README.md) doc for preparation.
     ```
 
 1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Once migration is over, use prompt like below to verify the migration result.
+
+    ```text
+    I'd like to build the Spring Boot app. Follow the instructions.
+
+    - Use context7.
+    - Build the Spring Boot app and verify if the app is built properly.
+    - If building the app fails, analyze the issues and fix them.
+    ```
+
+   > **NOTE**:
+   >
+   > - Until the build succeeds, iterate this step.
+   > - If the build keeps failing, check out the error messages and ask them to GitHub Copilot Agent to figure them out.
+
+1. Click the `[keep]` button of GitHub Copilot to take the changes.
+
+### Verify Spring Boot Backend App
+
 1. Once the application is built, verify if it's written properly or not.
 
     ```text
     Run the Spring Boot app and verify if the app is properly running. Also verify the OpenAPI endpoint renders exactly the same content as `openapi.yaml`.
 
-    If app running fails, analyze the issues and fix them.
+    If app running fails, analyze the issues and fix them. Use context7.
     ```
 
 1. Open a web browser and navigate to `http://localhost:8080`.

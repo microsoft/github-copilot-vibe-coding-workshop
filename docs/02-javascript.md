@@ -32,6 +32,7 @@ Refer to the [README](../README.md) doc for preparation.
    ![GitHub Copilot Agent Mode](./images/setup-03.png)
 
 1. Select model to either `GPT-4.1` or `Claude Sonnet 4`.
+1. Make sure that you've configured [MCP Servers](./00-setup.md#set-up-mcp-servers).
 
 ### Prepare Custom Instructions
 
@@ -77,35 +78,10 @@ Refer to the [README](../README.md) doc for preparation.
     - Use the port number of `3000`.
     ```
 
-### Set-up Figma MCP Server
+### Prepare Figma MCP Server
 
+1. Make sure that you've configured [MCP Servers](./00-setup.md#set-up-mcp-servers).
 1. Get the personal access token (PAT) from [Figma](https://www.figma.com/).
-1. Set the environment variable of `$REPOSITORY_ROOT`.
-
-   ```bash
-   # bash/zsh
-   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
-   ```
-
-   ```powershell
-   # PowerShell
-   $REPOSITORY_ROOT = git rev-parse --show-toplevel
-   ```
-
-1. Copy MCP server settings.
-
-    ```bash
-    # bash/zsh
-    cp -r $REPOSITORY_ROOT/docs/.vscode/. \
-          $REPOSITORY_ROOT/.vscode/
-    ```
-
-    ```powershell
-    # PowerShell
-    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/* `
-              -Destination $REPOSITORY_ROOT/.vscode/ -Recurse -Force
-    ```
-
 1. Open Command Palette by typing F1 or `Ctrl`+`Shift`+`P` on Windows or `Cmd`+`Shift`+`P` on Mac OS, and search `MCP: List Servers`.
 1. Choose `Framelink Figma MCP` then click `Start Server`.
 1. Enter the PAT you get issued from Figma.
@@ -130,10 +106,12 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     I'd like to build a React web app. Follow the instructions below.
     
+    - Use context7.
     - Your working directory is `javascript`.
     - Identify all the steps first, which you're going to do.
     - There's a backend API app running on `http://localhost:5050`.
     - Use `openapi.yaml` that describes all the endpoints and data schema.
+    - Use the port number of `3000`.
     - Create all the UI components defined in this link: {{FIGMA_SECTION_LINK}}.
     - DO NOT add anything not defined in `openapi.yaml`.
     - DO NOT modify anything defined in `openapi.yaml`.
@@ -159,7 +137,7 @@ Refer to the [README](../README.md) doc for preparation.
     If app running fails, analyze the issues and fix them.
     ```
 
-1. Open a web browser and navigate to `http://localhost:3030`.
+1. Open a web browser and navigate to `http://localhost:3000`.
 1. Verify if both frontend and backend apps are running properly.
 1. Click the `[keep]` button of GitHub Copilot to take the changes.
 

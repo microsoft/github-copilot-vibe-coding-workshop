@@ -31,6 +31,7 @@ Refer to the [README](../README.md) doc for preparation.
    ![GitHub Copilot Agent Mode](./images/setup-03.png)
 
 1. Select model to either `GPT-4.1` or `Claude Sonnet 4`.
+1. Make sure that you've configured [MCP Servers](./00-setup.md#set-up-mcp-servers).
 
 ### Prepare Custom Instructions
 
@@ -68,12 +69,13 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     I'd like to scaffold a Blazor web app. Follow the instructions below.
 
+    - Use context7.
     - Your working directory is `dotnet`.
     - Identify all the steps first, which you're going to do.
     - Show me the list of .NET projects related to Blazor and ask me to choose.
     - Generate a Blazor project.
     - Use the project name of `Contoso.BlazorApp`.
-    - Update `launchSettings.json` to change the port number of `3030` for HTTP, `43030` for HTTPS.
+    - Update `launchSettings.json` to change the port number of `3031` for HTTP, `43031` for HTTPS.
     - Create a solution, `ContosoWebApp`, and add the Blazor project into this solution.
     - Build the Blazor app and verify if the app is built properly.
     - Run this Blazor app and verify if the app is running properly.
@@ -90,9 +92,11 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Now, we're migrating the existing React-based web app to Blazor web app. Follow the instructions below for the migration.
     
+    - Use context7.
     - The existing React application is located at `javascript`.
     - Your working directory is `dotnet/Contoso.BlazorApp`.
     - Identify all the steps first, which you're going to do.
+    - There's a backend API app running on `http://localhost:8080`.
     - Analyze the application structure of the existing React app.
     - Migrate all the React components to Blazor ones. Both corresponding components should be as exactly close to each other as possible.
     - Migrate all necessary CSS elements from React to Blazor.
@@ -103,6 +107,9 @@ Refer to the [README](../README.md) doc for preparation.
 1. Once migration is over, use prompt like below to verify the migration result.
 
     ```text
+    I'd like to build the Blazor app. Follow the instructions.
+
+    - Use context7.
     - Build the Blazor app and verify if the app is built properly.
     - If building the app fails, analyze the issues and fix them.
     ```
@@ -113,14 +120,36 @@ Refer to the [README](../README.md) doc for preparation.
    > - If the build keeps failing, check out the error messages and ask them to GitHub Copilot Agent to figure them out.
 
 1. Click the `[keep]` button of GitHub Copilot to take the changes.
-
 1. Once the build succeeds, use prompt like below to verify the migration result.
 
     ```text
+    I'd like to run the Blazor app. Follow the instructions.
+
+    - Use context7.
     - Run this Blazor app and verify if the app is running properly.
+    - Ignore backend API app connection error at this stage.
     - If running the app fails, analyze the issues and fix them.
     ```
 
+### Verify Blazor Frontend App
+
+1. Make sure that the Spring Boot backend app is up and running.
+
+    ```text
+    Run the Spring Boot backend API, which is located at the `java` directory.
+    ```
+
+1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Verify if it's built properly or not.
+
+    ```text
+    Run the Blazor app and verify if the app is properly running.
+
+    If app running fails, analyze the issues and fix them.
+    ```
+
+1. Open a web browser and navigate to `http://localhost:3031`.
+1. Verify if both frontend and backend apps are running properly.
 1. Click the `[keep]` button of GitHub Copilot to take the changes.
 
 ---

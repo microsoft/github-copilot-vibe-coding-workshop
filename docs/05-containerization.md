@@ -32,6 +32,7 @@ Refer to the [README](../README.md) doc for preparation.
    ![GitHub Copilot Agent Mode](./images/setup-03.png)
 
 1. Select model to either `GPT-4.1` or `Claude Sonnet 4`.
+1. Make sure that you've configured [MCP Servers](./00-setup.md#set-up-mcp-servers).
 
 ### Prepare Custom Instructions
 
@@ -139,7 +140,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Use the container image just built, run a container and verify if the app is running properly.
     
-    - Use the host port of `3000`.
+    - Use the host port of `3030`.
     ```
 
 1. Make sure that both frontend and backend apps are NOT communicating with each other because they don't know each other yet. Run the prompt like below.
@@ -162,7 +163,7 @@ Refer to the [README](../README.md) doc for preparation.
     - Create `compose.yaml` as the Docker Compose file.
     - Use `contoso` as the network name.
     - Use `contoso-backend` as the container name of the Java app. Its target port is 8080, and host port is 5050.
-    - Use `contoso-frontend` as the container name of the .NET app. Its target port is 8080, and host port is 3000.
+    - Use `contoso-frontend` as the container name of the .NET app. Its target port is 8080, and host port is 3030.
     ```
 
 1. Once the `compose.yaml` file is created, run it and verify if both apps are running properly.
@@ -170,6 +171,8 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Now, run the Docker compose file and verify if the apps are running properly.
     ```
+
+1. Open a web browser and navigate to `http://localhost:3030`, and verify if the apps are up and running properly.
 
 ---
 

@@ -29,6 +29,7 @@ Refer to the [README](../README.md) doc for preparation.
    ![GitHub Copilot Agent Mode](./images/setup-03.png)
 
 1. Select model to either `GPT-4.1` or `Claude Sonnet 4`.
+1. Make sure that you've configured [MCP Servers](./00-setup.md#set-up-mcp-servers).
 
 ### Prepare Custom Instructions
 
@@ -66,6 +67,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     I'd like to write a Python application. But before that, I need to set up a virtual environment. Follow the instructions below.
     
+    - Use context7.
     - Your working directory is `python`.
     - Identify all the steps first, which you're going to do.
     - Use `.venv` for the virtual environment.
@@ -81,6 +83,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     I'd like to build a FastAPI application as a backend API. Carefully read the entire PRD and `openapi.yaml`. Then, follow the instructions below.
     
+    - Use context7.
     - Your working directory is `python`.
     - Identify all the steps first, which you're going to do.
     - Use FastAPI as the API app framework.
