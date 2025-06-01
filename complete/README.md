@@ -26,7 +26,7 @@ Refer to the [README](../README.md) doc for preparation.
 1. Run the containerized apps.
 
     ```bash
-    docker compose up -d
+    docker compose up --build -d
     ```
 
 1. Open a web browser and navigate to `http://localhost:3000`.
