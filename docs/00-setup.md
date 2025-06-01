@@ -65,7 +65,7 @@ Refer to the [README](../README.md) doc for preparation.
 
    If you see something different from above, delete the GitHub Codespace instance and recreate it.
 
-2. Move down to the [Set-up MCP Servers](#set-up-mcp-servers) section.
+1. Move down to the [Set-up MCP Servers](#set-up-mcp-servers) section.
 
 **👇👇👇 Instead, if you'd like to use VS Code on your local machine, follow the instruction below. The section below doesn't apply to those who use GitHub Codespaces. 👇👇👇**
 
