@@ -11,4 +11,7 @@ git config --global core.autocrlf input
 echo Install .NET dev certs
 dotnet dev-certs https --trust
 
+echo Install uv for Python
+sudo curl -LsSf https://astral.sh/uv/install.sh | sh
+
 echo Done!
