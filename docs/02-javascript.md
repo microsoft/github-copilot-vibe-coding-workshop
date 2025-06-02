@@ -126,6 +126,7 @@ Refer to the [README](../README.md) doc for preparation.
     - Use `openapi.yaml` that describes all the endpoints and data schema.
     - Use the port number of `3000`.
     - Create all the UI components defined in this link: {{FIGMA_SECTION_LINK}}.
+    - DO NOT add anything not related to the UI components.
     - DO NOT add anything not defined in `openapi.yaml`.
     - DO NOT modify anything defined in `openapi.yaml`.
     - Give visual indication when the backend API is unavailable or unreachable for any reason.
