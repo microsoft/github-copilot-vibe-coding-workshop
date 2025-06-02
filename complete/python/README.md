@@ -61,7 +61,7 @@ python -m venv .venv
 # On Linux/macOS
 source .venv/bin/activate
 
-# On Windows
+# On Windows Command Prompt
 .venv\Scripts\activate
 ```
 
@@ -77,9 +77,14 @@ pip install fastapi uvicorn python-multipart pyyaml
 
 ### 4. Copy OpenAPI Specification
 
+Copy the OpenAPI spec from parent directory.
+
 ```bash
-# Copy the OpenAPI spec from parent directory
+# On Linux/macOS
 cp ../openapi.yaml .
+
+# On Windows Command Prompt
+xcopy ..\openapi.yaml .
 ```
 
 ### 5. Run the Application
