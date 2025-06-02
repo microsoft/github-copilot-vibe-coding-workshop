@@ -35,15 +35,15 @@ class LikeRequest(BaseModel):
 class LikeResponse(BaseModel):
     postId: str = Field(..., description="ID of the liked post")
     username: str = Field(..., description="Username of the user who liked the post")
-    likedAt: str = Field(..., description="Timestamp when the post was liked")
+    likedAt: datetime = Field(..., description="Timestamp when the post was liked")
 
 
 class Post(BaseModel):
     id: str = Field(..., description="Unique identifier for the post")
     username: str = Field(..., min_length=1, max_length=50, description="Username of the post author")
     content: str = Field(..., min_length=1, max_length=2000, description="Content of the post")
-    createdAt: str = Field(..., description="Timestamp when the post was created")
-    updatedAt: str = Field(..., description="Timestamp when the post was last updated")
+    createdAt: datetime = Field(..., description="Timestamp when the post was created")
+    updatedAt: datetime = Field(..., description="Timestamp when the post was last updated")
     likesCount: int = Field(..., ge=0, description="Number of likes on the post")
     commentsCount: int = Field(..., ge=0, description="Number of comments on the post")
 
