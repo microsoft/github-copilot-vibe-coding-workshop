@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import List, Optional
 from contextlib import contextmanager
 
-from models import Post, Comment, NewPostRequest, UpdatePostRequest, NewCommentRequest, UpdateCommentRequest
+from .models import Post, Comment, NewPostRequest, UpdatePostRequest, NewCommentRequest, UpdateCommentRequest
 
 
 DATABASE_NAME = "sns_api.db"
