@@ -92,7 +92,7 @@ const PostCard = ({ post }) => {
               ? "text-red-500"
               : "text-gray-500 hover:text-red-500"
           }`}
-          aria-label="좋아요"
+          aria-label="Like"
         >
           <HeartIcon filled={isLiked} />
           {likesCount > 0 && <span className="text-xs">{likesCount}</span>}
@@ -100,7 +100,7 @@ const PostCard = ({ post }) => {
         <button
           onClick={handleCommentClick}
           className="flex items-center gap-1 text-gray-500 hover:text-blue-500"
-          aria-label="댓글"
+          aria-label="Comment"
         >
           <CommentIcon />
           {post.comments_count > 0 && (

@@ -294,7 +294,7 @@ const PostDetailPage = () => {
                   ? "text-red-500"
                   : "text-gray-500 hover:text-red-500"
               }`}
-              aria-label="좋아요"
+              aria-label="Like"
             >
               <HeartIcon filled={isLiked} />
               {likesCount > 0 && <span className="text-xs">{likesCount}</span>}

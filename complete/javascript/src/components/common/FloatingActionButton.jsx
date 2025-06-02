@@ -16,7 +16,7 @@ const FloatingActionButton = ({ onClick }) => {
       type="button"
       onClick={onClick}
       className="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg z-50 hover:bg-blue-700 active:scale-95 transition-transform"
-      aria-label="새 포스트 작성"
+      aria-label="Create new post"
     >
       <PlusIcon />
     </button>

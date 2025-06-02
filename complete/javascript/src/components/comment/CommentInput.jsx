@@ -29,7 +29,7 @@ const CommentInput = ({ postId, onCommentAdded }) => {
         onCommentAdded(response.data);
       }
     } catch (error) {
-      alert("댓글을 추가하는 중 오류가 발생했습니다.");
+      alert("An error occurred while adding the comment.");
     } finally {
       setIsLoading(false);
     }
@@ -42,7 +42,7 @@ const CommentInput = ({ postId, onCommentAdded }) => {
           className="flex-1 min-h-[60px] bg-gray-100 dark:bg-gray-800 rounded-md p-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 resize-vertical focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-70"
           value={content}
           onChange={handleContentChange}
-          placeholder="댓글 달기"
+          placeholder="Add a comment"
           disabled={isLoading || !user}
         />
         <button
@@ -50,7 +50,7 @@ const CommentInput = ({ postId, onCommentAdded }) => {
           disabled={!content.trim() || isLoading || !user}
           className="bg-blue-600 text-white rounded-md px-4 py-2 text-sm h-10 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          게시
+          Post
         </button>
       </form>
     </div>

@@ -62,7 +62,7 @@ const SearchPage = () => {
         console.error("Error response:", error.response.data);
         console.error("Error status:", error.response.status);
       }
-      setError("Error occurred during search.");
+      setError("An error occurred during search.");
       setSearchResults([]);
     } finally {
       setIsLoading(false);
@@ -137,7 +137,7 @@ const SearchPage = () => {
             type="text"
             value={searchTerm}
             onChange={handleSearchChange}
-            placeholder="사용자 검색..."
+            placeholder="Search users..."
             className="flex-1 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             disabled={isLoading}
           />
@@ -154,7 +154,7 @@ const SearchPage = () => {
           {searchResults.length > 0 ? (
             <>
               <div className="text-gray-700">
-                &apos;{searchTerm}&apos; 검색 결과: {searchResults.length}
+                Search results for &apos;{searchTerm}&apos;: {searchResults.length}
               </div>
               <ul className="flex flex-col gap-4">
                 {searchResults.map((user) => (
@@ -166,13 +166,13 @@ const SearchPage = () => {
                   </li>
                 ))}
               </ul>
-              {isLoading && <div className="text-center py-10 text-gray-500">로딩 중...</div>}
+              {isLoading && <div className="text-center py-10 text-gray-500">Loading...</div>}
               {hasMore && !isLoading && (
                 <button
                   onClick={handleLoadMore}
                   className="bg-blue-600 text-white px-4 py-2 rounded-md mx-auto"
                 >
-                  더 보기
+                  Load more
                 </button>
               )}
             </>
@@ -180,13 +180,13 @@ const SearchPage = () => {
             !isLoading &&
             searchTerm && (
               <div className="text-center py-10 text-gray-400">
-                검색 결과가 없습니다.
+                No search results found.
               </div>
             )
           )}
           {!searchTerm && !isLoading && (
             <div className="text-center py-10 text-gray-400">
-              사용자를 검색해 보세요.
+              Try searching for a user.
             </div>
           )}
         </div>

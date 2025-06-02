@@ -123,12 +123,12 @@ const ProfilePage = () => {
     return (
       <Layout>
         <div className="flex flex-col items-center justify-center h-screen gap-4">
-          <p className="text-lg text-gray-700">로그인이 필요합니다.</p>
+          <p className="text-lg text-gray-700">Login is required.</p>
           <button
             onClick={() => navigate("/")}
             className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
           >
-            홈으로 가기
+            Go to Home
           </button>
         </div>
       </Layout>
@@ -139,7 +139,7 @@ const ProfilePage = () => {
     return (
       <Layout>
         <div className="text-center py-10 text-gray-500">
-          프로필 정보를 불러오는 중...
+          Loading profile information...
         </div>
       </Layout>
     );
@@ -149,12 +149,12 @@ const ProfilePage = () => {
     return (
       <Layout>
         <div className="text-center py-10">
-          <p className="text-red-500">사용자를 찾을 수 없습니다.</p>
+          <p className="text-red-500">User not found.</p>
           <button
             onClick={() => navigate(-1)}
             className="mt-4 px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
           >
-            뒤로 가기
+            Go Back
           </button>
         </div>
       </Layout>
@@ -180,7 +180,7 @@ const ProfilePage = () => {
             className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 mb-6"
             onClick={handleLogout}
           >
-            로그아웃
+            Logout
           </button>
         )}
         {error && <div className="text-red-500 text-center py-4">{error}</div>}
@@ -191,7 +191,7 @@ const ProfilePage = () => {
             ))
           ) : (
             <div className="text-center py-10 text-gray-500">
-              아직 게시물이 없습니다.
+              No posts yet.
             </div>
           )}
         </div>
