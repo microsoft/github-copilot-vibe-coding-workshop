@@ -441,19 +441,3 @@ mtj.tmp/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-
-python/
-!python/README.md
-!complete/python/
-
-javascript/
-!javascript/README.md
-!complete/javascript/
-
-java/
-!java/README.md
-!complete/java/
-
-dotnet/
-!dotnet/README.md
-!complete/dotnet/

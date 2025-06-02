@@ -1,139 +1,134 @@
 # Python App Sample
 
-## Prerequisites
+A complete FastAPI backend implementation for a Simple Social Networking Service (SNS) that allows users to create, retrieve, update, and delete posts; add comments; and like/unlike posts.
+
+## 🏗️ Architecture Overview
+
+- **Framework**: FastAPI with Python 3.12+
+- **Database**: SQLite (`sns_api.db`)
+- **API Documentation**: Swagger UI + OpenAPI 3.1 specification
+- **CORS**: Enabled for cross-origin requests
+- **Data Validation**: Pydantic models with comprehensive validation
+
+## 📁 Project Structure
+
+```text
+python/
+├── main.py              # FastAPI application entry point
+├── models.py            # Pydantic data models and schemas
+├── database.py          # SQLite database operations
+├── openapi.yaml         # OpenAPI 3.0.1 specification
+├── sns_api.db          # SQLite database file (auto-created)
+├── README.md           # This documentation
+└── .venv/              # Virtual environment (created during setup)
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
 
 Refer to the [README](../../README.md) doc for preparation.
 
-## Quick Start
+### 1. Environment Setup
 
-### 1. Install Dependencies
-
-#### Using `uv` (recommended):
-
-**Linux/macOS:**
+First, set the environment variable of `$REPOSITORY_ROOT`.
 
 ```bash
-# Install uv if you haven't already
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Navigate to the python directory
-cd complete/python
-
-# Install dependencies from pyproject.toml
-uv sync
+# bash/zsh
+REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
 ```
-
-**Windows (PowerShell):**
 
 ```powershell
-# Install uv if you haven't already
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-
-# Navigate to the python directory
-cd python
-
-# Install dependencies from pyproject.toml
-uv sync
+# PowerShell
+$REPOSITORY_ROOT = git rev-parse --show-toplevel
 ```
 
-#### Using `pip`:
-
-**Linux/macOS:**
+Then, navigate to the python directory and create a virtual environment:
 
 ```bash
-# Create virtual environment
+cd $REPOSITORY_ROOT/complete/python
+
+# Create virtual environment using uv (recommended)
+uv venv .venv
+
+# Or using standard Python (alternative)
 python -m venv .venv
+```
+
+### 2. Activate Virtual Environment
+
+```bash
+# On Linux/macOS
 source .venv/bin/activate
 
-# Install dependencies
-pip install fastapi uvicorn sqlalchemy
-```
-
-**Windows (Command Prompt):**
-
-```cmd
-# Create virtual environment
-python -m venv .venv
+# On Windows Command Prompt
 .venv\Scripts\activate
-
-# Install dependencies
-pip install fastapi uvicorn sqlalchemy
 ```
 
-**Windows (PowerShell):**
-
-```powershell
-# Create virtual environment
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-
-# Install dependencies
-pip install fastapi uvicorn sqlalchemy
-```
-
-### 2. Run the Application
-
-#### Create a database
-
-**Linux/macOS:**
+### 3. Install Dependencies
 
 ```bash
-touch sns_api.db
+# Using uv (recommended)
+uv pip install fastapi uvicorn python-multipart pyyaml
+
+# Or using pip (alternative)
+pip install fastapi uvicorn python-multipart pyyaml
 ```
 
-**Windows (PowerShell):**
+### 4. Copy OpenAPI Specification
 
-```powershell
-New-Item -Name sns_api.db -Force
-```
-
-#### Using `uv`:
+Copy the OpenAPI spec from parent directory.
 
 ```bash
-# Start the development server
-uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+# On Linux/macOS
+cp ../openapi.yaml .
+
+# On Windows Command Prompt
+xcopy ..\openapi.yaml .
 ```
 
-#### Using `pip`:
-
-**Linux/macOS:**
+### 5. Run the Application
 
 ```bash
-# Ensure virtual environment is activated
-source .venv/bin/activate
-
 # Start the development server
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-**Windows (Command Prompt):**
+The application will be available at:
 
-```cmd
-# Ensure virtual environment is activated
-.venv\Scripts\activate
+- **API Base URL**: `http://localhost:8000/api/`
+- **Swagger UI**: `http://localhost:8000/docs`
+- **OpenAPI Specification**: `http://localhost:8000/openapi.json`
 
-# Start the development server
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-```
+## 📊 Database Schema
 
-**Windows (PowerShell):**
+The application uses SQLite with the following tables:
 
-```powershell
-# Ensure virtual environment is activated
-.venv\Scripts\Activate.ps1
+### Posts Table
 
-# Start the development server
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-```
+- `id` (TEXT, PRIMARY KEY) - UUID
+- `username` (TEXT, NOT NULL) - Author username
+- `content` (TEXT, NOT NULL) - Post content
+- `created_at` (TEXT, NOT NULL) - ISO timestamp
+- `updated_at` (TEXT, NOT NULL) - ISO timestamp
 
-The API will be available at: **http://localhost:8000**
+### Comments Table
 
-### 3. Access Documentation
+- `id` (TEXT, PRIMARY KEY) - UUID
+- `post_id` (TEXT, NOT NULL) - Foreign key to posts
+- `username` (TEXT, NOT NULL) - Author username
+- `content` (TEXT, NOT NULL) - Comment content
+- `created_at` (TEXT, NOT NULL) - ISO timestamp
+- `updated_at` (TEXT, NOT NULL) - ISO timestamp
 
-- **Swagger UI**: http://localhost:8000/docs
-- **OpenAPI JSON**: http://localhost:8000/openapi.json
+### Likes Table
 
-## API Endpoints
+- `post_id` (TEXT, NOT NULL) - Foreign key to posts
+- `username` (TEXT, NOT NULL) - User who liked
+- `liked_at` (TEXT, NOT NULL) - ISO timestamp
+- Primary key: `(post_id, username)`
+
+## 🔌 API Endpoints
 
 ### Posts
 
@@ -154,239 +149,131 @@ The API will be available at: **http://localhost:8000**
 ### Likes
 
 - `POST /api/posts/{postId}/likes` - Like a post
-- `DELETE /api/posts/{postId}/likes` - Unlike a post
+- `DELETE /api/posts/{postId}/likes?username={username}` - Unlike a post
 
-## Example Usage
+## 🧪 Testing the API
 
-### Create a Post
+### Using cURL
 
-**Linux/macOS/Windows (Git Bash):**
+#### Create a Post
 
 ```bash
 curl -X POST "http://localhost:8000/api/posts" \
   -H "Content-Type: application/json" \
-  -d '{
-    "username": "john_doe",
-    "content": "Hello, world! This is my first post."
-  }'
+  -d '{"username": "john_doe", "content": "Hello World! This is my first post."}'
 ```
 
-**Windows (PowerShell):**
-
-```powershell
-Invoke-RestMethod -Uri "http://localhost:8000/api/posts" -Method POST `
-  -ContentType "application/json" `
-  -Body '{"username": "john_doe", "content": "Hello, world! This is my first post."}'
-```
-
-**Windows (Command Prompt):**
-
-```cmd
-curl -X POST "http://localhost:8000/api/posts" ^
-  -H "Content-Type: application/json" ^
-  -d "{\"username\": \"john_doe\", \"content\": \"Hello, world! This is my first post.\"}"
-```
-
-### Get All Posts
-
-**Linux/macOS/Windows (Git Bash):**
+#### Get All Posts
 
 ```bash
 curl -X GET "http://localhost:8000/api/posts"
 ```
 
-**Windows (PowerShell):**
-
-```powershell
-Invoke-RestMethod -Uri "http://localhost:8000/api/posts" -Method GET
-```
-
-**Windows (Command Prompt):**
-
-```cmd
-curl -X GET "http://localhost:8000/api/posts"
-```
-
-### Add a Comment
-
-**Linux/macOS/Windows (Git Bash):**
+#### Add a Comment
 
 ```bash
-curl -X POST "http://localhost:8000/api/posts/{postId}/comments" \
+curl -X POST "http://localhost:8000/api/posts/{POST_ID}/comments" \
   -H "Content-Type: application/json" \
-  -d '{
-    "username": "jane_smith",
-    "content": "Great post!"
-  }'
+  -d '{"username": "jane_smith", "content": "Great post!"}'
 ```
 
-**Windows (PowerShell):**
-
-```powershell
-Invoke-RestMethod -Uri "http://localhost:8000/api/posts/{postId}/comments" -Method POST `
-  -ContentType "application/json" `
-  -Body '{"username": "jane_smith", "content": "Great post!"}'
-```
-
-### Like a Post
-
-**Linux/macOS/Windows (Git Bash):**
+#### Like a Post
 
 ```bash
-curl -X POST "http://localhost:8000/api/posts/{postId}/likes" \
+curl -X POST "http://localhost:8000/api/posts/{POST_ID}/likes" \
   -H "Content-Type: application/json" \
-  -d '{
-    "username": "jane_smith"
-  }'
+  -d '{"username": "alice_johnson"}'
 ```
 
-**Windows (PowerShell):**
+### Using Swagger UI
 
-```powershell
-Invoke-RestMethod -Uri "http://localhost:8000/api/posts/{postId}/likes" -Method POST `
-  -ContentType "application/json" `
-  -Body '{"username": "jane_smith"}'
-```
+1. Navigate to `http://localhost:8000/docs`
+2. Explore and test all API endpoints interactively
+3. View request/response schemas and examples
 
-## Project Structure
+## 📝 Data Models
 
-```text
-python/
-├── main.py              # FastAPI application entry point
-├── pyproject.toml       # Project dependencies and configuration
-├── README.md           # This file
-├── sns_api.db          # SQLite database (created on first run)
-└── .venv/              # Virtual environment (if using pip)
-```
+### Request Models
 
-## Database
+- `NewPostRequest`: `{username: str, content: str}`
+- `UpdatePostRequest`: `{username: str, content: str}`
+- `NewCommentRequest`: `{username: str, content: str}`
+- `UpdateCommentRequest`: `{username: str, content: str}`
+- `LikeRequest`: `{username: str}`
 
-The application uses SQLite for data persistence with the following models:
+### Response Models
 
-- **Posts**: Store user posts with username, content, and timestamps
-- **Comments**: Store comments linked to posts with relationships
-- **Likes**: Track user likes on posts with timestamp information
+- `Post`: Full post object with metadata and counts
+- `Comment`: Full comment object with metadata
+- `LikeResponse`: Like confirmation with timestamp
 
-The database is automatically created on application startup with all necessary tables.
+## ⚙️ Configuration
 
-## Development
+### Environment Variables
 
-### Running Tests
+The application uses default settings but can be customized:
 
-**With uv:**
+- **Database**: SQLite file `sns_api.db` (auto-created)
+- **Host**: `0.0.0.0` (all interfaces)
+- **Port**: `8000`
+- **CORS**: Enabled for all origins
 
-```bash
-# Install test dependencies (if added)
-uv add pytest httpx
+### Production Considerations
 
-# Run tests
-uv run pytest
-```
+For production deployment, consider:
 
-**With pip (after activating virtual environment):**
-```bash
-# Install test dependencies
-pip install pytest httpx
+1. **Database**: Switch to PostgreSQL or MySQL
+2. **Environment Variables**: Use for sensitive configuration
+3. **Security**: Add authentication and authorization
+4. **CORS**: Restrict to specific domains
+5. **Logging**: Implement structured logging
+6. **Monitoring**: Add health checks and metrics
 
-# Run tests
-pytest
-```
+## 🛠️ Development
 
-### Code Quality
+### File Organization
 
-The codebase follows Python best practices:
+- **`main.py`**: FastAPI app configuration, middleware, and route definitions
+- **`models.py`**: Pydantic models for data validation and serialization
+- **`database.py`**: SQLite operations, connection management, and CRUD functions
 
-- Type hints for all functions
-- Pydantic models for data validation
-- SQLAlchemy for database operations
-- FastAPI dependency injection for database sessions
+### Code Style
 
-## Deployment
+The project follows:
 
-### Production Setup
+- Python PEP 8 style guidelines
+- FastAPI best practices
+- Functional programming patterns
+- Type hints throughout
+- Comprehensive error handling
 
-For production deployment:
+### Adding New Features
 
-**Linux/macOS:**
+1. Define Pydantic models in `models.py`
+2. Add database operations in `database.py`
+3. Create API endpoints in `main.py`
+4. Update OpenAPI specification if needed
 
-```bash
-export DATABASE_URL="sqlite:///./sns_api.db"
-export HOST="0.0.0.0"
-export PORT="8000"
-
-# Run with production settings
-uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-**Windows (Command Prompt):**
-
-```cmd
-set DATABASE_URL=sqlite:///./sns_api.db
-set HOST=0.0.0.0
-set PORT=8000
-
-# Run with production settings
-uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-**Windows (PowerShell):**
-
-```powershell
-$env:DATABASE_URL="sqlite:///./sns_api.db"
-$env:HOST="0.0.0.0"
-$env:PORT="8000"
-
-# Run with production settings
-uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-### Docker (Optional)
-
-```dockerfile
-FROM python:3.12-slim
-
-WORKDIR /app
-COPY pyproject.toml uv.lock ./
-RUN pip install uv && uv sync --frozen
-
-COPY main.py ./
-EXPOSE 8000
-
-CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-```
-
-## Troubleshooting
+## 🐛 Troubleshooting
 
 ### Common Issues
 
-1. **Port already in use**: If port 8000 is busy, use a different port:
+1. **Port already in use**: Change port with `--port 8001`
+2. **Virtual environment issues**: Recreate with `rm -rf .venv && uv venv .venv`
+3. **Database locked**: Stop all running instances of the application
+4. **Import errors**: Ensure virtual environment is activated
 
-   **All platforms:**
+### Debug Mode
 
-   ```bash
-   uvicorn main:app --host 0.0.0.0 --port 8001 --reload
-   ```
+Run with additional logging:
 
-2. **Database permission errors**: Ensure write permissions in the project directory
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
+```
 
-3. **Import errors**: Make sure virtual environment is activated and dependencies are installed
+## 📚 Additional Resources
 
-4. **Virtual environment activation issues on Windows**: 
-
-   - If PowerShell execution policy prevents script execution, run:
-
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-   ```
-
-   - Alternative: Use Command Prompt instead of PowerShell
-
-5. **curl not found on Windows**: 
-
-   - Install curl from https://curl.se/windows/ 
-   - Or use PowerShell's `Invoke-RestMethod` as shown in examples
-   - Or install Git Bash which includes curl
-
-### Logs
-
-Enable detailed logging by setting `echo=True` in the database engine configuration in `main.py`.
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [Pydantic Documentation](https://docs.pydantic.dev/)
+- [SQLite Documentation](https://sqlite.org/docs.html)
+- [OpenAPI Specification](https://swagger.io/specification/)
