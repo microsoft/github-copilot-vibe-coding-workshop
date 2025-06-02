@@ -20,7 +20,7 @@
       "args": [
         "-y",
         "figma-developer-mcp",
-        "--figma-api-key=${inputs.figma-api-key}",
+        "--figma-api-key=${input:figma-api-key}",
         "--stdio"
       ],
       "type": "stdio",

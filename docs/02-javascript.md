@@ -65,17 +65,20 @@ Refer to the [README](../README.md) doc for preparation.
 ### Prepare Application Project
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Use prompt like below to scaffold a React web app project.
 
     ```text
     I'd like to scaffold a React web app. Follow the instructions below.
     
+    - Make sure it's the web app, not the mobile app.
     - Your working directory is `javascript`.
     - Identify all the steps first, which you're going to do.
     - Use ViteJS as the frontend app framework.
     - Use default settings when initializing the project.
     - Use `SimpleSocialMediaApplication` as the name of the project while initializing.
     - Use the port number of `3000`.
+    - Only initialize the project. DO NOT go further.
     ```
 
 ### Prepare Figma MCP Server
@@ -96,9 +99,20 @@ Refer to the [README](../README.md) doc for preparation.
 
 1. Right-click each section - `Home`, `Search`, `Post Details`, `Post Modal` and `Name Input Modal` 👉 Select `Copy/Paste as` 👉 Select `Copy link to selection` to get the link to each section. Take note all five links.
 
+### Run FastAPI Backend App
+
+1. Make sure that the FastAPI backend app is up and running.
+
+    ```text
+    Run the FastAPI backend API, which is located at the `python` directory.
+    ```
+
+   > **NOTE**: You can use the [`complete/python`](../complete/python/) sample app instead.
+
 ### Build React Frontend App
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Make sure that you have all the Figma section links of 5 retrieved from the [previous section](#generate-ui-components-from-figma).
 1. Add [`product-requirements.md`](../product-requirements.md) and [`openapi.yaml`](../openapi.yaml) to GitHub Copilot.
 1. Use prompt like below to build the application based on the requirements and OpenAPI document.
@@ -106,7 +120,6 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     I'd like to build a React web app. Follow the instructions below.
     
-    - Use context7.
     - Your working directory is `javascript`.
     - Identify all the steps first, which you're going to do.
     - There's a backend API app running on `http://localhost:5050`.

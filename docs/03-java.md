@@ -64,6 +64,7 @@ Refer to the [README](../README.md) doc for preparation.
 ### Prepare Spring Boot Project
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Install Spring Boot CLI.
 
     ```bash
@@ -98,6 +99,7 @@ Refer to the [README](../README.md) doc for preparation.
 ### Migrate FastAPI API App
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Add [`product-requirements.md`](../product-requirements.md) and [`openapi.yaml`](../openapi.yaml) to GitHub Copilot.
 1. Use prompt like below to migrate FastAPI to Spring Boot.
 

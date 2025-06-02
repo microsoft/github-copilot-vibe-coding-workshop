@@ -64,6 +64,7 @@ Refer to the [README](../README.md) doc for preparation.
 ### Prepare Blazor Web App Project
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Use prompt like below to scaffold a Blazor web app project.
 
     ```text
@@ -87,6 +88,7 @@ Refer to the [README](../README.md) doc for preparation.
 ### Migrate React Web App
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Use prompt like below to migrate React to Blazor.
 
     ```text

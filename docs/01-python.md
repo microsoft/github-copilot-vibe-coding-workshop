@@ -62,6 +62,7 @@ Refer to the [README](../README.md) doc for preparation.
 ### Prepare Virtual Environment
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Use prompt like below to prepare virtual environment for Python app development.
 
     ```text
@@ -77,6 +78,7 @@ Refer to the [README](../README.md) doc for preparation.
 ### Build FastAPI Backend App
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
+1. Make sure that the `context7` MCP server is up and running.
 1. Add [`product-requirements.md`](../product-requirements.md) and [`openapi.yaml`](../openapi.yaml) to GitHub Copilot.
 1. Use prompt like below to build a FastAPI backend application.
 
