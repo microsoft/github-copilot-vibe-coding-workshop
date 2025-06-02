@@ -444,12 +444,16 @@ replay_pid*
 
 python/
 !python/README.md
+!complete/python/
 
 javascript/
 !javascript/README.md
+!complete/javascript/
 
 java/
 !java/README.md
+!complete/java/
 
 dotnet/
 !dotnet/README.md
+!complete/dotnet/
