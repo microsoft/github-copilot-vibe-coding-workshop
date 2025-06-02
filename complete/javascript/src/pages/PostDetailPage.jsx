@@ -243,12 +243,14 @@ const PostDetailPage = () => {
           >
             <BackIcon /> Go Back
           </button>
-          <h1 className="text-lg font-bold ml-4">Post Detail</h1>
+          <h1 className="text-lg font-bold ml-4 text-gray-900 dark:text-white">
+            Post Detail
+          </h1>
         </div>
         <div className="w-full border-b border-gray-300 pb-4 mb-4">
           <div className="flex items-center mb-4">
-            <div className="w-10 h-10 rounded-full bg-gray-200 mr-2" />
-            <div className="text-base font-bold text-gray-900">
+            <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 mr-2" />
+            <div className="text-base font-bold text-gray-900 dark:text-white">
               {post.author.username}
             </div>
           </div>
@@ -279,7 +281,7 @@ const PostDetailPage = () => {
                 </div>
               </div>
             ) : (
-              <p className="text-base text-gray-900 leading-relaxed whitespace-pre-wrap break-words">
+              <p className="text-base text-gray-900 dark:text-white leading-relaxed whitespace-pre-wrap break-words">
                 {post.content}
               </p>
             )}
@@ -319,7 +321,9 @@ const PostDetailPage = () => {
           </div>
         </div>
         <section className="w-full">
-          <h2 className="text-base font-bold mb-4">Comments</h2>
+          <h2 className="text-base font-bold mb-4 text-gray-900 dark:text-white">
+            Comments
+          </h2>
           <CommentInput postId={postId} onCommentAdded={handleCommentAdded} />
           {comments.length > 0 ? (
             <div className="flex flex-col gap-2 mt-4">

@@ -65,7 +65,7 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="w-full max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">Contoso Outdoor Social</h1>
+        <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Contoso Outdoor Social</h1>
         {isLoading ? (
           <div className="text-center py-10 text-gray-500">Loading posts...</div>
         ) : error ? (

@@ -167,7 +167,7 @@ const ProfilePage = () => {
         <div className="flex items-center gap-4 mb-4">
           <div className="w-16 h-16 rounded-full bg-gray-200" />
           <div>
-            <div className="text-xl font-bold text-gray-900">
+            <div className="text-xl font-bold text-gray-900 dark:text-white">
               {userProfile.username}
             </div>
             <div className="text-gray-500 text-sm">
@@ -177,7 +177,7 @@ const ProfilePage = () => {
         </div>
         {isMyProfile && (
           <button
-            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 mb-6"
             onClick={handleLogout}
           >
             로그아웃

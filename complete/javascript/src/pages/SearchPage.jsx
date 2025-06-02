@@ -128,7 +128,9 @@ const SearchPage = () => {
   return (
     <Layout>
       <div className="w-full max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold mb-6">Search</h1>
+        <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center gap-2">
+          <SearchIcon /> Search
+        </h1>
         <form onSubmit={handleSearch} className="flex gap-2 mb-6">
           <input
             id="search-input"
