@@ -109,6 +109,8 @@ Refer to the [README](../README.md) doc for preparation.
 
    > **NOTE**: You may use the [`complete/python`](../complete/python/) sample app instead.
 
+1. If you use GitHub Codespaces, make sure that the port number `8000` is set to `public` instead of `private`. Otherwise, you'll get the `401` error when accessing from the frontend app.
+
 ### Build React Frontend App
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
