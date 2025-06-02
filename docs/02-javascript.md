@@ -107,7 +107,7 @@ Refer to the [README](../README.md) doc for preparation.
     Run the FastAPI backend API, which is located at the `python` directory.
     ```
 
-   > **NOTE**: You can use the [`complete/python`](../complete/python/) sample app instead.
+   > **NOTE**: You may use the [`complete/python`](../complete/python/) sample app instead.
 
 ### Build React Frontend App
 
