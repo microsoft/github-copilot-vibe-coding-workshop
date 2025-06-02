@@ -74,7 +74,7 @@ async def get_openapi():
     openapi_spec = load_openapi_spec()
     if openapi_spec:
         # Update server URL to match our port
-        openapi_spec["servers"] = [{"url": "http://localhost:8000", "description": "Local development server"}]
+        openapi_spec["servers"] = [{"url": "http://localhost:8000/api", "description": "Local development server"}]
         return openapi_spec
     return app.openapi()
 
