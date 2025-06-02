@@ -122,7 +122,7 @@ Refer to the [README](../README.md) doc for preparation.
     
     - Your working directory is `javascript`.
     - Identify all the steps first, which you're going to do.
-    - There's a backend API app running on `http://localhost:5050`.
+    - There's a backend API app running on `http://localhost:8000`.
     - Use `openapi.yaml` that describes all the endpoints and data schema.
     - Use the port number of `3000`.
     - Create all the UI components defined in this link: {{FIGMA_SECTION_LINK}}.
