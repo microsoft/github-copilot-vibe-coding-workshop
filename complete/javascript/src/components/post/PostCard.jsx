@@ -39,7 +39,7 @@ const PostCard = ({ post }) => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [isLiked, setIsLiked] = React.useState(post.is_liked || false);
-  const [likesCount, setLikesCount] = React.useState(post.likes_count || 0);
+  const [likesCount, setLikesCount] = React.useState(post.likesCount || 0);
 
   const handlePostClick = () => {
     navigate(`/post/${post.id}`);
@@ -76,7 +76,7 @@ const PostCard = ({ post }) => {
       <div className="flex items-center mb-2">
         <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 mr-2" />
         <div className="text-base font-bold text-gray-900 dark:text-white">
-          {post.author.username}
+          {post.username}
         </div>
       </div>
       <div className="mb-2" onClick={handlePostClick}>
@@ -103,8 +103,8 @@ const PostCard = ({ post }) => {
           aria-label="Comment"
         >
           <CommentIcon />
-          {post.comments_count > 0 && (
-            <span className="text-xs">{post.comments_count}</span>
+          {post.commentsCount > 0 && (
+            <span className="text-xs">{post.commentsCount}</span>
           )}
         </button>
       </div>

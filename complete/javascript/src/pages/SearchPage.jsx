@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { searchApi } from "../api/apiService";
+import { useState } from "react";
+import { postApi } from "../api/apiService";
 import { useAuth } from "../context/AuthContext";
 import Layout from "../components/common/Layout";
 import FloatingActionButton from "../components/common/FloatingActionButton";
@@ -27,8 +27,6 @@ const SearchPage = () => {
   const [error, setError] = useState("");
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const { isAuthenticated } = useAuth();
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(false);
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -40,57 +38,17 @@ const SearchPage = () => {
     try {
       setIsLoading(true);
       setError("");
-      setPage(1);
-      const response = await searchApi.searchUsers(searchTerm, 1);
-      if (!response.data.items || response.data.items.length === 0) {
-        setSearchResults([]);
-        setHasMore(false);
-        return;
-      }
-      const processedResults =
-        response.data.items?.map((user) => ({
-          ...user,
-          username:
-            typeof user.username === "string"
-              ? decodeURIComponent(user.username)
-              : user.username,
-        })) || [];
-      setSearchResults(processedResults);
-      setHasMore(response.data.page < response.data.pages);
+      // 전체 포스트를 불러와서 username 기준으로 프론트에서 필터링
+      const response = await postApi.getPosts();
+      const filtered = (response.data || []).filter(
+        (post) =>
+          post.username &&
+          post.username.toLowerCase().includes(searchTerm.trim().toLowerCase())
+      );
+      setSearchResults(filtered);
     } catch (error) {
-      if (error.response) {
-        console.error("Error response:", error.response.data);
-        console.error("Error status:", error.response.status);
-      }
       setError("An error occurred during search.");
       setSearchResults([]);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleLoadMore = async () => {
-    if (isLoading || !hasMore) return;
-    try {
-      setIsLoading(true);
-      const nextPage = page + 1;
-      const response = await searchApi.searchUsers(searchTerm, nextPage);
-      const processedResults =
-        response.data.items?.map((user) => ({
-          ...user,
-          username:
-            typeof user.username === "string"
-              ? decodeURIComponent(user.username)
-              : user.username,
-        })) || [];
-      setSearchResults((prev) => [...prev, ...processedResults]);
-      setPage(nextPage);
-      setHasMore(response.data.page < response.data.pages);
-    } catch (error) {
-      if (error.response) {
-        console.error("Error response:", error.response.data);
-        console.error("Error status:", error.response.status);
-      }
     } finally {
       setIsLoading(false);
     }
@@ -99,31 +57,6 @@ const SearchPage = () => {
   const togglePostModal = () => {
     setIsPostModalOpen(!isPostModalOpen);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop >=
-          document.documentElement.scrollHeight - 300 &&
-        !isLoading &&
-        hasMore
-      ) {
-        handleLoadMore();
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isLoading, hasMore]);
-
-  useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (e.key === "Enter" && document.activeElement.id === "search-input") {
-        handleSearch();
-      }
-    };
-    window.addEventListener("keypress", handleKeyPress);
-    return () => window.removeEventListener("keypress", handleKeyPress);
-  }, [searchTerm]);
 
   return (
     <Layout>
@@ -157,24 +90,17 @@ const SearchPage = () => {
                 Search results for &apos;{searchTerm}&apos;: {searchResults.length}
               </div>
               <ul className="flex flex-col gap-4">
-                {searchResults.map((user) => (
-                  <li key={user.id} className="p-4 bg-white rounded shadow flex items-center gap-4">
+                {searchResults.map((post) => (
+                  <li key={post.id} className="p-4 bg-white rounded shadow flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-gray-200" />
                     <div>
-                      <div className="font-bold text-gray-900">{user.username}</div>
+                      <div className="font-bold text-gray-900">{post.username}</div>
+                      <div className="text-gray-500 text-sm">{post.content}</div>
                     </div>
                   </li>
                 ))}
               </ul>
               {isLoading && <div className="text-center py-10 text-gray-500">Loading...</div>}
-              {hasMore && !isLoading && (
-                <button
-                  onClick={handleLoadMore}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md mx-auto"
-                >
-                  Load more
-                </button>
-              )}
             </>
           ) : (
             !isLoading &&

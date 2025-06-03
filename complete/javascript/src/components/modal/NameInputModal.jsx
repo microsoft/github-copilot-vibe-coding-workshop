@@ -41,7 +41,7 @@ const NameInputModal = ({ isOpen, onClose }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <h2 className="text-xl font-semibold text-center mb-6">
+      <h2 className="text-xl font-semibold text-center mb-6 text-gray-900 dark:text-white">
         Please enter your name
       </h2>
 

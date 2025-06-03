@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { userApi } from "../api/apiService";
+import { postApi } from "../api/apiService";
 import { useAuth } from "../context/AuthContext";
 import Layout from "../components/common/Layout";
 import PostCard from "../components/post/PostCard";
@@ -11,92 +11,40 @@ const ProfilePage = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const { userId: urlUserId } = useParams();
-  const [userProfile, setUserProfile] = useState(null);
+  // userId가 아니라 username을 기준으로 동작하도록 변경
+  const username = urlUserId || (user && user.username);
+  const isMyProfile = user && username === user.username;
+
+  const [userPosts, setUserPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
-  const [isMyProfile, setIsMyProfile] = useState(false);
-
-  const profileUserId = urlUserId
-    ? parseInt(urlUserId)
-    : user
-    ? user.userId
-    : null;
 
   useEffect(() => {
-    if (user && profileUserId) {
-      setIsMyProfile(profileUserId === user.userId);
-    } else {
-      setIsMyProfile(false);
-    }
-  }, [user, profileUserId]);
-
-  useEffect(() => {
-    if (profileUserId) {
-      fetchUserProfile(profileUserId);
-    } else {
+    if (!username) {
       setIsLoading(false);
+      return;
     }
-  }, [profileUserId]);
-
-  const fetchUserProfile = async (userId) => {
-    try {
-      setIsLoading(true);
-      setError("");
-      const response = await userApi.getUserProfile(userId);
-      const profileData = response.data;
-      if (profileData.username && typeof profileData.username === "string") {
-        try {
-          profileData.username = decodeURIComponent(profileData.username);
-        } catch (e) {
-          console.error("Error in profileData.username:", e);
-        }
-      }
-      if (profileData.posts) {
-        profileData.posts = profileData.posts.map((post) => {
-          if (post.author && post.author.username) {
-            try {
-              post.author.username = decodeURIComponent(post.author.username);
-            } catch (e) {
-              console.error("Error in profileData.username:", e);
-            }
-          }
-          return post;
-        });
-        profileData.posts.sort(
-          (a, b) => new Date(b.created_at) - new Date(a.created_at)
+    const fetchPosts = async () => {
+      try {
+        setIsLoading(true);
+        setError("");
+        const response = await postApi.getPosts();
+        // username이 일치하는 포스트만 필터링
+        const posts = (response.data || []).filter(
+          (post) => post.username === username
         );
-      } else {
-        profileData.posts = [];
+        // 최신순 정렬
+        posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setUserPosts(posts);
+      } catch (err) {
+        setError("Failed to load profile information.");
+      } finally {
+        setIsLoading(false);
       }
-      if (profileData.comments) {
-        profileData.comments = profileData.comments.map((comment) => {
-          if (comment.author && comment.author.username) {
-            try {
-              comment.author.username = decodeURIComponent(
-                comment.author.username
-              );
-            } catch (e) {
-              console.error("Error decoding comment author username:", e);
-            }
-          }
-          return comment;
-        });
-      } else {
-        profileData.comments = [];
-      }
-      setUserProfile(profileData);
-    } catch (error) {
-      console.error("Error loading profile information:", error);
-      if (error.response) {
-        console.error("Error response:", error.response.data);
-        console.error("Error status:", error.response.status);
-      }
-      setError("Failed to load profile information.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    };
+    fetchPosts();
+  }, [username]);
 
   const handleLogout = () => {
     if (window.confirm("Are you sure you want to logout?")) {
@@ -110,16 +58,10 @@ const ProfilePage = () => {
   };
 
   const handlePostCreated = (newPost) => {
-    if (userProfile) {
-      setUserProfile({
-        ...userProfile,
-        posts: [newPost, ...userProfile.posts],
-        posts_count: userProfile.posts_count + 1,
-      });
-    }
+    setUserPosts((prev) => [newPost, ...prev]);
   };
 
-  if (!profileUserId) {
+  if (!username) {
     return (
       <Layout>
         <div className="flex flex-col items-center justify-center h-screen gap-4">
@@ -145,22 +87,6 @@ const ProfilePage = () => {
     );
   }
 
-  if (!userProfile) {
-    return (
-      <Layout>
-        <div className="text-center py-10">
-          <p className="text-red-500">User not found.</p>
-          <button
-            onClick={() => navigate(-1)}
-            className="mt-4 px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
-          >
-            Go Back
-          </button>
-        </div>
-      </Layout>
-    );
-  }
-
   return (
     <Layout>
       <div className="w-full max-w-2xl mx-auto">
@@ -168,10 +94,7 @@ const ProfilePage = () => {
           <div className="w-16 h-16 rounded-full bg-gray-200" />
           <div>
             <div className="text-xl font-bold text-gray-900 dark:text-white">
-              {userProfile.username}
-            </div>
-            <div className="text-gray-500 text-sm">
-              {userProfile.email}
+              {username}
             </div>
           </div>
         </div>
@@ -185,14 +108,10 @@ const ProfilePage = () => {
         )}
         {error && <div className="text-red-500 text-center py-4">{error}</div>}
         <div className="flex flex-col gap-4">
-          {userProfile.posts && userProfile.posts.length > 0 ? (
-            userProfile.posts.map((post) => (
-              <PostCard key={post.id} post={post} />
-            ))
+          {userPosts && userPosts.length > 0 ? (
+            userPosts.map((post) => <PostCard key={post.id} post={post} />)
           ) : (
-            <div className="text-center py-10 text-gray-500">
-              No posts yet.
-            </div>
+            <div className="text-center py-10 text-gray-500">No posts yet.</div>
           )}
         </div>
         <FloatingActionButton onClick={togglePostModal} />

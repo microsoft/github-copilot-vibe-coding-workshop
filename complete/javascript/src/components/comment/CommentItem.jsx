@@ -2,11 +2,11 @@ import React from "react";
 import { useAuth } from "../../context/AuthContext";
 import { commentApi } from "../../api/apiService";
 
-const CommentItem = ({ comment, onCommentDelete, onCommentUpdate }) => {
+const CommentItem = ({ comment, onCommentDelete, onCommentUpdate, postId }) => {
   const { user } = useAuth();
   const [isEditing, setIsEditing] = React.useState(false);
   const [editContent, setEditContent] = React.useState(comment.content);
-  const isAuthor = user && user.userId === comment.author.id;
+  const isAuthor = user && user.username === comment.username;
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -21,7 +21,7 @@ const CommentItem = ({ comment, onCommentDelete, onCommentUpdate }) => {
     if (editContent.trim() === "") return;
 
     try {
-      await commentApi.updateComment(comment.id, editContent, user.username);
+      await commentApi.updateComment(postId, comment.id, editContent, user.username);
       onCommentUpdate({ ...comment, content: editContent });
       setIsEditing(false);
     } catch (error) {
@@ -32,7 +32,7 @@ const CommentItem = ({ comment, onCommentDelete, onCommentUpdate }) => {
   const handleDeleteClick = async () => {
     if (window.confirm("Are you sure you want to delete this comment?")) {
       try {
-        await commentApi.deleteComment(comment.id, user.username);
+        await commentApi.deleteComment(postId, comment.id);
         onCommentDelete(comment.id);
       } catch (error) {
         console.error("Error occurred while deleting comment:", error);
@@ -45,7 +45,7 @@ const CommentItem = ({ comment, onCommentDelete, onCommentUpdate }) => {
       <div className="flex items-center mb-2">
         <div className="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 mr-2" />
         <div className="text-sm font-bold text-gray-900 dark:text-white">
-          {comment.author.username}
+          {comment.username}
         </div>
       </div>
 

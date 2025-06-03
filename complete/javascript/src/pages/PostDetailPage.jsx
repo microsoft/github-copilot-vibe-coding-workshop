@@ -49,8 +49,6 @@ const PostDetailPage = () => {
   const [error, setError] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(0);
-  const [page, setPage] = useState(1);
-  const [hasMoreComments, setHasMoreComments] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,8 +59,8 @@ const PostDetailPage = () => {
       setError("");
       const response = await postApi.getPost(postId);
       setPost(response.data);
-      setIsLiked(response.data.is_liked || false);
-      setLikesCount(response.data.likes_count || 0);
+      setIsLiked(response.data.isLiked || false);
+      setLikesCount(response.data.likesCount || 0);
       setEditContent(response.data.content);
     } catch (error) {
       console.error("Error loading post detail:", error);
@@ -75,20 +73,15 @@ const PostDetailPage = () => {
   const fetchComments = useCallback(async () => {
     try {
       setIsCommentsLoading(true);
-      const response = await commentApi.getComments(postId, page);
-      const { items, pages } = response.data;
-      if (page === 1) {
-        setComments(items);
-      } else {
-        setComments((prevComments) => [...prevComments, ...items]);
-      }
-      setHasMoreComments(page < pages);
+      const response = await commentApi.getComments(postId);
+      const items = response.data; // 응답이 배열임
+      setComments(items);
     } catch (error) {
       console.error("Error loading comments:", error);
     } finally {
       setIsCommentsLoading(false);
     }
-  }, [postId, page]);
+  }, [postId]);
 
   useEffect(() => {
     fetchPostDetail();
@@ -100,22 +93,16 @@ const PostDetailPage = () => {
     }
   }, [fetchComments, postId]);
 
-  const handleLoadMoreComments = () => {
-    if (!isCommentsLoading && hasMoreComments) {
-      setPage((prevPage) => prevPage + 1);
-    }
-  };
-
   const handleLikeToggle = async () => {
     if (!user) return;
     try {
       if (isLiked) {
         const response = await postApi.unlikePost(postId, user.username);
-        setLikesCount(response.data.likes_count);
+        setLikesCount(response.data.likesCount);
         setIsLiked(false);
       } else {
         const response = await postApi.likePost(postId, user.username);
-        setLikesCount(response.data.likes_count);
+        setLikesCount(response.data.likesCount);
         setIsLiked(true);
       }
     } catch (error) {
@@ -132,7 +119,7 @@ const PostDetailPage = () => {
     if (post) {
       setPost({
         ...post,
-        comments_count: (post.comments_count || 0) + 1,
+        commentsCount: (post.commentsCount || 0) + 1,
       });
     }
   };
@@ -144,7 +131,7 @@ const PostDetailPage = () => {
     if (post) {
       setPost({
         ...post,
-        comments_count: Math.max((post.comments_count || 0) - 1, 0),
+        commentsCount: Math.max((post.commentsCount || 0) - 1, 0),
       });
     }
   };
@@ -157,7 +144,7 @@ const PostDetailPage = () => {
     );
   };
 
-  const isAuthor = user && post && user.userId === post.author.id;
+  const isAuthor = user && post && user.username === post.username;
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -251,7 +238,7 @@ const PostDetailPage = () => {
           <div className="flex items-center mb-4">
             <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 mr-2" />
             <div className="text-base font-bold text-gray-900 dark:text-white">
-              {post.author.username}
+              {post.username}
             </div>
           </div>
           <div className="mb-4">
@@ -300,7 +287,7 @@ const PostDetailPage = () => {
               {likesCount > 0 && <span className="text-xs">{likesCount}</span>}
             </button>
             <span className="text-sm text-gray-600">
-              Comments {post.comments_count}
+              Comments {post.commentsCount}
             </span>
             {isAuthor && !isEditing && (
               <div className="flex gap-2 ml-auto">
@@ -331,6 +318,7 @@ const PostDetailPage = () => {
                 <CommentItem
                   key={comment.id}
                   comment={comment}
+                  postId={postId}
                   onCommentDelete={handleCommentDelete}
                   onCommentUpdate={handleCommentUpdate}
                 />
@@ -345,14 +333,6 @@ const PostDetailPage = () => {
           )}
           {isCommentsLoading && (
             <p className="text-center py-4 text-gray-400">Loading comments...</p>
-          )}
-          {hasMoreComments && !isCommentsLoading && (
-            <button
-              onClick={handleLoadMoreComments}
-              className="block mx-auto mt-6 px-6 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-50"
-            >
-              Load More Comments
-            </button>
           )}
         </section>
       </div>

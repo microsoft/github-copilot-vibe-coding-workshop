@@ -11,8 +11,6 @@ const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
   const [isPostModalOpen, setIsPostModalOpen] = useState(false);
   const [isNameModalOpen, setIsNameModalOpen] = useState(false);
   const { isAuthenticated, isLoading: authLoading } = useAuth();
@@ -23,22 +21,14 @@ const HomePage = () => {
     try {
       setIsLoading(true);
       setError("");
-      const response = await postApi.getPosts(page);
-      const { items, pages } = response.data;
-
-      if (page === 1) {
-        setPosts(items);
-      } else {
-        setPosts((prevPosts) => [...prevPosts, ...items]);
-      }
-
-      setHasMore(page < pages);
+      const response = await postApi.getPosts();
+      setPosts(response.data);
     } catch (error) {
       setError("An error occurred while loading posts.");
     } finally {
       setIsLoading(false);
     }
-  }, [isAuthenticated, page]);
+  }, [isAuthenticated]);
 
   useEffect(() => {
     if (!authLoading && !isAuthenticated) {
@@ -48,16 +38,9 @@ const HomePage = () => {
     }
   }, [authLoading, isAuthenticated, fetchPosts]);
 
-  useEffect(() => {
-    if (isAuthenticated && page > 1) {
-      fetchPosts();
-    }
-  }, [page, isAuthenticated, fetchPosts]);
-
   const handleOpenPostModal = () => setIsPostModalOpen(true);
   const handleClosePostModal = () => setIsPostModalOpen(false);
   const handlePostCreated = () => {
-    setPage(1);
     fetchPosts();
     setIsPostModalOpen(false);
   };
@@ -78,14 +61,6 @@ const HomePage = () => {
               <PostCard key={post.id} post={post} />
             ))}
           </div>
-        )}
-        {hasMore && !isLoading && (
-          <button
-            className="block mx-auto mt-8 px-6 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-            onClick={() => setPage((p) => p + 1)}
-          >
-            Load more
-          </button>
         )}
         <FloatingActionButton onClick={handleOpenPostModal} />
         <PostingModal isOpen={isPostModalOpen} onClose={handleClosePostModal} onPostCreated={handlePostCreated} />

@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { authApi } from "../api/apiService";
 
 const AuthContext = createContext(null);
 
@@ -21,16 +20,12 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (username) => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
-      const response = await authApi.login(username);
-      const userData = response.data;
+      const userData = { username: username.trim() };
       setUser(userData);
       localStorage.setItem("user", JSON.stringify(userData));
       return userData;
-    } catch (error) {
-      console.error("Login error:", error);
-      throw error;
     } finally {
       setIsLoading(false);
     }
