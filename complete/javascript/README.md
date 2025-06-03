@@ -34,7 +34,7 @@ Use [Python App Sample](../complete/python/).
 1. Run the app.
 
     ```bash
-    npm run start
+    npm run dev
     ```
 
 1. Open a web browser and navigate to `http://localhost:3000`.
