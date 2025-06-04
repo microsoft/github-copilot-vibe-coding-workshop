@@ -108,7 +108,7 @@ Refer to the [README](../README.md) doc for preparation.
     
     - Use context7.
     - The existing FastAPI application is located at `python`.
-    - Your working directory is `java/springapp`.
+    - Your working directory is `java/socialapp`.
     - Identify all the steps first, which you're going to do.
     - Analyze the application structure of the existing FastAPI app.
     - Migrate all the endpoints. Both corresponding endpoints should be exactly the same as each other.
