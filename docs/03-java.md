@@ -146,7 +146,7 @@ Refer to the [README](../README.md) doc for preparation.
 1. Once the application is built, verify if it's written properly or not.
 
     ```text
-    Run the Spring Boot app and verify if the app is properly running. Also verify the OpenAPI endpoint renders exactly the same content as `openapi.yaml`.
+    Run the Spring Boot app and verify if the app is properly running by checking all the endpoints. Also verify the OpenAPI endpoint renders exactly the same content as `openapi.yaml`.
 
     If app running fails, analyze the issues and fix them. Use context7.
     ```
