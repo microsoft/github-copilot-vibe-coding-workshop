@@ -81,8 +81,8 @@ Refer to the [README](../README.md) doc for preparation.
     - Identify all the steps first, which you're going to do.
     - Use Spring Boot CLI to create the Spring Boot app project.
     - Use Gradle as the Java package manager.
-    - Use the package name of `com.contoso.springapp`.
-    - Use the artifact ID of `springapp`.
+    - Use the package name of `com.contoso.socialapp`.
+    - Use the artifact ID of `socialapp`.
     - Use the group ID of `com.contoso`.
     - Use the package type of `jar`.
     - Use OpenJDK version of `21`.

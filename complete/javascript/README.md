@@ -27,7 +27,7 @@ Use [Python App Sample](../complete/python/).
 1. Install npm packages.
 
     ```bash
-    cd $REPOSITORY_ROOT
+    cd $REPOSITORY_ROOT/complete/javascript
     npm install
     ```
 

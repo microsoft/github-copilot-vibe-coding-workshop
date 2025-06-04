@@ -47,11 +47,17 @@ Then, navigate to the python directory and create a virtual environment:
 
 ```bash
 cd $REPOSITORY_ROOT/complete/python
+```
 
-# Create virtual environment using uv (recommended)
+Create virtual environment
+
+```bash
+# Using uv (recommended)
 uv venv .venv
+```
 
-# Or using standard Python (alternative)
+```bash
+# Using standard Python (alternative)
 python -m venv .venv
 ```
 
@@ -60,7 +66,9 @@ python -m venv .venv
 ```bash
 # On Linux/macOS
 source .venv/bin/activate
+```
 
+```bash
 # On Windows Command Prompt
 .venv\Scripts\activate
 ```
@@ -70,8 +78,10 @@ source .venv/bin/activate
 ```bash
 # Using uv (recommended)
 uv pip install fastapi uvicorn python-multipart pyyaml
+```bash
 
-# Or using pip (alternative)
+```bash
+# Using pip (alternative)
 pip install fastapi uvicorn python-multipart pyyaml
 ```
 
@@ -82,15 +92,18 @@ Copy the OpenAPI spec from parent directory.
 ```bash
 # On Linux/macOS
 cp ../openapi.yaml .
+```bash
 
+```powershell
 # On Windows Command Prompt
 xcopy ..\openapi.yaml .
 ```
 
 ### 5. Run the Application
 
+Start the development server
+
 ```bash
-# Start the development server
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
