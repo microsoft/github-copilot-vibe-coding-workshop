@@ -15,8 +15,9 @@ Refer to the [README](../README.md) doc for preparation.
 - [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode)
 - [Prepare Custom Instructions](#prepare-custom-instructions)
 - [Prepare Application Project](#prepare-application-project)
-- [Set-up Figma MCP Server](#set-up-figma-mcp-server)
+- [Prepare Figma MCP Server](#prepare-figma-mcp-server)
 - [Generate UI Components from Figma](#generate-ui-components-from-figma)
+- [Run FastAPI Backend App](#run-fastapi-backend-app)
 - [Build React Frontend App](#build-react-frontend-app)
 - [Verify React Frontend App](#verify-react-frontend-app)
 
@@ -81,6 +82,8 @@ Refer to the [README](../README.md) doc for preparation.
     - Only initialize the project. DO NOT go further.
     ```
 
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
+
 ### Prepare Figma MCP Server
 
 1. Make sure that you've configured [MCP Servers](./00-setup.md#set-up-mcp-servers).
@@ -135,7 +138,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```
 
 1. Repeat four more times for the rest four Figma design links.
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
 ### Verify React Frontend App
 

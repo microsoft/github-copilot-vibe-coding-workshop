@@ -102,7 +102,7 @@ Refer to the [README](../README.md) doc for preparation.
     - DO NOT modify anything defined in `openapi.yaml`.
     ```
 
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 1. Once the application is built, verify if it's written properly or not.
 
     ```text
@@ -112,7 +112,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```
 
 1. Open a web browser and navigate to `http://localhost:8000`.
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
 ---
 

@@ -94,7 +94,7 @@ Refer to the [README](../README.md) doc for preparation.
     - If either building or running the app fails, analyze the issues and fix them.
     ```
 
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
 ### Migrate FastAPI API App
 
@@ -123,7 +123,7 @@ Refer to the [README](../README.md) doc for preparation.
     - If necessary, add more packages for OpenAPI and Swagger UI.
     ```
 
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 1. Once migration is over, use prompt like below to verify the migration result.
 
     ```text
@@ -139,7 +139,7 @@ Refer to the [README](../README.md) doc for preparation.
    > - Until the build succeeds, iterate this step.
    > - If the build keeps failing, check out the error messages and ask them to GitHub Copilot Agent to figure them out.
 
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
 ### Verify Spring Boot Backend App
 
@@ -152,7 +152,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```
 
 1. Open a web browser and navigate to `http://localhost:8080`.
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the "keep" button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
 ---
 

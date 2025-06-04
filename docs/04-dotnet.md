@@ -83,7 +83,7 @@ Refer to the [README](../README.md) doc for preparation.
     - If either building or running the app fails, analyze the issues and fix them.
     ```
 
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the keep button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
 ### Migrate React Web App
 
@@ -121,7 +121,7 @@ Refer to the [README](../README.md) doc for preparation.
    > - Until the build succeeds, iterate this step.
    > - If the build keeps failing, check out the error messages and ask them to GitHub Copilot Agent to figure them out.
 
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the keep button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 1. Once the build succeeds, use prompt like below to verify the migration result.
 
     ```text
@@ -141,7 +141,7 @@ Refer to the [README](../README.md) doc for preparation.
     Run the Spring Boot backend API, which is located at the `java` directory.
     ```
 
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the keep button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 1. Verify if it's built properly or not.
 
     ```text
@@ -152,7 +152,7 @@ Refer to the [README](../README.md) doc for preparation.
 
 1. Open a web browser and navigate to `http://localhost:3031`.
 1. Verify if both frontend and backend apps are running properly.
-1. Click the `[keep]` button of GitHub Copilot to take the changes.
+1. Click the ![the keep button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
 ---
 
