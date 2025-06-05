@@ -1,7 +1,137 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@inject AuthService AuthService
+@inject ApiService ApiService
+@inject IJSRuntime JSRuntime
+@implements IDisposable
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Contoso Outdoor Social</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="w-full max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6 text-gray-900">Contoso Outdoor Social</h1>
+    
+    @if (isLoading)
+    {
+        <div class="text-center py-10 text-gray-500">Loading posts...</div>
+    }
+    else if (!string.IsNullOrEmpty(error))
+    {
+        <div class="text-center py-10 text-red-500">@error</div>
+    }
+    else if (posts.Count == 0)
+    {
+        <div class="text-center py-10 text-gray-400">No posts yet.</div>
+    }
+    else
+    {
+        <div class="flex flex-col gap-4">
+            @foreach (var post in posts)
+            {
+                <PostCard Post="post" OnPostDeleted="HandlePostDeleted" OnPostUpdated="HandlePostUpdated" />
+            }
+        </div>
+    }
+    
+    <FloatingActionButton OnClick="HandleOpenPostModal" />
+    <PostingModal IsOpen="isPostModalOpen" OnClose="HandleClosePostModal" OnPostCreated="HandlePostCreated" />
+    <NameInputModal IsOpen="isNameModalOpen" OnClose="HandleNameModalClose" />
+</div>
 
-Welcome to your new app.
+@code {
+    private List<Post> posts = new();
+    private bool isLoading = true;
+    private string error = "";
+    private bool isPostModalOpen = false;
+    private bool isNameModalOpen = false;
+
+    protected override void OnInitialized()
+    {
+        AuthService.OnAuthStateChanged += HandleAuthStateChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await AuthService.InitializeAsync();
+            
+            if (!AuthService.AuthState.IsLoading && !AuthService.AuthState.IsAuthenticated)
+            {
+                isNameModalOpen = true;
+            }
+            else if (AuthService.AuthState.IsAuthenticated)
+            {
+                await FetchPosts();
+            }
+            
+            StateHasChanged();
+        }
+    }
+
+    private async void HandleAuthStateChanged()
+    {
+        await InvokeAsync(async () =>
+        {
+            if (!AuthService.AuthState.IsLoading && !AuthService.AuthState.IsAuthenticated)
+            {
+                isNameModalOpen = true;
+            }
+            else if (AuthService.AuthState.IsAuthenticated)
+            {
+                await FetchPosts();
+            }
+            StateHasChanged();
+        });
+    }
+
+    private async Task FetchPosts()
+    {
+        if (!AuthService.AuthState.IsAuthenticated) return;
+
+        try
+        {
+            isLoading = true;
+            error = "";
+            posts = await ApiService.GetPostsAsync();
+        }
+        catch (Exception ex)
+        {
+            error = "An error occurred while loading posts.";
+            Console.WriteLine($"Error fetching posts: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private void HandleOpenPostModal() => isPostModalOpen = true;
+    private void HandleClosePostModal() => isPostModalOpen = false;
+
+    private async Task HandlePostCreated()
+    {
+        await FetchPosts();
+        isPostModalOpen = false;
+    }
+
+    private async Task HandlePostDeleted()
+    {
+        await FetchPosts();
+    }
+
+    private async Task HandlePostUpdated()
+    {
+        await FetchPosts();
+    }
+
+    private void HandleNameModalClose()
+    {
+        isNameModalOpen = false;
+    }
+
+    public void Dispose()
+    {
+        AuthService.OnAuthStateChanged -= HandleAuthStateChanged;
+    }
+}
