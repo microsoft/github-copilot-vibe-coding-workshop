@@ -85,6 +85,18 @@ Refer to the [README](../README.md) doc for preparation.
 
 1. Click the ![the keep button image](https://img.shields.io/badge/keep-blue) button of GitHub Copilot to take the changes.
 
+### Run Spring Boot Backend App
+
+1. Make sure that the Spring Boot backend app is up and running.
+
+    ```text
+    Run the Spring Boot backend API, which is located at the `java` directory.
+    ```
+
+   > **NOTE**: You may use the [`complete/java`](../complete/java/) sample app instead.
+
+1. If you use GitHub Codespaces, make sure that the port number `8080` is set to `public` instead of `private`. Otherwise, you'll get the `401` error when accessing from the frontend app.
+
 ### Migrate React Web App
 
 1. Make sure that you're using GitHub Copilot Agent Mode with the model of `Claude Sonnet 4` or `GPT-4.1`.
