@@ -58,8 +58,8 @@
 
 @code {
     [Parameter] public Comment Comment { get; set; } = new();
-    [Parameter] public int PostId { get; set; }
-    [Parameter] public EventCallback<int> OnCommentDelete { get; set; }
+    [Parameter] public string PostId { get; set; } = string.Empty;
+    [Parameter] public EventCallback<string> OnCommentDelete { get; set; }
     [Parameter] public EventCallback<Comment> OnCommentUpdate { get; set; }
 
     private bool isEditing = false;

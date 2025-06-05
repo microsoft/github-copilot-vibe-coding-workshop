@@ -9,7 +9,7 @@
     <div class="w-full mb-4">
         <input @bind="username" @onkeypress="HandleKeyPress"
                placeholder="Enter your name"
-               disabled="isLoading"
+               disabled="@isLoading"
                class="w-full p-4 text-base text-gray-900 bg-gray-100 rounded-md focus-outline-none focus-ring-2"
                maxlength="50"
                autocomplete="off" />

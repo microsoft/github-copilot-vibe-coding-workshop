@@ -6,7 +6,7 @@
     <div class="w-full mb-4">
         <textarea @bind="content" @oninput="HandleContentChange"
                   placeholder="Enter your content."
-                  disabled="isLoading"
+                  disabled="@isLoading"
                   class="textarea-custom"
                   rows="6"></textarea>
     </div>
@@ -21,7 +21,7 @@
             @(isLoading ? "Processing..." : "Submit")
         </button>
         <button @onclick="HandleCancel"
-                disabled="isLoading"
+                disabled="@isLoading"
                 class="btn btn-secondary">
             Cancel
         </button>

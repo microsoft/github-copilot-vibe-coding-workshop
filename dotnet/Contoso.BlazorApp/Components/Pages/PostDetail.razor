@@ -1,4 +1,4 @@
-@page "/post/{PostId:int}"
+@page "/post/{PostId}"
 @rendermode InteractiveServer
 @inject AuthService AuthService
 @inject ApiService ApiService
@@ -29,7 +29,7 @@
                 <button @onclick="HandleLikeToggle"
                         class="flex items-center gap-1 @(isLiked ? "text-red-500" : "text-gray-500 hover-text-red-500")"
                         aria-label="Like">
-                    <HeartIcon Filled="isLiked" />
+                    <HeartIcon Filled="@isLiked" />
                     @if (likesCount > 0)
                     {
                         <span class="text-xs">@likesCount</span>
@@ -46,20 +46,20 @@
         </div>
 
         <div class="mb-4">
-            <CommentInput OnCommentAdded="HandleCommentAdded" PostId="PostId" />
+            <CommentInput OnCommentAdded="HandleCommentAdded" PostId="@PostId" />
         </div>
 
         <div class="space-y-4">
             @foreach (var comment in comments)
             {
-                <CommentItem Comment="comment" PostId="PostId" OnCommentDelete="HandleCommentDelete" OnCommentUpdate="HandleCommentUpdate" />
+                <CommentItem Comment="comment" PostId="@PostId" OnCommentDelete="HandleCommentDelete" OnCommentUpdate="HandleCommentUpdate" />
             }
         </div>
     }
 </div>
 
 @code {
-    [Parameter] public int PostId { get; set; }
+    [Parameter] public string PostId { get; set; } = string.Empty;
 
     private Post? post;
     private List<Comment> comments = new();
@@ -107,8 +107,8 @@
 
             if (isLiked)
             {
-                var result = await ApiService.UnlikePostAsync(PostId);
-                likesCount = result.LikesCount;
+                await ApiService.UnlikePostAsync(PostId, user.Username);
+                likesCount--;
                 isLiked = false;
             }
             else
@@ -130,7 +130,7 @@
         await LoadPostAndComments();
     }
 
-    private Task HandleCommentDelete(int commentId)
+    private Task HandleCommentDelete(string commentId)
     {
         comments.RemoveAll(c => c.Id == commentId);
         if (post != null)

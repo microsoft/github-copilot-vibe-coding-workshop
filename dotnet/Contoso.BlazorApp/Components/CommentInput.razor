@@ -7,7 +7,7 @@
         <div class="flex-1">
             <textarea @bind="content" @onkeypress="HandleKeyPress"
                       placeholder="Write a comment..."
-                      disabled="isLoading"
+                      disabled="@isLoading"
                       class="w-full p-2 text-sm text-gray-900 bg-gray-100 rounded border-none resize-none focus-outline-none"
                       rows="2"></textarea>
             @if (!string.IsNullOrEmpty(error))
@@ -31,7 +31,7 @@
 </div>
 
 @code {
-    [Parameter] public int PostId { get; set; }
+    [Parameter] public string PostId { get; set; } = string.Empty;
     [Parameter] public EventCallback OnCommentAdded { get; set; }
 
     private string content = "";
