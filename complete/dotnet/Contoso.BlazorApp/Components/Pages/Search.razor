@@ -1,0 +1,137 @@
+@page "/search"
+@using Contoso.BlazorApp.Models
+@using Contoso.BlazorApp.Services
+@inject AuthService AuthService
+@inject ApiService ApiService
+@inject NavigationManager Navigation
+
+<PageTitle>Search - Vibe</PageTitle>
+
+<div class="flex flex-col items-center w-full max-w-2xl mx-auto">
+    <div class="w-full mb-6">
+        <div class="relative">
+            <input @bind="searchQuery" 
+                   @onkeypress="HandleKeyPress"
+                   type="text" 
+                   placeholder="Search for posts..."
+                   class="w-full bg-gray-100 dark:bg-gray-800 rounded-md pl-12 pr-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor" />
+                </svg>
+            </div>
+        </div>
+        <button @onclick="HandleSearch"
+                disabled="@(isLoading || string.IsNullOrWhiteSpace(searchQuery))"
+                class="mt-3 w-full bg-blue-600 text-white rounded-md py-3 text-sm transition-opacity disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700">
+            @(isLoading ? "Searching..." : "Search")
+        </button>
+    </div>
+
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <div class="text-red-500 text-center py-4 mb-4">@error</div>
+    }
+
+    @if (hasSearched)
+    {
+        @if (searchResults.Any())
+        {
+            <div class="flex flex-col gap-4 w-full">
+                <h2 class="text-lg font-bold text-gray-900 dark:text-white">
+                    Search Results (@searchResults.Count)
+                </h2>
+                @foreach (var post in searchResults)
+                {
+                    <PostCard Post="post" />
+                }
+            </div>
+        }
+        else if (!isLoading)
+        {
+            <div class="text-center py-10 text-gray-400">
+                No posts found for "@lastSearchQuery".
+            </div>
+        }
+    }
+    else
+    {
+        <div class="text-center py-10 text-gray-400">
+            Enter keywords to search for posts.
+        </div>
+    }
+
+    <FloatingActionButton OnClick="HandleOpenPostModal" />
+    <PostingModal IsOpen="isPostModalOpen" OnClose="HandleClosePostModal" OnPostCreated="HandlePostCreated" />
+</div>
+
+@code {
+    private string searchQuery = string.Empty;
+    private List<Post> searchResults = new();
+    private bool isLoading = false;
+    private string error = string.Empty;
+    private bool hasSearched = false;
+    private string lastSearchQuery = string.Empty;
+    private bool isPostModalOpen = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!AuthService.AuthState.IsAuthenticated)
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+
+        await Task.CompletedTask;
+    }
+
+    private async Task HandleSearch()
+    {
+        if (string.IsNullOrWhiteSpace(searchQuery)) return;
+
+        try
+        {
+            isLoading = true;
+            error = string.Empty;
+            lastSearchQuery = searchQuery.Trim();
+            
+            var result = await ApiService.SearchPostsAsync(lastSearchQuery);
+            searchResults = result;
+            hasSearched = true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error searching posts: {ex.Message}");
+            error = "An error occurred while searching. Please try again.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !isLoading && !string.IsNullOrWhiteSpace(searchQuery))
+        {
+            await HandleSearch();
+        }
+    }
+
+    private void HandleOpenPostModal()
+    {
+        isPostModalOpen = true;
+    }
+
+    private void HandleClosePostModal()
+    {
+        isPostModalOpen = false;
+    }
+
+    private Task HandlePostCreated(Post newPost)
+    {
+        // Optionally refresh search results if they match the new post
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+}

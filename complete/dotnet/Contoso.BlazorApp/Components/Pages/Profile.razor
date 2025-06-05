@@ -1,0 +1,174 @@
+@page "/profile"
+@page "/profile/{username}"
+@using Contoso.BlazorApp.Models
+@using Contoso.BlazorApp.Services
+@inject AuthService AuthService
+@inject ApiService ApiService
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+<PageTitle>@(isMyProfile ? "My Profile" : $"{Username}'s Profile") - Vibe</PageTitle>
+
+<div class="flex flex-col items-center w-full max-w-2xl mx-auto">
+    @if (isLoading)
+    {
+        <div class="text-center py-10 text-gray-400">Loading profile...</div>
+    }
+    else
+    {
+        <div class="w-full mb-6">
+            <div class="flex items-center mb-4">
+                <div class="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 mr-4"></div>
+                <div>
+                    <div class="text-xl font-bold text-gray-900 dark:text-white">
+                        @displayUsername
+                    </div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">
+                        @userPosts.Count posts
+                    </div>
+                </div>
+            </div>
+            
+            @if (isMyProfile)
+            {
+                <button @onclick="HandleLogout"
+                        class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 mb-6 transition-colors">
+                    Logout
+                </button>
+            }
+        </div>
+
+        @if (!string.IsNullOrEmpty(error))
+        {
+            <div class="text-red-500 text-center py-4 mb-4">@error</div>
+        }
+
+        <div class="w-full">
+            <h2 class="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                @(isMyProfile ? "My Posts" : $"{displayUsername}'s Posts")
+            </h2>
+            
+            @if (userPosts.Any())
+            {
+                <div class="flex flex-col gap-4">
+                    @foreach (var post in userPosts)
+                    {
+                        <PostCard Post="post" />
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-10 text-gray-500">
+                    @(isMyProfile ? "You haven't created any posts yet." : "No posts yet.")
+                </div>
+            }
+        </div>
+
+        <FloatingActionButton OnClick="HandleOpenPostModal" />
+        <PostingModal IsOpen="isPostModalOpen" OnClose="HandleClosePostModal" OnPostCreated="HandlePostCreated" />
+    }
+</div>
+
+@code {
+    [Parameter] public string? Username { get; set; }
+
+    private List<Post> userPosts = new();
+    private bool isLoading = false;
+    private string error = string.Empty;
+    private bool isMyProfile = false;
+    private string displayUsername = string.Empty;
+    private bool isPostModalOpen = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!AuthService.AuthState.IsAuthenticated)
+        {
+            Navigation.NavigateTo("/");
+            return;
+        }
+
+        await LoadProfile();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (AuthService.AuthState.IsAuthenticated)
+        {
+            await LoadProfile();
+        }
+    }
+
+    private async Task LoadProfile()
+    {
+        try
+        {
+            isLoading = true;
+            error = string.Empty;
+
+            // Determine which profile to load
+            var targetUsername = string.IsNullOrEmpty(Username) ? AuthService.AuthState.User?.Username : Username;
+            isMyProfile = targetUsername == AuthService.AuthState.User?.Username;
+            displayUsername = targetUsername ?? string.Empty;
+
+            if (string.IsNullOrEmpty(targetUsername))
+            {
+                error = "Invalid user profile.";
+                return;
+            }
+
+            // Load user's posts
+            var posts = await ApiService.GetPostsAsync();
+            userPosts = posts.Where(p => p.Username == targetUsername).OrderByDescending(p => p.Id).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading profile: {ex.Message}");
+            error = "An error occurred while loading the profile.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task HandleLogout()
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to logout?");
+        if (!confirmed) return;
+
+        try
+        {
+            await AuthService.LogoutAsync();
+            Navigation.NavigateTo("/");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error during logout: {ex.Message}");
+            error = "An error occurred during logout.";
+        }
+    }
+
+    private void HandleOpenPostModal()
+    {
+        if (isMyProfile)
+        {
+            isPostModalOpen = true;
+        }
+    }
+
+    private void HandleClosePostModal()
+    {
+        isPostModalOpen = false;
+    }
+
+    private Task HandlePostCreated(Post newPost)
+    {
+        if (isMyProfile)
+        {
+            userPosts.Insert(0, newPost);
+            StateHasChanged();
+        }
+        return Task.CompletedTask;
+    }
+}

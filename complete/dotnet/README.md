@@ -27,7 +27,7 @@ Use [Java App Sample](../complete/java/).
 1. Run the app.
 
     ```bash
-    dotnet watch run --project $REPOSITORY_ROOT/complete/dotnet/Contoso.BlazorApp/Contoso.BlazorApp.csproj
+    dotnet watch run --project $REPOSITORY_ROOT/complete/dotnet/Contoso.BlazorApp
     ```
 
 1. Verify if the web application is running properly.

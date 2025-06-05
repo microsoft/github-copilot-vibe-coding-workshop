@@ -1,0 +1,154 @@
+@page "/post/{PostId}"
+@rendermode InteractiveServer
+@inject AuthService AuthService
+@inject ApiService ApiService
+@inject NavigationManager Navigation
+
+<PageTitle>Post Details - Contoso Outdoor Social</PageTitle>
+
+<div class="w-full max-w-2xl mx-auto">
+    @if (isLoading)
+    {
+        <div class="text-center py-10 text-gray-500">Loading post...</div>
+    }
+    else if (!string.IsNullOrEmpty(error))
+    {
+        <div class="text-center py-10 text-red-500">@error</div>
+    }
+    else if (post != null)
+    {
+        <div class="bg-white border-b border-gray-200 p-4 mb-4">
+            <div class="flex items-center mb-2">
+                <div class="w-10 h-10 rounded-full bg-gray-200 mr-2"></div>
+                <div class="text-base font-bold text-gray-900">@post.Username</div>
+            </div>
+            <div class="mb-4">
+                <p class="text-base text-gray-900 leading-relaxed break-words">@post.Content</p>
+            </div>
+            <div class="flex gap-6">
+                <button @onclick="HandleLikeToggle"
+                        class="flex items-center gap-1 @(isLiked ? "text-red-500" : "text-gray-500 hover-text-red-500")"
+                        aria-label="Like">
+                    <HeartIcon Filled="@isLiked" />
+                    @if (likesCount > 0)
+                    {
+                        <span class="text-xs">@likesCount</span>
+                    }
+                </button>
+                <div class="flex items-center gap-1 text-gray-500">
+                    <CommentIcon />
+                    @if (comments.Count > 0)
+                    {
+                        <span class="text-xs">@comments.Count</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <CommentInput OnCommentAdded="HandleCommentAdded" PostId="@PostId" />
+        </div>
+
+        <div class="space-y-4">
+            @foreach (var comment in comments)
+            {
+                <CommentItem Comment="comment" PostId="@PostId" OnCommentDelete="HandleCommentDelete" OnCommentUpdate="HandleCommentUpdate" />
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public string PostId { get; set; } = string.Empty;
+
+    private Post? post;
+    private List<Comment> comments = new();
+    private bool isLoading = true;
+    private string error = "";
+    private bool isLiked;
+    private int likesCount;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPostAndComments();
+    }
+
+    private async Task LoadPostAndComments()
+    {
+        try
+        {
+            isLoading = true;
+            error = "";
+
+            post = await ApiService.GetPostAsync(PostId);
+            comments = await ApiService.GetCommentsAsync(PostId);
+            
+            isLiked = post.IsLiked;
+            likesCount = post.LikesCount;
+        }
+        catch (Exception ex)
+        {
+            error = "An error occurred while loading the post.";
+            Console.WriteLine($"Error loading post: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task HandleLikeToggle()
+    {
+        try
+        {
+            var user = AuthService.AuthState.User;
+            if (user == null) return;
+
+            if (isLiked)
+            {
+                await ApiService.UnlikePostAsync(PostId, user.Username);
+                likesCount--;
+                isLiked = false;
+            }
+            else
+            {
+                var result = await ApiService.LikePostAsync(PostId, user.Username);
+                likesCount = result.LikesCount;
+                isLiked = true;
+            }
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error occurred while processing like: {ex.Message}");
+        }
+    }
+
+    private async Task HandleCommentAdded()
+    {
+        await LoadPostAndComments();
+    }
+
+    private Task HandleCommentDelete(string commentId)
+    {
+        comments.RemoveAll(c => c.Id == commentId);
+        if (post != null)
+        {
+            post.CommentsCount = Math.Max(post.CommentsCount - 1, 0);
+        }
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task HandleCommentUpdate(Comment updatedComment)
+    {
+        var index = comments.FindIndex(c => c.Id == updatedComment.Id);
+        if (index >= 0)
+        {
+            comments[index] = updatedComment;
+            StateHasChanged();
+        }
+        return Task.CompletedTask;
+    }
+}
