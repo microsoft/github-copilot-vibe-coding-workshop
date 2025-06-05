@@ -1,0 +1,11 @@
+<div class="nav-item @(IsActive ? "nav-item-active" : "")">
+    <a href="@Href" class="flex items-center justify-center w-12 h-12 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-blue-50 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-gray-800 transition-colors duration-200 @(IsActive ? "text-blue-600 bg-blue-50 dark:text-blue-400 dark:bg-gray-800" : "")">
+        @ChildContent
+    </a>
+</div>
+
+@code {
+    [Parameter] public string Href { get; set; } = string.Empty;
+    [Parameter] public bool IsActive { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}

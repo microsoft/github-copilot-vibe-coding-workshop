@@ -1,0 +1,55 @@
+@inject IJSRuntime JSRuntime
+@implements IDisposable
+
+@if (IsOpen)
+{
+    <div class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+         @onclick="HandleBackdropClick">
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 min-w-[300px] max-w-[90%] max-h-[90vh] overflow-y-auto shadow-xl"
+             @onclick:stopPropagation="true">
+            @ChildContent
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private DotNetObjectReference<Modal>? objRef;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            objRef = DotNetObjectReference.Create(this);
+        }
+
+        if (IsOpen)
+        {
+            await JSRuntime.InvokeVoidAsync("addEscapeKeyListener", objRef);
+            await JSRuntime.InvokeVoidAsync("disableBodyScroll");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("enableBodyScroll");
+        }
+    }
+
+    private async Task HandleBackdropClick()
+    {
+        await OnClose.InvokeAsync();
+    }
+
+    [JSInvokable]
+    public async Task HandleEscapeKey()
+    {
+        await OnClose.InvokeAsync();
+    }
+
+    public void Dispose()
+    {
+        objRef?.Dispose();
+    }
+}

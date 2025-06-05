@@ -1,7 +1,143 @@
 ﻿@page "/"
+@using Contoso.BlazorApp.Models
+@using Contoso.BlazorApp.Services
+@inject AuthService AuthService
+@inject ApiService ApiService
+@inject IJSRuntime JSRuntime
+@implements IDisposable
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Contoso Outdoor Social</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="w-full max-w-2xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Contoso Outdoor Social</h1>
+    
+    @if (isLoading)
+    {
+        <div class="text-center py-10 text-gray-500">Loading posts...</div>
+    }
+    else if (!string.IsNullOrEmpty(error))
+    {
+        <div class="text-center py-10 text-red-500">@error</div>
+    }
+    else if (posts.Count == 0)
+    {
+        <div class="text-center py-10 text-gray-400">No posts yet.</div>
+    }
+    else
+    {
+        <div class="flex flex-col gap-4">
+            @foreach (var post in posts)
+            {
+                <PostCard Post="post" OnPostUpdated="HandlePostUpdated" />
+            }
+        </div>
+    }
+    
+    <FloatingActionButton OnClick="HandleOpenPostModal" @rendermode="RenderMode.InteractiveServer" />
+    <PostingModal IsOpen="isPostModalOpen" OnClose="HandleClosePostModal" OnPostCreated="HandlePostCreated" @rendermode="RenderMode.InteractiveServer" />
+    <NameInputModal IsOpen="isNameModalOpen" OnClose="HandleCloseNameModal" @rendermode="RenderMode.InteractiveServer" />
+</div>
 
-Welcome to your new app.
+@code {
+    private List<Post> posts = new();
+    private bool isLoading = true;
+    private string error = string.Empty;
+    private bool isPostModalOpen = false;
+    private bool isNameModalOpen = true; // Start with modal open by default
+    
+    protected override void OnInitialized()
+    {
+        AuthService.AuthStateChanged += OnAuthStateChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                await AuthService.InitializeAsync();
+                
+                // Only close the modal if user is already authenticated
+                if (AuthService.IsAuthenticated)
+                {
+                    isNameModalOpen = false;
+                    await FetchPosts();
+                }
+                // If not authenticated, modal stays open (already true by default)
+                
+                StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during initialization: {ex.Message}");
+                // If initialization fails, keep modal open (already true by default)
+                StateHasChanged();
+            }
+        }
+    }
+
+    private async void OnAuthStateChanged(object? sender, EventArgs e)
+    {
+        Console.WriteLine($"OnAuthStateChanged: IsLoading={AuthService.IsLoading}, IsAuthenticated={AuthService.IsAuthenticated}");
+        
+        if (AuthService.IsAuthenticated)
+        {
+            Console.WriteLine("User authenticated, closing name modal and fetching posts");
+            isNameModalOpen = false; // Close the name modal when authenticated
+            await FetchPosts();
+        }
+        else if (!AuthService.IsLoading)
+        {
+            Console.WriteLine("User not authenticated and not loading, ensuring name modal is open");
+            isNameModalOpen = true;
+        }
+        
+        Console.WriteLine($"isNameModalOpen is now: {isNameModalOpen}");
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task FetchPosts()
+    {
+        try
+        {
+            isLoading = true;
+            error = string.Empty;
+            var response = await ApiService.GetPostsAsync();
+            posts = response.Data;
+        }
+        catch (Exception)
+        {
+            error = "An error occurred while loading posts.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void HandleOpenPostModal() => isPostModalOpen = true;
+    private void HandleClosePostModal() => isPostModalOpen = false;
+    private void HandleCloseNameModal() 
+    {
+        Console.WriteLine("HandleCloseNameModal called");
+        isNameModalOpen = false;
+        Console.WriteLine($"isNameModalOpen set to: {isNameModalOpen}");
+    }
+
+    private async Task HandlePostCreated()
+    {
+        await FetchPosts();
+        isPostModalOpen = false;
+    }
+
+    private async Task HandlePostUpdated()
+    {
+        await FetchPosts();
+    }
+
+    public void Dispose()
+    {
+        AuthService.AuthStateChanged -= OnAuthStateChanged;
+    }
+}

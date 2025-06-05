@@ -1,0 +1,150 @@
+@page "/profile"
+@page "/profile/{Username}"
+@using Contoso.BlazorApp.Models
+@using Contoso.BlazorApp.Services
+@inject AuthService AuthService
+@inject ApiService ApiService
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Profile - Contoso Outdoor Social</PageTitle>
+
+<div class="w-full max-w-2xl mx-auto">
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+            @(isMyProfile ? "My Profile" : $"{displayUsername}'s Profile")
+        </h1>
+        
+        @if (isMyProfile)
+        {
+            <button @onclick="HandleLogout"
+                    class="bg-red-600 text-white rounded-md px-4 py-2 text-sm hover:bg-red-700 transition-colors">
+                Logout
+            </button>
+        }
+    </div>
+    
+    @if (!string.IsNullOrEmpty(displayUsername))
+    {
+        <div class="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+            <div class="flex items-center">
+                <div class="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 mr-4"></div>
+                <div>
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">@displayUsername</h2>
+                    <p class="text-gray-500 dark:text-gray-400">@userPosts.Count posts</p>
+                </div>
+            </div>
+        </div>
+    }
+    
+    @if (isLoading)
+    {
+        <div class="text-center py-10 text-gray-500">Loading profile...</div>
+    }
+    else if (!string.IsNullOrEmpty(error))
+    {
+        <div class="text-center py-10 text-red-500">@error</div>
+    }
+    else if (userPosts.Count == 0)
+    {
+        <div class="text-center py-10 text-gray-400">
+            @(isMyProfile ? "You haven't posted anything yet." : "This user hasn't posted anything yet.")
+        </div>
+    }
+    else
+    {
+        <div class="flex flex-col gap-4">
+            @foreach (var post in userPosts)
+            {
+                <PostCard Post="post" OnPostUpdated="HandlePostUpdated" />
+            }
+        </div>
+    }
+    
+    @if (isMyProfile)
+    {
+        <FloatingActionButton OnClick="HandleOpenPostModal" />
+        <PostingModal IsOpen="isPostModalOpen" OnClose="HandleClosePostModal" OnPostCreated="HandlePostCreated" />
+    }
+</div>
+
+@code {
+    [Parameter] public string? Username { get; set; }
+
+    private List<Post> userPosts = new();
+    private bool isLoading = true;
+    private string error = string.Empty;
+    private bool isPostModalOpen = false;
+    private string displayUsername = string.Empty;
+    private bool isMyProfile = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadProfile();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await LoadProfile();
+    }
+
+    private async Task LoadProfile()
+    {
+        displayUsername = Username ?? AuthService.User?.Username ?? string.Empty;
+        isMyProfile = AuthService.User != null && displayUsername == AuthService.User.Username;
+
+        if (string.IsNullOrEmpty(displayUsername))
+        {
+            isLoading = false;
+            return;
+        }
+
+        try
+        {
+            isLoading = true;
+            error = string.Empty;
+            
+            var response = await ApiService.GetPostsAsync();
+            
+            // Filter posts by username and sort by creation date (newest first)
+            var posts = response.Data
+                .Where(post => post.Username == displayUsername)
+                .OrderByDescending(post => post.CreatedAt)
+                .ToList();
+                
+            userPosts = posts;
+        }
+        catch (Exception)
+        {
+            error = "Failed to load profile information.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task HandleLogout()
+    {
+        var confirmed = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure you want to logout?");
+        if (confirmed)
+        {
+            await AuthService.LogoutAsync();
+            Navigation.NavigateTo("/");
+        }
+    }
+
+    private void HandleOpenPostModal() => isPostModalOpen = true;
+    private void HandleClosePostModal() => isPostModalOpen = false;
+
+    private async Task HandlePostCreated()
+    {
+        await LoadProfile();
+        isPostModalOpen = false;
+    }
+
+    private async Task HandlePostUpdated()
+    {
+        await LoadProfile();
+    }
+}

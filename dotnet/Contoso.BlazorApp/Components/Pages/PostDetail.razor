@@ -1,0 +1,196 @@
+@page "/post/{PostId:int}"
+@using Contoso.BlazorApp.Models
+@using Contoso.BlazorApp.Services
+@inject AuthService AuthService
+@inject ApiService ApiService
+@inject NavigationManager Navigation
+
+<PageTitle>Post Details - Contoso Outdoor Social</PageTitle>
+
+<div class="w-full max-w-2xl mx-auto">
+    <div class="mb-4">
+        <button @onclick="HandleBackClick"
+                class="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors">
+            <BackIcon />
+            <span>Back</span>
+        </button>
+    </div>
+    
+    @if (isLoading)
+    {
+        <div class="text-center py-10 text-gray-500">Loading post...</div>
+    }
+    else if (!string.IsNullOrEmpty(error))
+    {
+        <div class="text-center py-10 text-red-500">@error</div>
+    }
+    else if (post != null)
+    {
+        <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-6">
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 mr-3"></div>
+                <div>
+                    <div class="text-lg font-bold text-gray-900 dark:text-white">@post.Username</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">@post.CreatedAt.ToString("MMM d, yyyy")</div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <p class="text-base text-gray-900 dark:text-white leading-relaxed break-words">@post.Content</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <button @onclick="HandleLikeToggle"
+                        class="flex items-center gap-2 @(isLiked ? "text-red-500" : "text-gray-500 hover:text-red-500") transition-colors"
+                        aria-label="Like">
+                    <HeartIcon Filled="isLiked" />
+                    @if (likesCount > 0)
+                    {
+                        <span class="text-sm">@likesCount</span>
+                    }
+                </button>
+                
+                <div class="flex items-center gap-2 text-gray-500">
+                    <CommentIcon />
+                    <span class="text-sm">@comments.Count comments</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mb-6">
+            <CommentInput PostId="PostId" OnCommentAdded="HandleCommentAdded" />
+        </div>
+        
+        @if (isCommentsLoading)
+        {
+            <div class="text-center py-4 text-gray-500">Loading comments...</div>
+        }
+        else if (comments.Count == 0)
+        {
+            <div class="text-center py-8 text-gray-400">No comments yet. Be the first to comment!</div>
+        }
+        else
+        {
+            <div class="space-y-4">
+                @foreach (var comment in comments)
+                {
+                    <CommentItem Comment="comment" OnCommentUpdated="HandleCommentUpdated" />
+                }
+            </div>
+        }
+    }
+</div>
+
+@code {
+    [Parameter] public int PostId { get; set; }
+
+    private Post? post;
+    private List<Comment> comments = new();
+    private bool isLoading = true;
+    private bool isCommentsLoading = true;
+    private string error = string.Empty;
+    private bool isLiked = false;
+    private int likesCount = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPost();
+        await LoadComments();
+    }
+
+    private async Task LoadPost()
+    {
+        try
+        {
+            isLoading = true;
+            error = string.Empty;
+            
+            var response = await ApiService.GetPostsAsync();
+            post = response.Data.FirstOrDefault(p => p.Id == PostId);
+            
+            if (post == null)
+            {
+                error = "Post not found.";
+            }
+            else
+            {
+                isLiked = post.IsLiked;
+                likesCount = post.LikesCount;
+            }
+        }
+        catch (Exception)
+        {
+            error = "Failed to load post.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task LoadComments()
+    {
+        try
+        {
+            isCommentsLoading = true;
+            var response = await ApiService.GetCommentsAsync(PostId);
+            comments = response.Data.OrderBy(c => c.CreatedAt).ToList();
+        }
+        catch (Exception ex)
+        {
+            // Comments loading error is not critical, so we don't show it
+            Console.WriteLine($"Failed to load comments: {ex.Message}");
+        }
+        finally
+        {
+            isCommentsLoading = false;
+        }
+    }
+
+    private async Task HandleLikeToggle()
+    {
+        try
+        {
+            if (AuthService.User == null) return;
+
+            if (isLiked)
+            {
+                var response = await ApiService.UnlikePostAsync(PostId, AuthService.User.Username);
+                if (response.Success)
+                {
+                    likesCount = Math.Max(0, likesCount - 1);
+                    isLiked = false;
+                }
+            }
+            else
+            {
+                var response = await ApiService.LikePostAsync(PostId, AuthService.User.Username);
+                if (response.Success)
+                {
+                    likesCount++;
+                    isLiked = true;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error occurred while processing like: {ex.Message}");
+        }
+    }
+
+    private async Task HandleCommentAdded()
+    {
+        await LoadComments();
+        await LoadPost(); // Refresh post to update comment count
+    }
+
+    private async Task HandleCommentUpdated()
+    {
+        await LoadComments();
+    }
+
+    private void HandleBackClick()
+    {
+        Navigation.NavigateTo("/");
+    }
+}
