@@ -5,7 +5,10 @@ services:
       dockerfile: Dockerfile.java
     container_name: contoso-backend
     ports:
-      - "5050:8080"
+      - "8080:8080"
+    environment:
+      - CODESPACE_NAME=${CODESPACE_NAME}
+      - GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN=${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}
     volumes:
       - ./java/socialapp/sns_api.db:/app/sns_api.db
     networks:
@@ -21,7 +24,7 @@ services:
     depends_on:
       - contoso-backend
     environment:
-      - ApiSettings__BaseUrl=http://contoso-backend:8080
+      - ApiSettings__BaseUrl=http://contoso-backend:8080/api/
     networks:
       - contoso
 

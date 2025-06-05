@@ -100,7 +100,7 @@ Refer to the [README](../README.md) doc for preparation.
     ```text
     Use the container image just built, run a container and verify if the app is running properly.
     
-    - Use the host port of `5050`.
+    - Use the host port of `8080`.
     ```
 
 ### Containerize .NET Application
@@ -162,7 +162,7 @@ Refer to the [README](../README.md) doc for preparation.
     - Use `Dockerfile.dotnet` as a frontend app.
     - Create `compose.yaml` as the Docker Compose file.
     - Use `contoso` as the network name.
-    - Use `contoso-backend` as the container name of the Java app. Its target port is 8080, and host port is 5050.
+    - Use `contoso-backend` as the container name of the Java app. Its target port is 8080, and host port is 8080.
     - Use `contoso-frontend` as the container name of the .NET app. Its target port is 8080, and host port is 3030.
     - Mount the volume for the database that the Java app uses, `java/socialapp/sns_api.db`.
     ```
