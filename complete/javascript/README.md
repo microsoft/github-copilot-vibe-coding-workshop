@@ -8,7 +8,7 @@ Refer to the [README](../../README.md) doc for preparation.
 
 ### Run FastAPI Backend
 
-Use [Python App Sample](../complete/python/).
+Use [Python App Sample](../python/).
 
 ### Run React Frontend
 

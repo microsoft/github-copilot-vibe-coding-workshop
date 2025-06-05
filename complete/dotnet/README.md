@@ -8,7 +8,7 @@ Refer to the [README](../../README.md) doc for preparation.
 
 ### Run Spring Boot Backend
 
-Use [Java App Sample](../complete/java/).
+Use [Java App Sample](../java/).
 
 ### Run Blazor Frontend
 
