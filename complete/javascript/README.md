@@ -10,6 +10,8 @@ Refer to the [README](../../README.md) doc for preparation.
 
 Use [Python App Sample](../python/).
 
+> **NOTE**: If you use GitHub Codespaces, make sure that the Python app port, `8000`, is set to **public**.
+
 ### Run React Frontend
 
 1. Get the repository root.

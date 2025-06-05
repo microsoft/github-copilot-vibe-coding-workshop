@@ -10,6 +10,8 @@ Refer to the [README](../../README.md) doc for preparation.
 
 Use [Java App Sample](../java/).
 
+> **NOTE**: If you use GitHub Codespaces, make sure that the Java app port, `8080`, is set to **public**.
+
 ### Run Blazor Frontend
 
 1. Get the repository root.

@@ -17,10 +17,28 @@ Refer to the [README](../README.md) doc for preparation.
 
 ### Getting Started
 
-1. Make sure that Docker Desktop is running.
+1. Make sure that Docker is running.
 
     ```bash
     docker info
+    ```
+
+1. Get the repository root.
+
+    ```bash
+    # bash/zsh
+    REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+    ```
+
+    ```powershell
+    # PowerShell
+    $REPOSITORY_ROOT = git rev-parse --show-toplevel
+    ```
+
+1. Navigate to the `complete` directory.
+
+    ```bash
+    cd $REPOSITORY_ROOT/complete
     ```
 
 1. Run the containerized apps.
@@ -29,7 +47,7 @@ Refer to the [README](../README.md) doc for preparation.
     docker compose up --build -d
     ```
 
-1. Open a web browser and navigate to `http://localhost:3000`.
+1. Open a web browser and navigate to `http://localhost:3030`.
 1. Verify if the web application is running properly.
 1. Clean up by running the following command to remove the containerized apps.
 

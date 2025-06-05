@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy the project files
-COPY ["dotnet/Contoso.BlazorApp/Contoso.BlazorApp.csproj", "src/Contoso.BlazorApp/"]
-RUN dotnet restore "src/Contoso.BlazorApp/Contoso.BlazorApp.csproj"
+COPY ["dotnet/Contoso.BlazorApp/Contoso.BlazorApp.csproj", "Contoso.BlazorApp/"]
+RUN dotnet restore "Contoso.BlazorApp/Contoso.BlazorApp.csproj"
 
 # Copy the rest of the application code
-COPY ["dotnet/Contoso.BlazorApp/", "src/Contoso.BlazorApp/"]
+COPY ["dotnet/Contoso.BlazorApp/", "Contoso.BlazorApp/"]
 
 # Build the application
 WORKDIR "/src/Contoso.BlazorApp"

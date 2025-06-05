@@ -21,7 +21,7 @@ services:
     depends_on:
       - contoso-backend
     environment:
-      - ApiBaseUrl=http://contoso-backend:8080
+      - ApiSettings__BaseUrl=http://contoso-backend:8080
     networks:
       - contoso
 
