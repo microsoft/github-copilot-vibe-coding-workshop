@@ -104,7 +104,7 @@ Refer to the [README](../README.md) doc for preparation.
 1. Use prompt like below to migrate FastAPI to Spring Boot.
 
     ```text
-    Now, we're migrating the existing FastAPI-based API app to Spring Boot API app. Carefully read the entire PRD and `openapi.yaml`. Follow the instructions below for the migration.
+    Now, we're migrating the existing FastAPI-based API app to Spring Boot API app. Follow the instructions below for the migration.
     
     - Use context7.
     - The existing FastAPI application is located at `python`.
