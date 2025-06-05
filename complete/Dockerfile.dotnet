@@ -3,19 +3,19 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy the project files
-COPY ["dotnet/ContosoSnsWebApp/ContosoSnsWebApp.csproj", "ContosoSnsWebApp/"]
-RUN dotnet restore "ContosoSnsWebApp/ContosoSnsWebApp.csproj"
+COPY ["dotnet/Contoso.BlazorApp/Contoso.BlazorApp.csproj", "src/Contoso.BlazorApp/"]
+RUN dotnet restore "src/Contoso.BlazorApp/Contoso.BlazorApp.csproj"
 
 # Copy the rest of the application code
-COPY ["dotnet/ContosoSnsWebApp/", "ContosoSnsWebApp/"]
+COPY ["dotnet/Contoso.BlazorApp/", "src/Contoso.BlazorApp/"]
 
 # Build the application
-WORKDIR "/src/ContosoSnsWebApp"
-RUN dotnet build "ContosoSnsWebApp.csproj" -c Release -o /app/build
+WORKDIR "/src/Contoso.BlazorApp"
+RUN dotnet build "Contoso.BlazorApp.csproj" -c Release -o /app/build
 
 # Stage 2: Publish the application
 FROM build AS publish
-RUN dotnet publish "ContosoSnsWebApp.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Contoso.BlazorApp.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Stage 3: Final stage with the runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
@@ -30,4 +30,4 @@ ENV DOTNET_RUNNING_IN_CONTAINER=true
 COPY --from=publish /app/publish .
 
 # Set the entry point for the container
-ENTRYPOINT ["dotnet", "ContosoSnsWebApp.dll"]
+ENTRYPOINT ["dotnet", "Contoso.BlazorApp.dll"]

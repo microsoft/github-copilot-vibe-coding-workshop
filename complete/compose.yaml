@@ -6,6 +6,8 @@ services:
     container_name: contoso-backend
     ports:
       - "5050:8080"
+    volumes:
+      - ./java/socialapp/sns_api.db:/app/sns_api.db
     networks:
       - contoso
 
