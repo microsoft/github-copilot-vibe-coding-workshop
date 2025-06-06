@@ -25,12 +25,12 @@ JavaScript開発者として、Python バックエンドAPIアプリと通信す
 
 1. GitHub Codespace または VS Code の上部にある GitHub Copilot アイコンをクリックして、GitHub Copilot ウィンドウを開きます。
 
-   ![GitHub Copilot Chat を開く](../../docs/images/setup-02.png)
+   ![GitHub Copilot Chat を開く](../../../docs/images/setup-02.png)
 
 1. ログインまたはサインアップを求められた場合は、実行してください。無料です。
 1. GitHub Copilot エージェントモードを使用していることを確認します。
 
-   ![GitHub Copilot エージェントモード](../../docs/images/setup-03.png)
+   ![GitHub Copilot エージェントモード](../../../docs/images/setup-03.png)
 
 1. モデルを `GPT-4.1` または `Claude Sonnet 4` のいずれかに選択します。
 1. [MCP サーバー](./00-setup.md#mcp-サーバーを設定)を設定していることを確認します。
@@ -98,7 +98,7 @@ JavaScript開発者として、Python バックエンドAPIアプリと通信す
 1. Figma MCP サーバーが実行されていることを確認します。
 1. [Figmaデザインテンプレート](https://www.figma.com/community/file/1495954632647006209)をアカウントにコピーします。
 
-   ![Figmaデザインテンプレートページ](../../docs/images/javascript-01.png)
+   ![Figmaデザインテンプレートページ](../../../docs/images/javascript-01.png)
 
 1. 各セクション（`Home`、`Search`、`Post Details`、`Post Modal`、`Name Input Modal`）を右クリック 👉 `Copy/Paste as` を選択 👉 `Copy link to selection` を選択して、各セクションへのリンクを取得します。5つのリンクすべてをメモしてください。
 

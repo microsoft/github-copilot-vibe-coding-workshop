@@ -24,7 +24,7 @@
 
 1. 下の画像を確認し、![「code」ボタンの画像](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![「codespaces」ボタンの画像](https://img.shields.io/badge/Codespaces-white) 👉 ![「create codespace on main」ボタンの画像](https://img.shields.io/badge/Create_codespace_on_main-green) の順序でクリックして、新しいGitHub Codespaceインスタンスを作成します。ネットワーク状況によって5-10分かかる可能性があります。
 
-   ![GitHub Codespaces で開始](../../docs/images/setup-01.png)
+   ![GitHub Codespaces で開始](../../../docs/images/setup-01.png)
 
 2. GitHub Codespaceインスタンスの準備ができたら、ターミナルを開いて以下のコマンドを実行し、必要なものがすべて適切にインストールされているかどうかを確認します。
 
@@ -290,12 +290,12 @@
 
 1. GitHub Codespace または VS Code の上部にある GitHub Copilot アイコンをクリックして、GitHub Copilot ウィンドウを開きます。
 
-   ![GitHub Copilot Chat を開く](../../docs/images/setup-02.png)
+   ![GitHub Copilot Chat を開く](../../../docs/images/setup-02.png)
 
 1. ログインまたはサインアップを求められた場合は、実行してください。無料です。
 1. GitHub Copilot エージェントモードを使用していることを確認します。
 
-   ![GitHub Copilot エージェントモード](../../docs/images/setup-03.png)
+   ![GitHub Copilot エージェントモード](../../../docs/images/setup-03.png)
 
 1. モデルを `GPT-4.1` または `Claude Sonnet 4` のいずれかに選択します。
 

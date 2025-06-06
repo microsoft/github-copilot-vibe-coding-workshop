@@ -23,12 +23,12 @@ Contosoは様々なアウトドア活動用製品を販売する会社です。C
 
 1. GitHub Codespace または VS Code の上部にある GitHub Copilot アイコンをクリックして、GitHub Copilot ウィンドウを開きます。
 
-   ![GitHub Copilot Chat を開く](../../docs/images/setup-02.png)
+   ![GitHub Copilot Chat を開く](../../../docs/images/setup-02.png)
 
 1. ログインまたはサインアップを求められた場合は、実行してください。無料です。
 1. GitHub Copilot エージェントモードを使用していることを確認します。
 
-   ![GitHub Copilot エージェントモード](../../docs/images/setup-03.png)
+   ![GitHub Copilot エージェントモード](../../../docs/images/setup-03.png)
 
 1. モデルを `GPT-4.1` または `Claude Sonnet 4` のいずれかに選択します。
 1. [MCP サーバー](./00-setup.md#mcp-サーバーを設定)を設定していることを確認します。
