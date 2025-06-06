@@ -68,19 +68,19 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 아래와 같은 프롬프트를 사용하여 Blazor 웹 앱 프로젝트를 스캐폴드하세요.
 
     ```text
-    I'd like to scaffold a Blazor web app. Follow the instructions below.
+    Blazor 웹 앱을 스캐폴드하고 싶습니다. 아래 지침을 따르세요.
 
-    - Use context7.
-    - Your working directory is `dotnet`.
-    - Identify all the steps first, which you're going to do.
-    - Show me the list of .NET projects related to Blazor and ask me to choose.
-    - Generate a Blazor project.
-    - Use the project name of `Contoso.BlazorApp`.
-    - Update `launchSettings.json` to change the port number of `3031` for HTTP, `43031` for HTTPS.
-    - Create a solution, `ContosoWebApp`, and add the Blazor project into this solution.
-    - Build the Blazor app and verify if the app is built properly.
-    - Run this Blazor app and verify if the app is running properly.
-    - If either building or running the app fails, analyze the issues and fix them.
+    - context7을 사용하세요.
+    - 작업 디렉토리는 `dotnet`입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - Blazor와 관련된 .NET 프로젝트 목록을 보여주고 선택하도록 요청하세요.
+    - Blazor 프로젝트를 생성하세요.
+    - 프로젝트 이름으로 `Contoso.BlazorApp`을 사용하세요.
+    - HTTP는 `3031`, HTTPS는 `43031` 포트 번호로 변경하도록 `launchSettings.json`을 업데이트하세요.
+    - `ContosoWebApp` 솔루션을 생성하고 이 솔루션에 Blazor 프로젝트를 추가하세요.
+    - Blazor 앱을 빌드하고 앱이 제대로 빌드되는지 확인하세요.
+    - 이 Blazor 앱을 실행하고 앱이 제대로 실행되는지 확인하세요.
+    - 빌드나 앱 실행이 실패하면 문제를 분석하고 수정하세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -90,7 +90,7 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. Spring Boot 백엔드 앱이 실행 중인지 확인하세요.
 
     ```text
-    Run the Spring Boot backend API, which is located at the `java` directory.
+    `java` 디렉토리에 위치한 Spring Boot 백엔드 API를 실행하세요.
     ```
 
    > **참고**: 대신 [`complete/java`](../complete/java/) 샘플 앱을 사용할 수도 있습니다.
@@ -104,28 +104,28 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 아래와 같은 프롬프트를 사용하여 React를 Blazor로 마이그레이션하세요.
 
     ```text
-    Now, we're migrating the existing React-based web app to Blazor web app. Follow the instructions below for the migration.
+    이제 기존 React 기반 웹 앱을 Blazor 웹 앱으로 마이그레이션하겠습니다. 마이그레이션을 위해 아래 지침을 따르세요.
     
-    - Use context7.
-    - The existing React application is located at `javascript`.
-    - Your working directory is `dotnet/Contoso.BlazorApp`.
-    - Identify all the steps first, which you're going to do.
-    - There's a backend API app running on `http://localhost:8080`.
-    - Analyze the application structure of the existing React app.
-    - Migrate all the React components to Blazor ones. Both corresponding components should be as exactly close to each other as possible.
-    - Migrate all necessary CSS elements from React to Blazor.
-    - While migrating JavaScript elements from React to Blazor, maximize using Blazor's native features as much as possible. If you have to use JavaScript, use Blazor's JSInterop features.
-    - If necessary, add NuGet packages that are compatible with .NET 9.
+    - context7을 사용하세요.
+    - 기존 React 애플리케이션은 `javascript`에 위치합니다.
+    - 작업 디렉토리는 `dotnet/Contoso.BlazorApp`입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - `http://localhost:8080`에서 실행 중인 백엔드 API 앱이 있습니다.
+    - 기존 React 앱의 애플리케이션 구조를 분석하세요.
+    - 모든 React 컴포넌트를 Blazor 컴포넌트로 마이그레이션하세요. 두 해당 컴포넌트는 서로 최대한 정확히 유사해야 합니다.
+    - React에서 Blazor로 필요한 모든 CSS 요소를 마이그레이션하세요.
+    - React에서 Blazor로 JavaScript 요소를 마이그레이션하는 동안 Blazor의 네이티브 기능을 최대한 활용하세요. JavaScript를 사용해야 하는 경우 Blazor의 JSInterop 기능을 사용하세요.
+    - 필요한 경우 .NET 9와 호환되는 NuGet 패키지를 추가하세요.
     ```
 
 1. 마이그레이션이 완료되면, 아래와 같은 프롬프트를 사용하여 마이그레이션 결과를 확인하세요.
 
     ```text
-    I'd like to build the Blazor app. Follow the instructions.
+    Blazor 앱을 빌드하고 싶습니다. 지침을 따르세요.
 
-    - Use context7.
-    - Build the Blazor app and verify if the app is built properly.
-    - If building the app fails, analyze the issues and fix them.
+    - context7을 사용하세요.
+    - Blazor 앱을 빌드하고 앱이 제대로 빌드되는지 확인하세요.
+    - 앱 빌드가 실패하면 문제를 분석하고 수정하세요.
     ```
 
    > **참고**:
@@ -137,12 +137,12 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 빌드가 성공하면, 아래와 같은 프롬프트를 사용하여 마이그레이션 결과를 확인하세요.
 
     ```text
-    I'd like to run the Blazor app. Follow the instructions.
+    Blazor 앱을 실행하고 싶습니다. 지침을 따르세요.
 
-    - Use context7.
-    - Run this Blazor app and verify if the app is running properly.
-    - Ignore backend API app connection error at this stage.
-    - If running the app fails, analyze the issues and fix them.
+    - context7을 사용하세요.
+    - 이 Blazor 앱을 실행하고 앱이 제대로 실행되는지 확인하세요.
+    - 이 단계에서는 백엔드 API 앱 연결 오류를 무시하세요.
+    - 앱 실행이 실패하면 문제를 분석하고 수정하세요.
     ```
 
 ### Blazor 프론트엔드 앱 검증
@@ -150,16 +150,16 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. Spring Boot 백엔드 앱이 실행 중인지 확인하세요.
 
     ```text
-    Run the Spring Boot backend API, which is located at the `java` directory.
+    `java` 디렉토리에 위치한 Spring Boot 백엔드 API를 실행하세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
 1. 제대로 빌드되었는지 확인하세요.
 
     ```text
-    Run the Blazor app and verify if the app is properly running.
+    Blazor 앱을 실행하고 앱이 제대로 실행되는지 확인하세요.
 
-    If app running fails, analyze the issues and fix them.
+    앱 실행이 실패하면 문제를 분석하고 수정하세요.
     ```
 
 1. 웹 브라우저를 열고 `http://localhost:3031`로 이동하세요.

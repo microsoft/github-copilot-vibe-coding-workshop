@@ -70,16 +70,16 @@ JavaScript 개발자로서, Python 백엔드 API 앱과 통신하는 React를 �
 1. 아래와 같은 프롬프트를 사용하여 React 웹 앱 프로젝트를 스캐폴드하세요.
 
     ```text
-    I'd like to scaffold a React web app. Follow the instructions below.
+    React 웹 앱을 스캐폴드하고 싶습니다. 아래 지침을 따르세요.
     
-    - Make sure it's the web app, not the mobile app.
-    - Your working directory is `javascript`.
-    - Identify all the steps first, which you're going to do.
-    - Use ViteJS as the frontend app framework.
-    - Use default settings when initializing the project.
-    - Use `SimpleSocialMediaApplication` as the name of the project while initializing.
-    - Use the port number of `3000`.
-    - Only initialize the project. DO NOT go further.
+    - 모바일 앱이 아닌 웹 앱인지 확인하세요.
+    - 작업 디렉토리는 `javascript`입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - 프론트엔드 앱 프레임워크로 ViteJS를 사용하세요.
+    - 프로젝트 초기화 시 기본 설정을 사용하세요.
+    - 초기화할 때 프로젝트 이름으로 `SimpleSocialMediaApplication`을 사용하세요.
+    - 포트 번호는 `3000`을 사용하세요.
+    - 프로젝트 초기화만 하세요. 더 이상 진행하지 마세요.
     ```
 
 1. GitHub Copilot의 ![the "keep" button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -107,7 +107,7 @@ JavaScript 개발자로서, Python 백엔드 API 앱과 통신하는 React를 �
 1. FastAPI 백엔드 앱이 실행 중인지 확인하세요.
 
     ```text
-    Run the FastAPI backend API, which is located at the `python` directory.
+    `python` 디렉토리에 위치한 FastAPI 백엔드 API를 실행하세요.
     ```
 
    > **참고**: 대신 [`complete/python`](../complete/python/) 샘플 앱을 사용할 수도 있습니다.
@@ -123,18 +123,18 @@ JavaScript 개발자로서, Python 백엔드 API 앱과 통신하는 React를 �
 1. 요구사항과 OpenAPI 문서를 기반으로 애플리케이션을 구축하기 위해 아래와 같은 프롬프트를 사용하세요.
 
     ```text
-    I'd like to build a React web app. Follow the instructions below.
+    React 웹 앱을 구축하고 싶습니다. 아래 지침을 따르세요.
     
-    - Your working directory is `javascript`.
-    - Identify all the steps first, which you're going to do.
-    - There's a backend API app running on `http://localhost:8000`.
-    - Use `openapi.yaml` that describes all the endpoints and data schema.
-    - Use the port number of `3000`.
-    - Create all the UI components defined in this link: {{FIGMA_SECTION_LINK}}.
-    - DO NOT add anything not related to the UI components.
-    - DO NOT add anything not defined in `openapi.yaml`.
-    - DO NOT modify anything defined in `openapi.yaml`.
-    - Give visual indication when the backend API is unavailable or unreachable for any reason.
+    - 작업 디렉토리는 `javascript`입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - `http://localhost:8000`에서 실행 중인 백엔드 API 앱이 있습니다.
+    - 모든 엔드포인트와 데이터 스키마를 설명하는 `openapi.yaml`을 사용하세요.
+    - 포트 번호는 `3000`을 사용하세요.
+    - 이 링크에 정의된 모든 UI 컴포넌트를 생성하세요: {{FIGMA_SECTION_LINK}}.
+    - UI 컴포넌트와 관련이 없는 것은 추가하지 마세요.
+    - `openapi.yaml`에 정의되지 않은 것은 추가하지 마세요.
+    - `openapi.yaml`에 정의된 것을 수정하지 마세요.
+    - 어떤 이유로든 백엔드 API를 사용할 수 없거나 연결할 수 없을 때 시각적 표시를 제공하세요.
     ```
 
 1. 나머지 4개의 Figma 디자인 링크에 대해 4번 더 반복하세요.
@@ -145,15 +145,15 @@ JavaScript 개발자로서, Python 백엔드 API 앱과 통신하는 React를 �
 1. FastAPI 백엔드 앱이 실행 중인지 확인하세요.
 
     ```text
-    Run the FastAPI backend API, which is located at the `python` directory.
+    `python` 디렉토리에 위치한 FastAPI 백엔드 API를 실행하세요.
     ```
 
 1. 제대로 빌드되었는지 확인하세요.
 
     ```text
-    Run the React app and verify if the app is properly running.
+    React 앱을 실행하고 앱이 제대로 실행되는지 확인하세요.
 
-    If app running fails, analyze the issues and fix them.
+    앱 실행이 실패하면 문제를 분석하고 수정하세요.
     ```
 
 1. 웹 브라우저를 열고 `http://localhost:3000`으로 이동하세요.

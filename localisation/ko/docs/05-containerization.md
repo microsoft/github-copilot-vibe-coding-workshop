@@ -68,16 +68,16 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 아래와 같은 프롬프트를 사용하여 Java 앱의 컨테이너 이미지를 빌드하세요.
 
     ```text
-    I'd like to build a container image of a Java app. Follow the instructions below.
+    Java 앱의 컨테이너 이미지를 빌드하고 싶습니다. 아래 지침을 따르세요.
 
-    - The Java app is located at `java`.
-    - Your working directory is the repository root.
-    - Identify all the steps first, which you're going to do.
-    - Create a Dockerfile, `Dockerfile.java`.
-    - Use Microsoft OpenJDK 21.
-    - Use multi-stage build approach.
-    - Extract JRE from JDK.
-    - Use the target port number of `8080` for the container image.
+    - Java 앱은 `java`에 위치합니다.
+    - 작업 디렉토리는 저장소 루트입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - `Dockerfile.java` Dockerfile을 생성하세요.
+    - Microsoft OpenJDK 21을 사용하세요.
+    - 멀티 스테이지 빌드 방식을 사용하세요.
+    - JDK에서 JRE를 추출하세요.
+    - 컨테이너 이미지의 대상 포트 번호로 `8080`을 사용하세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -85,12 +85,12 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. `Dockerfile.java`가 생성되면, 다음 프롬프트로 컨테이너 이미지를 빌드하세요.
 
     ```text
-    Use `Dockerfile.java` and build a container image.
+    `Dockerfile.java`를 사용하여 컨테이너 이미지를 빌드하세요.
 
-    - Use `contoso-backend` as the container image name.
-    - Use `latest` as the container image tag.
-    - Verify if the container image is built properly.
-    - If the build fails, analyze the issues and fix them.
+    - 컨테이너 이미지 이름으로 `contoso-backend`를 사용하세요.
+    - 컨테이너 이미지 태그로 `latest`를 사용하세요.
+    - 컨테이너 이미지가 제대로 빌드되는지 확인하세요.
+    - 빌드가 실패하면 문제를 분석하고 수정하세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -98,9 +98,9 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 빌드가 성공하면, 다음 프롬프트로 컨테이너 이미지를 실행하세요.
 
     ```text
-    Use the container image just built, run a container and verify if the app is running properly.
+    방금 빌드한 컨테이너 이미지를 사용하여 컨테이너를 실행하고 앱이 제대로 실행되는지 확인하세요.
     
-    - Use the host port of `8080`.
+    - 호스트 포트로 `8080`을 사용하세요.
     ```
 
 ### .NET 애플리케이션 컨테이너화
@@ -109,15 +109,15 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 아래와 같은 프롬프트를 사용하여 .NET 앱의 컨테이너 이미지를 빌드하세요.
 
     ```text
-    I'd like to build a container image of a .NET app. Follow the instructions below.
+    .NET 앱의 컨테이너 이미지를 빌드하고 싶습니다. 아래 지침을 따르세요.
 
-    - The .NET app is located at `dotnet`.
-    - Your working directory is the repository root.
-    - Identify all the steps first, which you're going to do.
-    - Create a Dockerfile, `Dockerfile.dotnet`.
-    - Use .NET 9.
-    - Use multi-stage build approach.
-    - Use the target port number of `8080` for the container image.
+    - .NET 앱은 `dotnet`에 위치합니다.
+    - 작업 디렉토리는 저장소 루트입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - `Dockerfile.dotnet` Dockerfile을 생성하세요.
+    - .NET 9를 사용하세요.
+    - 멀티 스테이지 빌드 방식을 사용하세요.
+    - 컨테이너 이미지의 대상 포트 번호로 `8080`을 사용하세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -125,12 +125,12 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. `Dockerfile.dotnet`이 생성되면, 다음 프롬프트로 컨테이너 이미지를 빌드하세요.
 
     ```text
-    Use `Dockerfile.dotnet` and build a container image.
+    `Dockerfile.dotnet`을 사용하여 컨테이너 이미지를 빌드하세요.
 
-    - Use `contoso-frontend` as the container image name.
-    - Use `latest` as the container image tag.
-    - Verify if the container image is built properly.
-    - If the build fails, analyze the issues and fix them.
+    - 컨테이너 이미지 이름으로 `contoso-frontend`를 사용하세요.
+    - 컨테이너 이미지 태그로 `latest`를 사용하세요.
+    - 컨테이너 이미지가 제대로 빌드되는지 확인하세요.
+    - 빌드가 실패하면 문제를 분석하고 수정하세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -138,15 +138,15 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 빌드가 성공하면, 다음 프롬프트로 컨테이너 이미지를 실행하세요.
 
     ```text
-    Use the container image just built, run a container and verify if the app is running properly.
+    방금 빌드한 컨테이너 이미지를 사용하여 컨테이너를 실행하고 앱이 제대로 실행되는지 확인하세요.
     
-    - Use the host port of `3030`.
+    - 호스트 포트로 `3030`을 사용하세요.
     ```
 
 1. 프론트엔드와 백엔드 앱이 서로를 알지 못하므로 아직 통신하지 않는지 확인하세요. 아래와 같은 프롬프트를 실행하세요.
 
     ```text
-    Regardless or not, remove both containers currently running.
+    상관없이 현재 실행 중인 두 컨테이너를 모두 제거하세요.
     ```
 
 ### 컨테이너 오케스트레이션
@@ -155,16 +155,16 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. 아래와 같은 프롬프트를 사용하여 Docker Compose 파일을 빌드하세요.
 
     ```text
-    I'd like to create a Docker Compose file. Follow the instructions below.
+    Docker Compose 파일을 생성하고 싶습니다. 아래 지침을 따르세요.
     
-    - Your working directory is the repository root.
-    - Use `Dockerfile.java` as a backend app.
-    - Use `Dockerfile.dotnet` as a frontend app.
-    - Create `compose.yaml` as the Docker Compose file.
-    - Use `contoso` as the network name.
-    - Use `contoso-backend` as the container name of the Java app. Its target port is 8080, and host port is 8080.
-    - Use `contoso-frontend` as the container name of the .NET app. Its target port is 8080, and host port is 3030.
-    - Mount the volume for the database that the Java app uses, `java/socialapp/sns_api.db`.
+    - 작업 디렉토리는 저장소 루트입니다.
+    - 백엔드 앱으로 `Dockerfile.java`를 사용하세요.
+    - 프론트엔드 앱으로 `Dockerfile.dotnet`을 사용하세요.
+    - Docker Compose 파일로 `compose.yaml`을 생성하세요.
+    - 네트워크 이름으로 `contoso`를 사용하세요.
+    - Java 앱의 컨테이너 이름으로 `contoso-backend`를 사용하세요. 대상 포트는 8080이고 호스트 포트는 8080입니다.
+    - .NET 앱의 컨테이너 이름으로 `contoso-frontend`를 사용하세요. 대상 포트는 8080이고 호스트 포트는 3030입니다.
+    - Java 앱이 사용하는 데이터베이스 `java/socialapp/sns_api.db`의 볼륨을 마운트하세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -172,7 +172,7 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. `compose.yaml` 파일이 생성되면, 실행하고 두 앱이 모두 제대로 실행되는지 확인하세요.
 
     ```text
-    Now, run the Docker compose file and verify if the apps are running properly.
+    이제 Docker compose 파일을 실행하고 앱들이 제대로 실행되는지 확인하세요.
     ```
 
 1. 웹 브라우저를 열고 `http://localhost:3030`으로 이동하여, 앱이 제대로 실행되고 있는지 확인하세요.

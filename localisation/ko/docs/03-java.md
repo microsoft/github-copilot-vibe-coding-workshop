@@ -74,24 +74,24 @@ Python 개발자가 회사를 떠났기 때문에, 이해관계자들은 기존 
 1. 아래와 같은 프롬프트를 사용하여 Spring Boot 앱 프로젝트를 스캐폴드하세요.
 
     ```text
-    I'd like to scaffold a Spring Boot app. Follow the instructions below.
+    Spring Boot 앱을 스캐폴드하고 싶습니다. 아래 지침을 따르세요.
 
-    - Use context7.
-    - Your working directory is `java`.
-    - Identify all the steps first, which you're going to do.
-    - Use Spring Boot CLI to create the Spring Boot app project.
-    - Use Gradle as the Java package manager.
-    - Use the package name of `com.contoso.socialapp`.
-    - Use the artifact ID of `socialapp`.
-    - Use the group ID of `com.contoso`.
-    - Use the package type of `jar`.
-    - Use OpenJDK version of `21`.
-    - Add dependencies - `Spring Web`, `Spring Boot Actuator` and `Lombok`.
-    - Use the port number of `8080`.
-    - Make sure to allow CORS from everywhere.
-    - Build the Spring Boot app and verify if the app is built properly.
-    - Run this Spring Boot app and verify if the app is running properly.
-    - If either building or running the app fails, analyze the issues and fix them.
+    - context7을 사용하세요.
+    - 작업 디렉토리는 `java`입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - Spring Boot CLI를 사용하여 Spring Boot 앱 프로젝트를 생성하세요.
+    - Java 패키지 매니저로 Gradle을 사용하세요.
+    - 패키지 이름으로 `com.contoso.socialapp`을 사용하세요.
+    - artifact ID로 `socialapp`을 사용하세요.
+    - group ID로 `com.contoso`를 사용하세요.
+    - 패키지 타입으로 `jar`를 사용하세요.
+    - OpenJDK 버전 `21`을 사용하세요.
+    - 의존성 추가 - `Spring Web`, `Spring Boot Actuator`, `Lombok`.
+    - 포트 번호는 `8080`을 사용하세요.
+    - 모든 곳에서 CORS를 허용하세요.
+    - Spring Boot 앱을 빌드하고 앱이 제대로 빌드되는지 확인하세요.
+    - 이 Spring Boot 앱을 실행하고 앱이 제대로 실행되는지 확인하세요.
+    - 빌드나 앱 실행이 실패하면 문제를 분석하고 수정하세요.
     ```
 
 1. GitHub Copilot의 ![the "keep" button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -104,34 +104,34 @@ Python 개발자가 회사를 떠났기 때문에, 이해관계자들은 기존 
 1. 아래와 같은 프롬프트를 사용하여 FastAPI를 Spring Boot로 마이그레이션하세요.
 
     ```text
-    Now, we're migrating the existing FastAPI-based API app to Spring Boot API app. Follow the instructions below for the migration.
+    이제 기존 FastAPI 기반 API 앱을 Spring Boot API 앱으로 마이그레이션하겠습니다. 마이그레이션을 위해 아래 지침을 따르세요.
     
-    - Use context7.
-    - The existing FastAPI application is located at `python`.
-    - Your working directory is `java/socialapp`.
-    - Identify all the steps first, which you're going to do.
-    - Analyze the application structure of the existing FastAPI app.
-    - Migrate all the endpoints. Both corresponding endpoints should be exactly the same as each other.
-    - Use SQLite as the database.
-    - Use `sns_api.db` as the name of the SQLite database.
-    - The database should always be initialized whenever starting the app.
-    - Use `openapi.yaml` that describes all the endpoints and data schema.
-    - The API application should render Swagger UI page through a default endpoint.
-    - The API application should render exactly the same OpenAPI document through a default endpoint.
-    - DO NOT add anything not defined in `openapi.yaml`.
-    - DO NOT modify anything defined in `openapi.yaml`.
-    - If necessary, add more packages for OpenAPI and Swagger UI.
+    - context7을 사용하세요.
+    - 기존 FastAPI 애플리케이션은 `python`에 위치합니다.
+    - 작업 디렉토리는 `java/socialapp`입니다.
+    - 먼저 수행할 모든 단계를 식별하세요.
+    - 기존 FastAPI 앱의 애플리케이션 구조를 분석하세요.
+    - 모든 엔드포인트를 마이그레이션하세요. 두 해당 엔드포인트는 서로 정확히 동일해야 합니다.
+    - 데이터베이스로 SQLite를 사용하세요.
+    - SQLite 데이터베이스 이름으로 `sns_api.db`를 사용하세요.
+    - 앱을 시작할 때마다 데이터베이스가 항상 초기화되어야 합니다.
+    - 모든 엔드포인트와 데이터 스키마를 설명하는 `openapi.yaml`을 사용하세요.
+    - API 애플리케이션은 기본 엔드포인트를 통해 Swagger UI 페이지를 렌더링해야 합니다.
+    - API 애플리케이션은 기본 엔드포인트를 통해 정확히 동일한 OpenAPI 문서를 렌더링해야 합니다.
+    - `openapi.yaml`에 정의되지 않은 것은 추가하지 마세요.
+    - `openapi.yaml`에 정의된 것을 수정하지 마세요.
+    - 필요한 경우 OpenAPI와 Swagger UI를 위한 추가 패키지를 추가하세요.
     ```
 
 1. GitHub Copilot의 ![the "keep" button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
 1. 마이그레이션이 완료되면, 아래와 같은 프롬프트를 사용하여 마이그레이션 결과를 확인하세요.
 
     ```text
-    I'd like to build the Spring Boot app. Follow the instructions.
+    Spring Boot 앱을 빌드하고 싶습니다. 지침을 따르세요.
 
-    - Use context7.
-    - Build the Spring Boot app and verify if the app is built properly.
-    - If building the app fails, analyze the issues and fix them.
+    - context7을 사용하세요.
+    - Spring Boot 앱을 빌드하고 앱이 제대로 빌드되는지 확인하세요.
+    - 앱 빌드가 실패하면 문제를 분석하고 수정하세요.
     ```
 
    > **참고**:
@@ -146,9 +146,9 @@ Python 개발자가 회사를 떠났기 때문에, 이해관계자들은 기존 
 1. 애플리케이션이 빌드되면, 제대로 작성되었는지 확인하세요.
 
     ```text
-    Run the Spring Boot app and verify if the app is properly running by checking all the endpoints. Also verify the OpenAPI endpoint renders exactly the same content as `openapi.yaml`.
+    Spring Boot 앱을 실행하고 모든 엔드포인트를 확인하여 앱이 제대로 실행되는지 확인하세요. 또한 OpenAPI 엔드포인트가 `openapi.yaml`과 정확히 동일한 콘텐츠를 렌더링하는지 확인하세요.
 
-    If app running fails, analyze the issues and fix them. Use context7.
+    앱 실행이 실패하면 문제를 분석하고 수정하세요. context7을 사용하세요.
     ```
 
 1. 웹 브라우저를 열고 `http://localhost:8080`으로 이동하세요.
