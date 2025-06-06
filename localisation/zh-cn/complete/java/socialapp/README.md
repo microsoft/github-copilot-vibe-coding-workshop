@@ -1,14 +1,14 @@
 # Java 应用示例
 
-一个全面的 Spring Boot REST API 应用程序，用于社交媒体平台，提供帖子、评论和点赞的完整 CRUD 操作。
+一个综合的 Spring Boot REST API 应用程序，用于社交媒体平台，具有帖子、评论和点赞的完整 CRUD 操作。
 
 ## 项目概述
 
-这是一个生产就绪的 Spring Boot 应用程序，具有以下规范：
+这是一个生产就绪的 Spring Boot 应用程序，具有以下规格：
 
 - **包名**: `com.contoso.socialapp`
-- **Artifact ID**: `socialapp`
-- **Group ID**: `com.contoso`
+- **构件 ID**: `socialapp`
+- **组 ID**: `com.contoso`
 - **包类型**: `jar`
 - **Java 版本**: OpenJDK 21
 - **构建工具**: Gradle
@@ -25,7 +25,7 @@
 - **SQLite**: 嵌入式数据库
 - **Hibernate Community Dialects**: SQLite 支持
 - **Springdoc OpenAPI**: API 文档（Swagger UI）
-- **Lombok**: 样板代码减少
+- **Lombok**: 减少样板代码
 
 ### 项目结构
 
@@ -41,7 +41,7 @@ src/
 │   │               │   ├── WebConfig.java            # CORS 配置
 │   │               │   └── OpenApiConfig.java        # Swagger/OpenAPI 配置
 │   │               ├── controller/
-│   │               │   ├── HealthController.java     # 健康端点
+│   │               │   ├── HealthController.java     # 健康检查端点
 │   │               │   ├── PostController.java       # 帖子管理
 │   │               │   └── CommentController.java    # 评论和点赞管理
 │   │               ├── model/
@@ -67,13 +67,13 @@ src/
                     └── SocialAppApplicationTests.java # 集成测试
 ```
 
-## 功能
+## 功能特性
 
 - ✅ 完整的社交媒体操作 RESTful API
 - ✅ 帖子管理（创建、读取、更新、删除）
 - ✅ 具有完整 CRUD 操作的评论系统
 - ✅ 点赞/取消点赞功能
-- ✅ 带有 JPA/Hibernate 的 SQLite 数据库
+- ✅ 使用 JPA/Hibernate 的 SQLite 数据库
 - ✅ OpenAPI/Swagger 文档
 - ✅ 为 localhost 和 GitHub Codespaces 启用 CORS
 - ✅ 动态服务器 URL 配置
@@ -86,7 +86,7 @@ src/
 
 ### 先决条件
 
-请参考 [README](../../../../README.md) 文档进行准备。
+请参考 [README](../../README.md) 文档进行准备。
 
 ### 1. 环境设置
 
@@ -124,7 +124,7 @@ chmod +x ./gradlew
 # 使用 Gradle 启动应用程序
 ./gradlew bootRun
 
-# 或者：直接运行 JAR 文件
+# 替代方案：直接运行 JAR 文件
 # java -jar build/libs/socialapp-0.0.1-SNAPSHOT.jar
 ```
 
@@ -134,19 +134,19 @@ chmod +x ./gradlew
 # 检查健康端点
 curl http://localhost:8080/api/health
 
-# 预期响应：{"status":"healthy"}
+# 期望响应: {"status":"healthy"}
 ```
 
 ### 5. 访问 API 文档
 
-在浏览器中打开并导航到：
+打开浏览器并导航到：
 
 - **Swagger UI**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 - **OpenAPI JSON**: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
 
 ## API 端点
 
-### 健康和欢迎
+### 健康检查和欢迎
 
 - `GET /api/health` - 自定义健康检查端点
 - `GET /api/welcome` - 欢迎消息端点
@@ -154,7 +154,7 @@ curl http://localhost:8080/api/health
 ### 帖子管理
 
 - `GET /api/posts` - 获取所有帖子
-- `GET /api/posts/{id}` - 通过 ID 获取特定帖子
+- `GET /api/posts/{id}` - 根据 ID 获取特定帖子
 - `POST /api/posts` - 创建新帖子
 - `PATCH /api/posts/{id}` - 更新现有帖子
 - `DELETE /api/posts/{id}` - 删除帖子
@@ -163,14 +163,14 @@ curl http://localhost:8080/api/health
 
 - `GET /api/posts/{postId}/comments` - 获取帖子的所有评论
 - `GET /api/posts/{postId}/comments/{commentId}` - 获取特定评论
-- `POST /api/posts/{postId}/comments` - 向帖子添加评论
+- `POST /api/posts/{postId}/comments` - 为帖子添加评论
 - `PATCH /api/posts/{postId}/comments/{commentId}` - 更新评论
 - `DELETE /api/posts/{postId}/comments/{commentId}` - 删除评论
 
 ### 点赞管理
 
-- `POST /api/posts/{postId}/like` - 点赞帖子
-- `DELETE /api/posts/{postId}/like` - 取消点赞帖子
+- `POST /api/posts/{postId}/like` - 为帖子点赞
+- `DELETE /api/posts/{postId}/like` - 取消帖子点赞
 
 ### Spring Boot Actuator
 
@@ -187,9 +187,9 @@ curl http://localhost:8080/api/health
 curl -X POST http://localhost:8080/api/posts \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "My First Post",
-    "content": "This is the content of my first post!",
-    "authorName": "John Doe"
+    "title": "我的第一篇帖子",
+    "content": "这是我第一篇帖子的内容！",
+    "authorName": "张三"
   }'
 ```
 
@@ -205,18 +205,18 @@ curl http://localhost:8080/api/posts
 curl -X POST http://localhost:8080/api/posts/1/comments \
   -H "Content-Type: application/json" \
   -d '{
-    "content": "Great post!",
-    "authorName": "Jane Smith"
+    "content": "很棒的帖子！",
+    "authorName": "李四"
   }'
 ```
 
-#### 点赞帖子
+#### 为帖子点赞
 
 ```bash
 curl -X POST http://localhost:8080/api/posts/1/like \
   -H "Content-Type: application/json" \
   -d '{
-    "userName": "john_doe"
+    "userName": "zhang_san"
   }'
 ```
 
@@ -224,8 +224,8 @@ curl -X POST http://localhost:8080/api/posts/1/like \
 
 1. 打开 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 2. 探索可用端点
-3. 在任何端点上点击"试用"
-4. 填写参数并点击"执行"
+3. 点击任何端点上的"Try it out"
+4. 填写参数并点击"Execute"
 
 ## 开发
 
@@ -235,7 +235,7 @@ curl -X POST http://localhost:8080/api/posts/1/like \
 # 运行所有测试
 ./gradlew test
 
-# 运行带覆盖率报告
+# 运行带覆盖率报告的测试
 ./gradlew test jacocoTestReport
 
 # 运行特定测试类
@@ -248,10 +248,10 @@ curl -X POST http://localhost:8080/api/posts/1/like \
 
 - **数据库文件**: `sns_api.db`（自动创建）
 - **位置**: 项目根目录
-- **架构**: 由 Hibernate 自动生成
+- **模式**: 由 Hibernate 自动生成
 - **示例数据**: 从 `data.sql` 加载（如果存在）
 
-要重置数据库，只需删除 `sns_api.db` 文件并重新启动应用程序。
+要重置数据库，只需删除 `sns_api.db` 文件并重启应用程序。
 
 ## 配置
 
@@ -289,7 +289,7 @@ springdoc.swagger-ui.operationsSorter=method
 
 ## 部署
 
-### 为生产构建
+### 为生产环境构建
 
 ```bash
 # 创建生产 JAR
@@ -299,7 +299,7 @@ springdoc.swagger-ui.operationsSorter=method
 ls -la build/libs/socialapp-0.0.1-SNAPSHOT.jar
 ```
 
-### 在生产中运行
+### 在生产环境中运行
 
 ```bash
 # 使用生产配置文件运行
@@ -313,7 +313,7 @@ java -jar build/libs/socialapp-0.0.1-SNAPSHOT.jar --server.port=8081
 
 ### 常见问题
 
-#### 端口已在使用
+#### 端口已被占用
 
 ```bash
 # 查找使用端口 8080 的进程
@@ -352,7 +352,7 @@ rm sns_api.db
 
 ## 安全考虑
 
-⚠️ **开发配置**: 当前设置针对开发进行了优化，具有：
+⚠️ **开发配置**: 当前设置针对开发进行了优化，包括：
 
 - 为所有来源启用 CORS
 - SQLite 数据库（不适合生产规模）
@@ -360,8 +360,8 @@ rm sns_api.db
 
 对于生产部署，请考虑：
 
-- 将 CORS 限制为特定域
+- 将 CORS 限制到特定域名
 - 使用 PostgreSQL/MySQL 而不是 SQLite
-- 实施 Spring Security 进行身份验证
+- 实现 Spring Security 进行身份验证
 - 添加速率限制和输入清理
 - 使用 HTTPS/TLS 加密

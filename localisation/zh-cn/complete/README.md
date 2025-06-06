@@ -1,21 +1,21 @@
 # 完整应用示例
 
-以下是完整应用示例的列表。因为它们也是氛围编程的，您可以查看它们是如何构建的。
+以下是完整应用示例的列表。由于它们也是通过氛围编程构建的，您可以查看它们是如何构建的。
 
-| 应用程序    | 位置                         |
+| 应用程序     | 位置                         |
 |-------------|------------------------------|
-| FastAPI     | [python](./python/)          |
-| React       | [javascript](./javascript/)  |
-| Spring Boot | [java](./java/)              |
-| Blazor      | [dotnet](./dotnet/)          |
+| FastAPI     | [python](./python/)         |
+| React       | [javascript](./javascript/) |
+| Spring Boot | [java](./java/)             |
+| Blazor      | [dotnet](./dotnet/)         |
 
 ## 容器化示例
 
 ### 先决条件
 
-请参考 [README](../../README.md) 文档进行准备。
+请参考 [README](../README.md) 文档进行准备。
 
-### 入门
+### 入门指南
 
 1. 确保 Docker 正在运行。
 
@@ -41,15 +41,15 @@
     cd $REPOSITORY_ROOT/complete
     ```
 
-1. 运行容器化应用程序。
+1. 运行容器化应用。
 
     ```bash
     docker compose up --build -d
     ```
 
-1. 打开网页浏览器并导航到 `http://localhost:3030`。
+1. 打开网络浏览器并导航到 `http://localhost:3030`。
 1. 验证 Web 应用程序是否正常运行。
-1. 通过运行以下命令清理以删除容器化应用程序。
+1. 通过运行以下命令清理并删除容器化应用。
 
     ```bash
     docker compose down --rmi all

@@ -2,15 +2,15 @@
 
 ## 先决条件
 
-请参考 [README](../../../README.md) 文档进行准备。
+请参考 [README](../../README.md) 文档进行准备。
 
-## 入门
+## 入门指南
 
 ### 运行 FastAPI 后端
 
 使用 [Python 应用示例](../python/)。
 
-> **注意**: 如果您使用 GitHub Codespaces，请确保 Python 应用端口 `8000` 设置为**公开**。
+> **注意**：如果您使用 GitHub Codespaces，请确保 Python 应用端口 `8000` 设置为**公共**。
 
 ### 运行 React 前端
 
@@ -33,11 +33,11 @@
     npm install
     ```
 
-1. 运行应用程序。
+1. 运行应用。
 
     ```bash
     npm run dev
     ```
 
-1. 打开网页浏览器并导航到 `http://localhost:3000`。
+1. 打开网络浏览器并导航到 `http://localhost:3000`。
 1. 验证 Web 应用程序是否正常运行。

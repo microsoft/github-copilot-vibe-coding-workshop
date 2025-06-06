@@ -2,19 +2,19 @@
 
 ![GitHub Copilot - Ghiblifiled](../../images/ghcp.jpg)
 
-让我们使用 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 及其在 Python、JavaScript、Java 和 .NET 等各种编程语言中的最新最强大的功能进行氛围编程，并通过容器化使应用程序云原生。你准备好开始了吗？
+让我们使用 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 及其在 Python、JavaScript、Java 和 .NET 等各种编程语言中的最新最强大功能进行氛围编程，并通过容器化让应用程序变得云原生。你准备好开始了吗？
 
 ## 背景
 
-Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部门希望启动一个微型社交媒体网站，为现有和潜在客户推广他们的产品。作为他们的第一个 MVP，他们希望快速构建网站。Contoso 的 IT 部门目前有两名开发人员，分别使用 Python 和 JavaScript。发布日期临近，因此两名开发人员都应该快速交付应用程序。
+Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部门希望启动一个微型社交媒体网站，为现有客户和潜在客户推广他们的产品。作为他们的第一个 MVP，他们希望快速构建网站。Contoso 的 IT 部门目前有两名开发人员，分别使用 Python 和 JavaScript。发布日期临近，因此两名开发人员都需要快速交付应用程序。
 
 但情况是这样的...
 
 ## 工作坊目标
 
 - 使用 GitHub Copilot 代理模式构建应用程序。
-- 向 GitHub Copilot 添加自定义说明，以便您更好地控制 GitHub Copilot。
-- 向 GitHub Copilot 添加各种 MCP 服务器，以便您更精确地构建应用程序。
+- 向 GitHub Copilot 添加自定义指令，以便更好地控制 GitHub Copilot。
+- 向 GitHub Copilot 添加各种 MCP 服务器，以便更精确地构建应用程序。
 
 ## 多语言工作坊
 
@@ -24,7 +24,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 
 ## 先决条件
 
-在此工作坊期间，强烈推荐使用 [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)，因为除了网络浏览器外无需任何准备。但是，如果您确实需要使用您的机器，请确保您已安装以下所有内容。
+在此工作坊期间，强烈推荐使用 [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)，因为除了网络浏览器外无需任何准备。但是，如果您确实需要使用自己的机器，请确保您已安装以下所有内容。
 
 ### 通用
 
@@ -38,7 +38,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 
 ### Python
 
-- [pyenv](https://github.com/pyenv/pyenv) 或 [pyenv for Windows](https://github.com/pyenv-win/pyenv-win)
+- [pyenv](https://github.com/pyenv/pyenv) 或 [Windows 版 pyenv](https://github.com/pyenv-win/pyenv-win)
 - 通过 pyenv 安装 Python 3.12+
 - `uv` 包管理器（推荐）或 `pip`
 - VS Code [Python](https://marketplace.visualstudio.com/items/?itemName=ms-python.python) 扩展
@@ -48,8 +48,8 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 
 ### JavaScript
 
-- [nvm](https://github.com/nvm-sh/nvm) 或 [nvm for Windows](https://github.com/coreybutler/nvm-windows)
-- 通过 nvm 安装最新的 LTS 版本 [Node.js](https://nodejs.org/)
+- [nvm](https://github.com/nvm-sh/nvm) 或 [Windows 版 nvm](https://github.com/coreybutler/nvm-windows)
+- 通过 nvm 安装最新 LTS 版本的 [Node.js](https://nodejs.org/)
 
 ### Java
 
@@ -74,26 +74,26 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 
 这是一个按照以下链接进行的自定进度工作坊：
 
-| 步骤                            | 链接                                                     |
-|---------------------------------|--------------------------------------------------------|
-| 00: 开发环境                     | [00-setup.md](./docs/00-setup.md)                      |
-| 01: Python 后端                 | [01-python.md](./docs/01-python.md)                    |
-| 02: JavaScript 前端             | [02-javascript.md](./docs/02-javascript.md)            |
-| 03: 从 Python 迁移到 Java       | [03-java.md](./docs/03-java.md)                        |
-| 04: 从 JavaScript 迁移到 .NET   | [04-dotnet.md](./docs/04-dotnet.md)                    |
-| 05: 容器化                      | [05-containerization.md](./docs/05-containerization.md) |
+| 步骤                              | 链接                                                      |
+|----------------------------------|----------------------------------------------------------|
+| 00: 开发环境                      | [00-setup.md](./docs/00-setup.md)                       |
+| 01: Python 后端                  | [01-python.md](./docs/01-python.md)                     |
+| 02: JavaScript 前端              | [02-javascript.md](./docs/02-javascript.md)             |
+| 03: 从 Python 迁移到 Java        | [03-java.md](./docs/03-java.md)                         |
+| 04: 从 JavaScript 迁移到 .NET    | [04-dotnet.md](./docs/04-dotnet.md)                     |
+| 05: 容器化                       | [05-containerization.md](./docs/05-containerization.md) |
 
 ## 完整示例
 
 查看每个应用程序的完整示例。它们也是使用 GitHub Copilot 进行氛围编程的，因此可能不完美，您不必完全遵循应用程序。
 
-| 语言                | 应用程序    | 位置                                 |
-|--------------------|-------------|-------------------------------------|
-| Python 后端        | FastAPI     | [python](./complete/python/)        |
-| JavaScript 前端    | React       | [javascript](./complete/javascript/) |
-| Java 后端          | Spring Boot | [java](./complete/java/)             |
-| .NET 前端          | Blazor      | [dotnet](./complete/dotnet/)         |
-| 容器化             | Container   | [containerization](./complete/)      |
+| 语言               | 应用程序     | 位置                                  |
+|-------------------|-------------|-------------------------------------|
+| Python 后端       | FastAPI     | [python](./complete/python/)        |
+| JavaScript 前端   | React       | [javascript](./complete/javascript/) |
+| Java 后端         | Spring Boot | [java](./complete/java/)             |
+| .NET 前端         | Blazor      | [dotnet](./complete/dotnet/)         |
+| 容器化            | Container   | [containerization](./complete/)      |
 
 ## 延伸阅读...
 
