@@ -1,6 +1,6 @@
 # GitHub Copilot Vibe 코딩 워크샵
 
-![GitHub Copilot - Ghiblifiled](./images/ghcp.jpg)
+![GitHub Copilot - Ghiblifiled](../../images/ghcp.jpg)
 
 Python, JavaScript, Java, .NET 등 다양한 프로그래밍 언어에서 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)과 최신 기능들로 바이브 코딩을 하고, 컨테이너화를 통해 앱을 클라우드 네이티브로 만들어 보세요. 뛰어들 준비가 되셨나요?
 
