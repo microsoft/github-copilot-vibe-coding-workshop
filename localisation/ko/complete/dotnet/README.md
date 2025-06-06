@@ -1,0 +1,35 @@
+# .NET 앱 샘플
+
+## 전제 조건
+
+준비를 위해 [README](../../README.md) 문서를 참조하세요.
+
+## 시작하기
+
+### Spring Boot 백엔드 실행
+
+[Java 앱 샘플](../java/)을 사용하세요.
+
+> **참고**: GitHub Codespaces를 사용하는 경우, Java 앱 포트 `8080`이 **public**으로 설정되어 있는지 확인하세요.
+
+### Blazor 프론트엔드 실행
+
+1. 저장소 루트를 가져오세요.
+
+    ```bash
+    # bash/zsh
+    REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+    ```
+
+    ```powershell
+    # PowerShell
+    $REPOSITORY_ROOT = git rev-parse --show-toplevel
+    ```
+
+1. 앱을 실행하세요.
+
+    ```bash
+    dotnet watch run --project $REPOSITORY_ROOT/complete/dotnet/Contoso.BlazorApp
+    ```
+
+1. 웹 애플리케이션이 제대로 실행되는지 확인하세요.
