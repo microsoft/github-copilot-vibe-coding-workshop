@@ -24,7 +24,7 @@
 
 1. 아래 이미지를 보고 다음 순서로 클릭하여 따라하세요: ![the "code" button image](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![the "codespaces" button image](https://img.shields.io/badge/Codespaces-white) 👉 ![the "create codespace on main" button image](https://img.shields.io/badge/Create_codespace_on_main-green)을 클릭하여 새로운 GitHub Codespace 인스턴스를 생성하세요. 네트워크 상태에 따라 5-10분 정도 걸릴 수 있습니다.
 
-   ![Starting with GitHub Codespaces](./images/setup-01.png)
+   ![Starting with GitHub Codespaces](../../../docs/images/setup-01.png)
 
 2. GitHub Codespace 인스턴스가 준비되면, 터미널을 열고 다음 명령을 실행하여 필요한 모든 것이 제대로 설치되었는지 확인하세요.
 
@@ -290,12 +290,12 @@
 
 1. GitHub Codespace 또는 VS Code 상단의 GitHub Copilot 아이콘을 클릭하고 GitHub Copilot 창을 여세요.
 
-   ![Open GitHub Copilot Chat](./images/setup-02.png)
+   ![Open GitHub Copilot Chat](../../../docs/images/setup-02.png)
 
 1. 로그인 또는 가입을 요청받으면 진행하세요. 무료입니다.
 1. GitHub Copilot 에이전트 모드를 사용하고 있는지 확인하세요.
 
-   ![GitHub Copilot Agent Mode](./images/setup-03.png)
+   ![GitHub Copilot Agent Mode](../../../docs/images/setup-03.png)
 
 1. 모델을 `GPT-4.1` 또는 `Claude Sonnet 4` 중 하나로 선택하세요.
 
