@@ -22,12 +22,12 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 
 1. 点击 GitHub Codespace 或 VS Code 顶部的 GitHub Copilot 图标，打开 GitHub Copilot 窗口。
 
-   ![打开 GitHub Copilot Chat](./images/setup-02.png)
+   ![打开 GitHub Copilot Chat](../../../docs/images/setup-02.png)
 
 1. 如果要求您登录或注册，请执行操作。这是免费的。
 1. 确保您使用的是 GitHub Copilot 代理模式。
 
-   ![GitHub Copilot 代理模式](./images/setup-03.png)
+   ![GitHub Copilot 代理模式](../../../docs/images/setup-03.png)
 
 1. 选择模型为 `GPT-4.1` 或 `Claude Sonnet 4`。
 1. 确保您已配置了 [MCP 服务器](./00-setup.md#设置-mcp-服务器)。
@@ -60,99 +60,121 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
               -Destination $REPOSITORY_ROOT/.github/ -Recurse -Force
     ```
 
-### 为应用程序创建 Dockerfile
+### 容器化 Java 应用程序
 
 1. 确保您使用的是带有 `Claude Sonnet 4` 或 `GPT-4.1` 模型的 GitHub Copilot 代理模式。
-1. 确保 `context7` MCP 服务器正在运行。
-1. 使用如下提示为每个应用程序创建 Dockerfile。
+1. 使用如下提示为 Java 应用构建容器镜像。
 
     ```text
-    我想为我的应用程序创建 Dockerfile。请为以下每个应用程序创建优化的 Dockerfile：
-    
-    - 使用 context7。
-    - Python FastAPI 应用程序（位于 `python` 目录）
-    - JavaScript React 应用程序（位于 `javascript` 目录）
-    - Java Spring Boot 应用程序（位于 `java` 目录）
-    - .NET Blazor 应用程序（位于 `dotnet` 目录）
-    
-    每个 Dockerfile 应该：
-    - 使用适当的基础镜像
-    - 优化层缓存
-    - 使用多阶段构建（如果适用）
-    - 包含健康检查
-    - 遵循最佳实践
+    我想为 Java 应用构建容器镜像。请按照以下说明操作。
+
+    - Java 应用位于 `java`。
+    - 您的工作目录是存储库根目录。
+    - 首先确定您要执行的所有步骤。
+    - 创建一个 Dockerfile，`Dockerfile.java`。
+    - 使用 Microsoft OpenJDK 21。
+    - 使用多阶段构建方法。
+    - 从 JDK 提取 JRE。
+    - 为容器镜像使用目标端口号 `8080`。
     ```
 
-### 创建 Docker Compose 配置
+1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
+
+1. 创建 `Dockerfile.java` 后，使用以下提示构建容器镜像。
+
+    ```text
+    使用 `Dockerfile.java` 并构建容器镜像。
+
+    - 使用 `contoso-backend` 作为容器镜像名称。
+    - 使用 `latest` 作为容器镜像标签。
+    - 验证容器镜像是否正确构建。
+    - 如果构建失败，分析问题并修复它们。
+    ```
+
+1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
+
+1. 构建成功后，使用以下提示运行容器镜像。
+
+    ```text
+    使用刚刚构建的容器镜像，运行容器并验证应用是否正常运行。
+    
+    - 使用主机端口 `8080`。
+    ```
+
+### 容器化 .NET 应用程序
 
 1. 确保您使用的是带有 `Claude Sonnet 4` 或 `GPT-4.1` 模型的 GitHub Copilot 代理模式。
-1. 确保 `context7` MCP 服务器正在运行。
-1. 使用如下提示创建 Docker Compose 配置。
+1. 使用如下提示为 .NET 应用构建容器镜像。
 
     ```text
-    我想创建一个 Docker Compose 配置来编排我的所有应用程序。请创建一个 `docker-compose.yml` 文件，其中包含：
-    
-    - 使用 context7。
-    - Python FastAPI 后端服务
-    - Java Spring Boot 后端服务
-    - JavaScript React 前端服务
-    - .NET Blazor 前端服务
-    - 适当的网络配置
-    - 卷挂载（如果需要）
-    - 环境变量配置
-    - 端口映射
-    - 健康检查
-    - 依赖关系管理
-    
-    确保服务可以相互通信，并且前端可以访问后端 API。
+    我想为 .NET 应用构建容器镜像。请按照以下说明操作。
+
+    - .NET 应用位于 `dotnet`。
+    - 您的工作目录是存储库根目录。
+    - 首先确定您要执行的所有步骤。
+    - 创建一个 Dockerfile，`Dockerfile.dotnet`。
+    - 使用 .NET 9。
+    - 使用多阶段构建方法。
+    - 为容器镜像使用目标端口号 `8080`。
     ```
 
-### 构建和运行容器化应用
+1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
+
+1. 创建 `Dockerfile.dotnet` 后，使用以下提示构建容器镜像。
+
+    ```text
+    使用 `Dockerfile.dotnet` 并构建容器镜像。
+
+    - 使用 `contoso-frontend` 作为容器镜像名称。
+    - 使用 `latest` 作为容器镜像标签。
+    - 验证容器镜像是否正确构建。
+    - 如果构建失败，分析问题并修复它们。
+    ```
+
+1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
+
+1. 构建成功后，使用以下提示运行容器镜像。
+
+    ```text
+    使用刚刚构建的容器镜像，运行容器并验证应用是否正常运行。
+    
+    - 使用主机端口 `3030`。
+    ```
+
+1. 确保前端和后端应用暂时无法相互通信，因为它们还不知道彼此。运行如下提示。
+
+    ```text
+    无论如何，删除当前运行的两个容器。
+    ```
+
+### 编排容器
 
 1. 确保您使用的是带有 `Claude Sonnet 4` 或 `GPT-4.1` 模型的 GitHub Copilot 代理模式。
-1. 使用如下提示构建和运行应用程序。
+1. 使用如下提示构建 Docker Compose 文件。
 
     ```text
-    现在我想构建并运行容器化的应用程序。请执行以下操作：
+    我想创建一个 Docker Compose 文件。请按照以下说明操作。
     
-    - 使用 context7。
-    - 构建所有 Docker 镜像
-    - 使用 Docker Compose 启动所有服务
-    - 验证所有服务是否正常运行
-    - 测试服务之间的连接
-    - 提供访问应用程序的说明
-    
-    如果有任何问题，请诊断并修复它们。
+    - 您的工作目录是存储库根目录。
+    - 使用 `Dockerfile.java` 作为后端应用。
+    - 使用 `Dockerfile.dotnet` 作为前端应用。
+    - 创建 `compose.yaml` 作为 Docker Compose 文件。
+    - 使用 `contoso` 作为网络名称。
+    - 使用 `contoso-backend` 作为 Java 应用的容器名称。其目标端口是 8080，主机端口是 8080。
+    - 使用 `contoso-frontend` 作为 .NET 应用的容器名称。其目标端口是 8080，主机端口是 3030。
+    - 为 Java 应用使用的数据库挂载卷，`java/socialapp/sns_api.db`。
     ```
 
-1. 点击 GitHub Copilot 的 ![保持按钮图片](https://img.shields.io/badge/keep-blue) 按钮以接受更改。
-1. 验证所有服务是否正常运行：
+1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
 
-    ```bash
-    # 检查所有容器状态
-    docker compose ps
-    
-    # 查看日志
-    docker compose logs
+1. 创建 `compose.yaml` 文件后，运行它并验证两个应用是否正常运行。
+
+    ```text
+    现在，运行 Docker compose 文件并验证应用是否正常运行。
     ```
 
-1. 打开网络浏览器并测试应用程序：
-   - React 前端：`http://localhost:3000`
-   - Blazor 前端：`http://localhost:5000`
-   - Python API：`http://localhost:8000/docs`
-   - Java API：`http://localhost:8080/swagger-ui.html`
-
-1. 验证所有功能是否正常工作。
-1. 点击 GitHub Copilot 的 ![保持按钮图片](https://img.shields.io/badge/keep-blue) 按钮以接受更改。
+1. 打开 Web 浏览器并导航到 `http://localhost:3030`，验证应用是否正常运行。
 
 ---
 
-恭喜！🎉 您已完成了整个工作坊。您已经成功：
-
-1. ✅ 使用 FastAPI 构建了 Python 后端
-2. ✅ 使用 React 构建了 JavaScript 前端
-3. ✅ 将 Python 应用迁移到了 Java Spring Boot
-4. ✅ 将 JavaScript 应用迁移到了 .NET Blazor
-5. ✅ 将所有应用程序容器化
-
-您现在拥有一个完整的云原生社交媒体应用程序，可以部署到任何支持 Docker 的环境中！
+好的。您已经完成了"容器化"步骤。恭喜您完成了整个工作坊！

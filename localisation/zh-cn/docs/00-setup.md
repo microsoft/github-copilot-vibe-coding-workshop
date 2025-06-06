@@ -24,7 +24,7 @@
 
 1. 查看下图，按照点击顺序跟随以下步骤：![代码按钮图片](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![codespaces按钮图片](https://img.shields.io/badge/Codespaces-white) 👉 ![在main上创建codespace按钮图片](https://img.shields.io/badge/Create_codespace_on_main-green)，创建一个新的 GitHub Codespace 实例。根据网络状态，这可能需要 5-10 分钟。
 
-   ![开始使用 GitHub Codespaces](./images/setup-01.png)
+   ![开始使用 GitHub Codespaces](../../../docs/images/setup-01.png)
 
 2. GitHub Codespace 实例准备就绪后，打开终端并运行以下命令检查所需的所有内容是否已正确安装。
 
@@ -37,6 +37,7 @@
     # Node.js
     node --version
     npm --version
+
     ```
 
     ```bash
@@ -49,206 +50,302 @@
     dotnet --list-sdks
     ```
 
-    ```bash
-    # Docker
-    docker --version
-    ```
-
-    预期结果如下：
-
-    ```text
-    Python 3.12.7
-    v20.18.0
-    10.8.2
-    openjdk 21.0.4 2024-07-16 LTS
-    OpenJDK Runtime Environment Temurin-21.0.4+7 (build 21.0.4+7-LTS)
-    OpenJDK 64-Bit Server VM Temurin-21.0.4+7 (build 21.0.4+7-LTS, mixed mode, sharing)
-    9.0.101 [/usr/share/dotnet/sdk]
-    Docker version 24.0.9, build 2936816
-    ```
-
-    > **注意**：如果您看到上述类似结果，则一切准备就绪。如果不是，请确保您已正确按照先决条件进行设置。
-
-3. 运行以下命令检查 GitHub Copilot 扩展是否已正确安装。
+3. 检查您的存储库状态。
 
     ```bash
-    code --list-extensions | grep -i github.copilot
+    git remote -v
     ```
 
-    预期结果如下：
+   您应该能够看到以下内容。
 
-    ```text
-    GitHub.copilot
-    GitHub.copilot-chat
+    ```bash
+    origin  https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (fetch)
+    origin  https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (push)
     ```
 
-    > **注意**：如果您看到上述结果，则 GitHub Copilot 扩展已正确安装。如果不是，请确保您已正确按照先决条件进行设置。
+   如果您看到与上述不同的内容，请删除 GitHub Codespace 实例并重新创建。
 
-4. 您已准备好继续下一步！🎉
+4. 移至 [设置 MCP 服务器](#设置-mcp-服务器) 部分。
+
+**👇👇👇 相反，如果您想在本地机器上使用 VS Code，请按照下面的说明操作。下面的部分不适用于使用 GitHub Codespaces 的用户。👇👇👇**
 
 ## 使用 Visual Studio Code
 
-如果您真的想在本地机器上运行此工作坊，请按照以下步骤操作。
-
 ### 安装 PowerShell 👉 Windows 用户
 
-如果您使用 Windows，请确保安装了 PowerShell 7+。
+1. 检查您是否已经安装了 PowerShell。
 
-1. 访问 [PowerShell GitHub 发布页面](https://github.com/PowerShell/PowerShell/releases)，下载最新版本的 PowerShell。
-2. 安装 PowerShell。
-3. 打开 PowerShell 并运行以下命令检查版本。
-
-    ```powershell
-    $PSVersionTable.PSVersion
+    ```bash
+    # Bash/Zsh
+    which pwsh
     ```
 
-    预期结果如下：
-
-    ```text
-    Major  Minor  Patch  PreReleaseLabel BuildLabel
-    -----  -----  -----  --------------- ----------
-    7      4      6
+    ```bash
+    # PowerShell
+    Get-Command pwsh
     ```
 
-    > **注意**：如果您看到上述类似结果，则 PowerShell 已正确安装。如果不是，请重复安装步骤。
+   如果您没有看到 `pwsh` 的命令路径，这意味着您还没有安装 PowerShell。请访问 [PowerShell 安装页面](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) 并按照说明操作。
+
+1. 检查您的 PowerShell 版本。
+
+    ```bash
+    pwsh --version
+    ```
+
+   建议使用 `7.5.0` 或更高版本。如果您的版本低于该版本，请访问 [PowerShell 安装页面](https://learn.microsoft.com/powershell/scripting/install/installing-powershell) 并按照说明操作。
 
 ### 安装 git CLI
 
-1. 访问 [git 官方网站](https://git-scm.com/downloads)，下载适用于您操作系统的最新版本 git。
-2. 安装 git。
-3. 打开终端并运行以下命令检查版本。
+1. 检查您是否已经安装了 git CLI。
+
+    ```bash
+    # Bash/Zsh
+    which git
+    ```
+
+    ```bash
+    # PowerShell
+    Get-Command git
+    ```
+
+   如果您没有看到 `git` 的命令路径，这意味着您还没有安装 git CLI。请访问 [git CLI 安装页面](https://git-scm.com/downloads) 并按照说明操作。
+
+1. 检查您的 git CLI 版本。
 
     ```bash
     git --version
     ```
 
-    预期结果如下：
-
-    ```text
-    git version 2.47.1
-    ```
-
-    > **注意**：如果您看到上述类似结果，则 git 已正确安装。如果不是，请重复安装步骤。
+   建议使用 `2.39.0` 或更高版本。如果您的版本低于该版本，请访问 [git CLI 安装页面](https://git-scm.com/downloads) 并按照说明操作。
 
 ### 安装 GitHub CLI
 
-1. 访问 [GitHub CLI 官方网站](https://cli.github.com/)，下载适用于您操作系统的最新版本 GitHub CLI。
-2. 安装 GitHub CLI。
-3. 打开终端并运行以下命令检查版本。
+1. 检查您是否已经安装了 GitHub CLI。
+
+    ```bash
+    # Bash/Zsh
+    which gh
+    ```
+
+    ```bash
+    # PowerShell
+    Get-Command gh
+    ```
+
+   如果您没有看到 `gh` 的命令路径，这意味着您还没有安装 GitHub CLI。请访问 [GitHub CLI 安装页面](https://cli.github.com/) 并按照说明操作。
+
+1. 检查您的 GitHub CLI 版本。
 
     ```bash
     gh --version
     ```
 
-    预期结果如下：
+   建议使用 `2.65.0` 或更高版本。如果您的版本低于该版本，请访问 [GitHub CLI 安装页面](https://cli.github.com/) 并按照说明操作。
 
-    ```text
-    gh version 2.63.2 (2024-12-10)
-    https://github.com/cli/cli/releases/latest
+1. 检查您是否已经登录到 GitHub。
+
+    ```bash
+    gh auth status
     ```
 
-    > **注意**：如果您看到上述类似结果，则 GitHub CLI 已正确安装。如果不是，请重复安装步骤。
+   如果您还没有登录，请运行 `gh auth login` 并登录。
 
 ### 安装 Docker Desktop
 
-1. 访问 [Docker Desktop 官方网站](https://docs.docker.com/get-started/introduction/get-docker-desktop/)，下载适用于您操作系统的最新版本 Docker Desktop。
-2. 安装 Docker Desktop。
-3. 启动 Docker Desktop。
-4. 打开终端并运行以下命令检查版本。
+1. 检查您是否已经安装了 Docker Desktop。
+
+    ```bash
+    # Bash/Zsh
+    which docker
+    ```
+
+    ```bash
+    # PowerShell
+    Get-Command docker
+    ```
+
+   如果您没有看到 `docker` 的命令路径，这意味着您还没有安装 Docker Desktop。请访问 [Docker Desktop 安装页面](https://docs.docker.com/get-started/introduction/get-docker-desktop/) 并按照说明操作。
+
+1. 检查您的 Docker CLI 版本。
 
     ```bash
     docker --version
     ```
 
-    预期结果如下：
-
-    ```text
-    Docker version 24.0.9, build 2936816
-    ```
-
-    > **注意**：如果您看到上述类似结果，则 Docker Desktop 已正确安装和运行。如果不是，请重复安装步骤。
+   建议使用 `28.0.4` 或更高版本。如果您的版本低于该版本，请访问 [Docker Desktop 安装页面](https://docs.docker.com/get-started/introduction/get-docker-desktop/) 并按照说明操作。
 
 ### 安装 Visual Studio Code
 
-1. 访问 [Visual Studio Code 官方网站](https://code.visualstudio.com/)，下载适用于您操作系统的最新版本 Visual Studio Code。
-2. 安装 Visual Studio Code。
-3. 启动 Visual Studio Code。
-4. 安装 [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) 扩展。
-5. 安装 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) 扩展。
+1. 检查您是否已经安装了 VS Code。
+
+    ```bash
+    # Bash/Zsh
+    which code
+    ```
+
+    ```bash
+    # PowerShell
+    Get-Command code
+    ```
+
+   如果您没有看到 `code` 的命令路径，这意味着您还没有安装 VS Code。请访问 [Visual Studio Code 安装页面](https://code.visualstudio.com/) 并按照说明操作。
+
+1. 检查您的 VS Code 版本。
+
+    ```bash
+    code --version
+    ```
+
+   建议使用 `1.99.0` 或更高版本。如果您的版本低于该版本，请访问 [Visual Studio Code 安装页面](https://code.visualstudio.com/) 并按照说明操作。
+
+   > **注意**：您可能无法执行 `code` 命令。在这种情况下，请按照 [此文档](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line) 进行设置。
 
 ### 启动 Visual Studio Code
 
-1. 打开终端并运行以下命令，在当前目录中启动 Visual Studio Code。
+1. 创建一个工作目录。
+1. 运行命令来分叉此存储库并将其克隆到您的本地机器。
+
+    ```bash
+    gh repo fork microsoft/github-copilot-vibe-coding-workshop --clone
+    ```
+
+1. 导航到克隆的目录。
+
+    ```bash
+    cd github-copilot-vibe-coding-workshop
+    ```
+
+1. 从终端运行 VS Code。
 
     ```bash
     code .
     ```
 
-2. 运行以下命令检查 GitHub Copilot 扩展是否已正确安装。
+1. 在 VS Code 中打开一个新终端并运行以下命令检查您的存储库状态。
 
     ```bash
-    code --list-extensions | grep -i github.copilot
+    git remote -v
     ```
 
-    预期结果如下：
+   您应该能够看到以下内容。如果您在 `origin` 中看到 `microsoft`，应该从您分叉的存储库重新克隆。
 
-    ```text
-    GitHub.copilot
-    GitHub.copilot-chat
+    ```bash
+    origin  https://github.com/<your GitHub ID>/github-copilot-vibe-coding-workshop.git (fetch)
+    origin  https://github.com/<your GitHub ID>/github-copilot-vibe-coding-workshop.git (push)
+    upstream        https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (fetch)
+    upstream        https://github.com/microsoft/github-copilot-vibe-coding-workshop.git (push)
     ```
 
-    > **注意**：如果您看到上述结果，则 GitHub Copilot 扩展已正确安装。如果不是，请确保您已正确按照先决条件进行设置。
+1. 检查两个扩展是否都已安装 &ndash; [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) 和 [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)。
 
-3. 您已准备好继续下一步！🎉
+    ```bash
+    # Bash/Zsh
+    code --list-extensions | grep github.copilot
+    ```
+
+    ```powershell
+    # PowerShell
+    code --list-extensions | Select-String "github.copilot"
+    ```
+
+   如果您什么都没看到，这意味着您还没有安装这些扩展。运行以下命令来安装扩展。
+
+    ```bash
+    code --install-extension "github.copilot" --force && code --install-extension "github.copilot-chat" --force
+    ```
+
+### 设置 MCP 服务器
+
+1. 设置 `$REPOSITORY_ROOT` 环境变量。
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. 复制 MCP 服务器设置。
+
+    ```bash
+    # bash/zsh
+    cp -r $REPOSITORY_ROOT/docs/.vscode/. \
+          $REPOSITORY_ROOT/.vscode/
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/* `
+              -Destination $REPOSITORY_ROOT/.vscode/ -Recurse -Force
+    ```
+
+1. 通过按 F1 或在 Windows 上按 `Ctrl`+`Shift`+`P` 或在 Mac OS 上按 `Cmd`+`Shift`+`P` 打开命令面板，然后搜索 `MCP: List Servers`。
+1. 选择 `context7` 然后点击 `Start Server`。
 
 ## 检查 GitHub Copilot 代理模式
 
-GitHub Copilot 具有一个新功能，称为"代理模式"，可让您更有效地控制 GitHub Copilot。让我们检查它是否可用。
+1. 点击 GitHub Codespace 或 VS Code 顶部的 GitHub Copilot 图标，打开 GitHub Copilot 窗口。
 
-1. 打开 Visual Studio Code。
-2. 按 `Ctrl+Shift+P`（在 macOS 上为 `Cmd+Shift+P`）打开命令面板。
-3. 输入 `GitHub Copilot: Enable Agent Mode` 并按 `Enter`。
+   ![打开 GitHub Copilot Chat](../../../docs/images/setup-02.png)
 
-   > **注意**：如果您在命令面板中看不到此命令，请确保您已正确安装了 GitHub Copilot Chat 扩展。
+1. 如果要求您登录或注册，请这样做。这是免费的。
+1. 确保您正在使用 GitHub Copilot 代理模式。
 
-4. 一旦启用代理模式，您会在 Visual Studio Code 的左侧面板看到一个代理模式图标。
+   ![GitHub Copilot 代理模式](../../../docs/images/setup-03.png)
 
-   ![GitHub Copilot 代理模式](./images/setup-02.png)
-
-5. 您已准备好继续下一步！🎉
+1. 选择模型为 `GPT-4.1` 或 `Claude Sonnet 4`。
 
 ## 准备自定义指令
 
-自定义指令是一种让您更好地控制 GitHub Copilot 的方法。我们为每个编程语言准备了自定义指令。如果您想深入了解我们提供的自定义指令，请查看 [docs/custom-instructions](./custom-instructions/) 目录。
+1. 设置 `$REPOSITORY_ROOT` 环境变量。
 
-您可以稍后应用这些自定义指令，所以现在不用担心。
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. 复制自定义指令。
+
+    ```bash
+    # bash/zsh
+    cp -r $REPOSITORY_ROOT/docs/custom-instructions/setup/. \
+          $REPOSITORY_ROOT/.github/
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/custom-instructions/setup/* `
+              -Destination $REPOSITORY_ROOT/.github/ -Recurse -Force
+    ```
 
 ## 分析产品需求文档 (PRD) 和设计 API
 
-现在，您已设置好开发环境，是时候分析产品需求文档 (PRD) 并设计 API 了。
+1. 确保您正在使用 GitHub Copilot 代理模式，模型为 `Claude Sonnet 4` 或 `GPT-4.1`。
+1. 将 [`product-requirements.md`](../product-requirements.md) 添加到 GitHub Copilot。
+1. 为 GitHub Copilot 代理输入类似以下的提示，以便为您生成 OpenAPI 文档。这个 OpenAPI 文档将是您整个应用程序的基础。
 
-1. 通过单击 [`product-requirements.md`](../product-requirements.md) 打开产品需求文档。或者，使用以下路径：`./product-requirements.md`
+    ```text
+    这是为您准备的 PRD。仔细阅读整个 PRD 并为我做以下工作。
+    
+    - 首先确定所有步骤，您将要做什么。
+    - 生成 YAML 格式的 OpenAPI 文档。
+    - OpenAPI 文档应该捕获所有 API 端点、参数和请求/响应负载。
+    - 假设 API 服务器是 `http://localhost:8080`，基础 URL 是 `/api`。
+    - 将其保存到存储库根目录的 `openapi.yaml` 文件中。
+    ```
 
-   > **注意**：如果您使用 GitHub Codespaces，您可以在左侧面板的文件资源管理器中找到该文件。
-
-2. 仔细阅读 PRD 并了解要求。
-
-3. 基于 PRD，设计 API。您可以使用 [OpenAPI 3.0 规范](https://swagger.io/specification/) 来设计 API，或者只是写下伪代码。
-
-   > **提示**：GitHub Copilot 可以帮助您基于 PRD 设计 API。您可以询问 GitHub Copilot 类似："基于此 PRD，请为我设计一个 API"。
-
-4. 一旦完成 API 设计，您就可以开始编码了！
-
-5. 您已准备好继续下一步！🎉
+1. 验证 `openapi.yaml` 在存储库根目录中生成。
+1. 点击 GitHub Copilot 的 `[keep]` 按钮来保留 `openapi.yaml` 文件。
 
 ---
 
-## 下一步
-
-现在您已设置好开发环境，是时候开始编码了！请继续到下一步：
-
-- **01: Python 后端** 👉 [01-python.md](./01-python.md)
-- **02: JavaScript 前端** 👉 [02-javascript.md](./02-javascript.md)
-- **03: 从 Python 迁移到 Java** 👉 [03-java.md](./03-java.md)
-- **04: 从 JavaScript 迁移到 .NET** 👉 [04-dotnet.md](./04-dotnet.md)
-- **05: 容器化** 👉 [05-containerization.md](./05-containerization.md)
+好的。您已经完成了"开发环境"步骤。让我们继续 [步骤 01：Python 后端开发](./01-python.md)。
