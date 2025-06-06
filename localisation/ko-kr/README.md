@@ -16,6 +16,12 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 - GitHub Copilot에 커스텀 지시사항을 추가하여 GitHub Copilot을 더 잘 제어하기.
 - GitHub Copilot에 다양한 MCP 서버를 추가하여 애플리케이션을 더 정확하게 구축하기.
 
+## 다양한 언어로 제공되는 워크샵
+
+이 워크샵 자료는 현재 다음 언어로 제공됩니다:
+
+[English](../../README.md) | [Español](../es-es/) | [Português](../pt-br/) | [Français](../fr-fr/) | [中文(简体)](../zh-cn/) | [日本語](../ja-jp/) | [한국어](./README.md)
+
 ## 전제 조건
 
 이 워크샵에서는 웹 브라우저 외에 별도의 준비가 필요 없기 때문에 [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)를 적극 권장합니다. 하지만 정말로 본인의 머신을 사용해야 한다면, 아래에서 확인된 모든 것들을 설치했는지 확인하세요.
