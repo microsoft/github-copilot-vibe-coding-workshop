@@ -98,7 +98,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 1. 确保您正在运行 Figma MCP 服务器。
 1. 将 [Figma 设计模板](https://www.figma.com/community/file/1495954632647006209) 复制到您的账户。
 
-   ![Figma 设计模板页面](./images/javascript-01.png)
+   ![Figma 设计模板页面](../../../docs/images/javascript-01.png)
 
 1. 右击每个部分 - `Home`、`Search`、`Post Details`、`Post Modal` 和 `Name Input Modal` 👉 选择 `Copy/Paste as` 👉 选择 `Copy link to selection` 获取每个部分的链接。记录所有五个链接。
 
@@ -163,12 +163,3 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 ---
 
 好的。您已经完成了"JavaScript"步骤。让我们继续 [步骤 03：从 Python 迁移到 Java](./03-java.md)。
-    ```
-
-1. 打开网络浏览器并导航到 `http://localhost:3000`。
-1. 验证您可以创建帖子、查看帖子、添加评论和点赞。
-1. 点击 GitHub Copilot 的 ![保持按钮图片](https://img.shields.io/badge/keep-blue) 按钮以接受更改。
-
----
-
-好的。您已完成"JavaScript"步骤。让我们进入 [步骤 03: 从 Python 迁移到 Java](./03-java.md)。

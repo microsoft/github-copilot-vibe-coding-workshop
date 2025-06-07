@@ -158,7 +158,3 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 ---
 
 好的。您已经完成了"Java"步骤。让我们继续 [步骤 04：从 JavaScript 迁移到 .NET](./04-dotnet.md)。
-
----
-
-好的。您已完成"Java"步骤。让我们进入 [步骤 04: 从 JavaScript 迁移到 .NET](./04-dotnet.md)。

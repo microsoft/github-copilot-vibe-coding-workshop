@@ -171,21 +171,3 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 ---
 
 好的。您已经完成了".NET"步骤。让我们继续 [步骤 05：容器化](./05-containerization.md)。
-
-1. 点击 GitHub Copilot 的 ![保持按钮图片](https://img.shields.io/badge/keep-blue) 按钮以接受更改。
-1. 应用程序构建完成后，验证它是否正常工作。
-
-    ```text
-    运行 Blazor 应用并验证应用是否正常运行。确保应用可以与后端 API 通信。
-
-    如果应用运行失败，请分析问题并修复它们。
-    ```
-
-1. 确保 Java 后端正在 `http://localhost:8080` 上运行。
-1. 打开网络浏览器并导航到 `http://localhost:5000`。
-1. 验证您可以创建帖子、查看帖子、添加评论和点赞。
-1. 点击 GitHub Copilot 的 ![保持按钮图片](https://img.shields.io/badge/keep-blue) 按钮以接受更改。
-
----
-
-好的。您已完成".NET"步骤。让我们进入 [步骤 05: 容器化](./05-containerization.md)。
