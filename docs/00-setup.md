@@ -27,6 +27,10 @@ Refer to the [README](../README.md) doc for preparation.
 
    ![Starting with GitHub Codespaces](./images/setup-01.png)
 
+   Alternatively, click the link below:
+
+   [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
+
 2. Once the GitHub Codespace instance is ready, open a terminal and run the following command to check out everything you need has been properly installed or not.
 
     ```bash
