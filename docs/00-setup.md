@@ -16,6 +16,7 @@ Refer to the [README](../README.md) doc for preparation.
   - [Install Docker Desktop](#install-docker-desktop)
   - [Install Visual Studio Code](#install-visual-studio-code)
   - [Start Visual Studio Code](#start-visual-studio-code)
+  - [Set-up MCP Servers](#set-up-mcp-servers)
 - [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode)
 - [Prepare Custom Instructions](#prepare-custom-instructions)
 - [Analyze Product Requirements Document (PRD) and Design API](#analyze-product-requirements-document-prd-and-design-api)

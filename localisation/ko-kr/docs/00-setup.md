@@ -16,6 +16,7 @@
   - [Docker Desktop 설치](#docker-desktop-설치)
   - [Visual Studio Code 설치](#visual-studio-code-설치)
   - [Visual Studio Code 시작](#visual-studio-code-시작)
+  - [MCP 서버 설정](#mcp-서버-설정)
 - [GitHub Copilot 에이전트 모드 확인](#github-copilot-에이전트-모드-확인)
 - [커스텀 지시사항 준비](#커스텀-지시사항-준비)
 - [제품 요구사항 문서(PRD) 분석 및 API 설계](#제품-요구사항-문서prd-분석-및-api-설계)

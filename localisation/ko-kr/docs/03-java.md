@@ -18,6 +18,7 @@ Python 개발자가 회사를 떠났기 때문에, 이해관계자들은 기존 
 - [커스텀 지시사항 준비](#커스텀-지시사항-준비)
 - [Spring Boot 프로젝트 준비](#spring-boot-프로젝트-준비)
 - [FastAPI API 앱 마이그레이션](#fastapi-api-앱-마이그레이션)
+- [Spring Boot 백엔드 앱 검증](#spring-boot-백엔드-앱-검증)
 
 ### GitHub Copilot 에이전트 모드 확인
 

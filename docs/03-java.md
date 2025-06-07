@@ -18,6 +18,7 @@ Refer to the [README](../README.md) doc for preparation.
 - [Prepare Custom Instructions](#prepare-custom-instructions)
 - [Prepare Spring Boot Project](#prepare-spring-boot-project)
 - [Migrate FastAPI API App](#migrate-fastapi-api-app)
+- [Verify Spring Boot Backend App](#verify-spring-boot-backend-app)
 
 ### Check GitHub Copilot Agent Mode
 
