@@ -15,17 +15,17 @@ Consultez le document [README](../README.md) pour la préparation.
   - [Installer GitHub CLI](#installer-github-cli)
   - [Installer Docker Desktop](#installer-docker-desktop)
   - [Installer Visual Studio Code](#installer-visual-studio-code)
-  - [Démarrer Visual Studio Code](#demarrer-visual-studio-code)
+  - [Démarrer Visual Studio Code](#démarrer-visual-studio-code)
   - [Configurer les Serveurs MCP](#configurer-les-serveurs-mcp)
-- [Vérifier le Mode Agent GitHub Copilot](#verifier-le-mode-agent-github-copilot)
-- [Préparer les Instructions Personnalisées](#preparer-les-instructions-personnalisees)
+- [Vérifier le Mode Agent GitHub Copilot](#vérifier-le-mode-agent-github-copilot)
+- [Préparer les Instructions Personnalisées](#préparer-les-instructions-personnalisées)
 - [Analyser le Document d'Exigences Produit (PRD) et Concevoir l'API](#analyser-le-document-dexigences-produit-prd-et-concevoir-lapi)
 
 ## Utiliser GitHub Codespaces
 
 1. Regardez l'image ci-dessous et suivez les étapes dans l'ordre en cliquant sur ![l'image du bouton "code"](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![l'image du bouton "codespaces"](https://img.shields.io/badge/Codespaces-white) 👉 ![l'image du bouton "create codespace on main"](https://img.shields.io/badge/Create_codespace_on_main-green) et créez une nouvelle instance GitHub Codespace. Cela peut prendre 5-10 minutes selon le statut du réseau.
 
-   ![Commencer avec GitHub Codespaces](../../docs/images/setup-01.png)
+   ![Commencer avec GitHub Codespaces](../../../docs/images/setup-01.png)
 
 2. Une fois que l'instance GitHub Codespace est prête, ouvrez un terminal et exécutez la commande suivante pour vérifier si tout ce dont vous avez besoin a été installé correctement ou non.
 
@@ -291,12 +291,12 @@ Consultez le document [README](../README.md) pour la préparation.
 
 1. Cliquez sur l'icône GitHub Copilot en haut de GitHub Codespace ou VS Code et ouvrez la fenêtre GitHub Copilot.
 
-   ![Ouvrir GitHub Copilot Chat](../../docs/images/setup-02.png)
+   ![Ouvrir GitHub Copilot Chat](../../../docs/images/setup-02.png)
 
 1. Si on vous demande de vous connecter ou de vous inscrire, faites-le. C'est gratuit.
 1. Assurez-vous que vous utilisez le Mode Agent GitHub Copilot.
 
-   ![Mode Agent GitHub Copilot](../../docs/images/setup-03.png)
+   ![Mode Agent GitHub Copilot](../../../docs/images/setup-03.png)
 
 1. Sélectionnez le modèle soit `GPT-4.1` soit `Claude Sonnet 4`.
 

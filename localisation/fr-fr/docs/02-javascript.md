@@ -12,25 +12,25 @@ Consultez le document [README](../README.md) pour la préparation.
 
 ## Commencer
 
-- [Vérifier le Mode Agent GitHub Copilot](#verifier-le-mode-agent-github-copilot)
-- [Préparer les Instructions Personnalisées](#preparer-les-instructions-personnalisees)
-- [Préparer le Projet d'Application](#preparer-le-projet-dapplication)
-- [Préparer le Serveur MCP Figma](#preparer-le-serveur-mcp-figma)
-- [Générer les Composants UI depuis Figma](#generer-les-composants-ui-depuis-figma)
-- [Exécuter l'Application Backend FastAPI](#executer-lapplication-backend-fastapi)
+- [Vérifier le Mode Agent GitHub Copilot](#vérifier-le-mode-agent-github-copilot)
+- [Préparer les Instructions Personnalisées](#préparer-les-instructions-personnalisées)
+- [Préparer le Projet d'Application](#préparer-le-projet-dapplication)
+- [Préparer le Serveur MCP Figma](#préparer-le-serveur-mcp-figma)
+- [Générer les Composants UI depuis Figma](#générer-les-composants-ui-depuis-figma)
+- [Exécuter l'Application Backend FastAPI](#exécuter-lapplication-backend-fastapi)
 - [Construire l'Application Frontend React](#construire-lapplication-frontend-react)
-- [Vérifier l'Application Frontend React](#verifier-lapplication-frontend-react)
+- [Vérifier l'Application Frontend React](#vérifier-lapplication-frontend-react)
 
 ### Vérifier le Mode Agent GitHub Copilot
 
 1. Cliquez sur l'icône GitHub Copilot en haut de GitHub Codespace ou VS Code et ouvrez la fenêtre GitHub Copilot.
 
-   ![Ouvrir GitHub Copilot Chat](../../docs/images/setup-02.png)
+   ![Ouvrir GitHub Copilot Chat](../../../docs/images/setup-02.png)
 
 1. Si on vous demande de vous connecter ou de vous inscrire, faites-le. C'est gratuit.
 1. Assurez-vous que vous utilisez le Mode Agent GitHub Copilot.
 
-   ![Mode Agent GitHub Copilot](../../docs/images/setup-03.png)
+   ![Mode Agent GitHub Copilot](../../../docs/images/setup-03.png)
 
 1. Sélectionnez le modèle soit `GPT-4.1` soit `Claude Sonnet 4`.
 1. Assurez-vous que vous avez configuré les [Serveurs MCP](./00-setup.md#configurer-les-serveurs-mcp).
@@ -98,7 +98,7 @@ Consultez le document [README](../README.md) pour la préparation.
 1. Assurez-vous que vous exécutez le serveur MCP Figma.
 1. Copiez le [modèle de conception Figma](https://www.figma.com/community/file/1495954632647006209) vers votre compte.
 
-   ![Page de modèle de conception Figma](../../docs/images/javascript-01.png)
+   ![Page de modèle de conception Figma](../../../docs/images/javascript-01.png)
 
 1. Faites un clic droit sur chaque section - `Home`, `Search`, `Post Details`, `Post Modal` et `Name Input Modal` 👉 Sélectionnez `Copy/Paste as` 👉 Sélectionnez `Copy link to selection` pour obtenir le lien vers chaque section. Notez les cinq liens.
 
