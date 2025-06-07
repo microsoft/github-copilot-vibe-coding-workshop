@@ -17,7 +17,9 @@ Consulta el documento [README](../README.md) para la preparación.
 - [Verificar Modo Agente de GitHub Copilot](#verificar-modo-agente-de-github-copilot)
 - [Preparar Instrucciones Personalizadas](#preparar-instrucciones-personalizadas)
 - [Preparar Proyecto de Aplicación Web Blazor](#preparar-proyecto-de-aplicación-web-blazor)
+- [Ejecutar Aplicación Backend Spring Boot](#ejecutar-aplicación-backend-spring-boot)
 - [Migrar Aplicación Web React](#migrar-aplicación-web-react)
+- [Verificar Aplicación Frontend Blazor](#verificar-aplicación-frontend-blazor)
 
 ### Verificar Modo Agente de GitHub Copilot
 

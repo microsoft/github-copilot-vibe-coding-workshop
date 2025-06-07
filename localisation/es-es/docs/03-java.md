@@ -18,6 +18,7 @@ Consulta el documento [README](../README.md) para la preparación.
 - [Preparar Instrucciones Personalizadas](#preparar-instrucciones-personalizadas)
 - [Preparar Proyecto Spring Boot](#preparar-proyecto-spring-boot)
 - [Migrar Aplicación API FastAPI](#migrar-aplicación-api-fastapi)
+- [Verificar Aplicación Backend Spring Boot](#verificar-aplicación-backend-spring-boot)
 
 ### Verificar Modo Agente de GitHub Copilot
 
