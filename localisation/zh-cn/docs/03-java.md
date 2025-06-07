@@ -18,6 +18,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 - [准备自定义指令](#准备自定义指令)
 - [准备 Spring Boot 项目](#准备-spring-boot-项目)
 - [迁移 FastAPI API 应用](#迁移-fastapi-api-应用)
+- [验证 Spring Boot 后端应用](#验证-spring-boot-后端应用)
 
 ### 检查 GitHub Copilot 代理模式
 

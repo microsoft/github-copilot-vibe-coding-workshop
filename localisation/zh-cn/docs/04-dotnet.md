@@ -17,7 +17,9 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 - [检查 GitHub Copilot 代理模式](#检查-github-copilot-代理模式)
 - [准备自定义指令](#准备自定义指令)
 - [准备 Blazor 项目](#准备-blazor-项目)
-- [迁移 React 前端应用](#迁移-react-前端应用)
+- [运行 Spring Boot 后端应用](#运行-spring-boot-后端应用)
+- [迁移 React Web 应用](#迁移-react-web-应用)
+- [验证 Blazor 前端应用](#验证-blazor-前端应用)
 
 ### 检查 GitHub Copilot 代理模式
 

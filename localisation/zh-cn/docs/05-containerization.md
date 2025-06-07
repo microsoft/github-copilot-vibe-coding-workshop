@@ -14,9 +14,9 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 
 - [检查 GitHub Copilot 代理模式](#检查-github-copilot-代理模式)
 - [准备自定义指令](#准备自定义指令)
-- [为应用程序创建 Dockerfile](#为应用程序创建-dockerfile)
-- [创建 Docker Compose 配置](#创建-docker-compose-配置)
-- [构建和运行容器化应用](#构建和运行容器化应用)
+- [容器化 Java 应用程序](#容器化-java-应用程序)
+- [容器化 .NET 应用程序](#容器化-net-应用程序)
+- [编排容器](#编排容器)
 
 ### 检查 GitHub Copilot 代理模式
 

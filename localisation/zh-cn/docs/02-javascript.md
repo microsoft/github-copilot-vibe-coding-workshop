@@ -147,6 +147,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
     ```text
     运行位于 `python` 目录的 FastAPI 后端 API。
     ```
+
 1. 验证是否构建正确。
 
     ```text
