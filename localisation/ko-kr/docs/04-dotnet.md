@@ -17,7 +17,9 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 - [GitHub Copilot 에이전트 모드 확인](#github-copilot-에이전트-모드-확인)
 - [커스텀 지시사항 준비](#커스텀-지시사항-준비)
 - [Blazor 웹 앱 프로젝트 준비](#blazor-웹-앱-프로젝트-준비)
+- [Spring Boot 백엔드 앱 실행](#spring-boot-백엔드-앱-실행)
 - [React 웹 앱 마이그레이션](#react-웹-앱-마이그레이션)
+- [Blazor 프론트엔드 앱 검증](#blazor-프론트엔드-앱-검증)
 
 ### GitHub Copilot 에이전트 모드 확인
 
