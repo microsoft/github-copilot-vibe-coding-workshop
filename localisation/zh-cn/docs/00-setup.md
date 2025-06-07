@@ -23,9 +23,7 @@
 
 ## 使用 GitHub Codespaces
 
-1. 查看下图，按照点击顺序跟随以下步骤：![代码按钮图片](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![codespaces按钮图片](https://img.shields.io/badge/Codespaces-white) 👉 ![在main上创建codespace按钮图片](https://img.shields.io/badge/Create_codespace_on_main-green)，创建一个新的 GitHub Codespace 实例。根据网络状态，这可能需要 5-10 分钟。
-
-   ![开始使用 GitHub Codespaces](../../../docs/images/setup-01.png)
+1. 点击此链接 👉 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
 
 1. GitHub Codespace 实例准备就绪后，打开终端并运行以下命令检查所需的所有内容是否已正确安装。
 

@@ -23,9 +23,7 @@
 
 ## GitHub Codespaces 사용
 
-1. 아래 이미지를 보고 다음 순서로 클릭하여 따라하세요: ![the "code" button image](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![the "codespaces" button image](https://img.shields.io/badge/Codespaces-white) 👉 ![the "create codespace on main" button image](https://img.shields.io/badge/Create_codespace_on_main-green)을 클릭하여 새로운 GitHub Codespace 인스턴스를 생성하세요. 네트워크 상태에 따라 5-10분 정도 걸릴 수 있습니다.
-
-   ![Starting with GitHub Codespaces](../../../docs/images/setup-01.png)
+1. 이 링크를 클릭하세요 👉 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
 
 1. GitHub Codespace 인스턴스가 준비되면, 터미널을 열고 다음 명령을 실행하여 필요한 모든 것이 제대로 설치되었는지 확인하세요.
 

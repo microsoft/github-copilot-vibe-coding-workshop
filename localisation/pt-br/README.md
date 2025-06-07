@@ -24,7 +24,11 @@ Este material do workshop está atualmente disponível nos seguintes idiomas:
 
 ## Pré-requisitos
 
-Durante este workshop, [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces) é altamente recomendado porque não há necessidade de preparação, exceto um navegador web. No entanto, se você realmente precisar usar sua máquina, certifique-se de ter instalado tudo identificado abaixo.
+Durante este workshop, [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces) é altamente recomendado porque não há necessidade de preparação, exceto um navegador web.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
+
+No entanto, se você realmente precisar usar sua máquina, certifique-se de ter instalado tudo identificado abaixo.
 
 ### Comum
 

@@ -24,7 +24,11 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 
 ## 先决条件
 
-在此工作坊期间，强烈推荐使用 [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)，因为除了网络浏览器外无需任何准备。但是，如果您确实需要使用自己的机器，请确保您已安装以下所有内容。
+在此工作坊期间，强烈推荐使用 [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)，因为除了网络浏览器外无需任何准备。
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
+
+但是，如果您确实需要使用自己的机器，请确保您已安装以下所有内容。
 
 ### 通用
 

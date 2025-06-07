@@ -24,7 +24,11 @@ Contosoは様々なアウトドア活動用製品を販売する会社です。C
 
 ## 前提条件
 
-このワークショップでは、Webブラウザ以外に準備が不要なため、[GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)を強く推奨します。ただし、どうしても自分のマシンを使用する必要がある場合は、以下で特定されたすべてのものがインストールされていることを確認してください。
+このワークショップでは、Webブラウザ以外に準備が不要なため、[GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces)を強く推奨します。
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
+
+ただし、どうしても自分のマシンを使用する必要がある場合は、以下で特定されたすべてのものがインストールされていることを確認してください。
 
 ### 共通
 

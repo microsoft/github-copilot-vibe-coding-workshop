@@ -24,7 +24,11 @@ Este material del taller está actualmente disponible en los siguientes idiomas:
 
 ## Prerrequisitos
 
-Durante este taller, se recomienda altamente [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces) porque no hay necesidad de preparación, excepto un navegador web. Sin embargo, si realmente necesitas usar tu máquina, asegúrate de haber instalado todo lo identificado a continuación.
+Durante este taller, se recomienda altamente [GitHub Codespaces](https://docs.github.com/en/codespaces/about-codespaces/what-are-codespaces) porque no hay necesidad de preparación, excepto un navegador web.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
+
+Sin embargo, si realmente necesitas usar tu máquina, asegúrate de haber instalado todo lo identificado a continuación.
 
 ### Común
 

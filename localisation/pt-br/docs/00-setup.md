@@ -23,9 +23,7 @@ Consulte a documentação [README](../README.md) para preparação.
 
 ## Usar GitHub Codespaces
 
-1. Dê uma olhada na imagem abaixo e siga os passos na ordem de clicar ![a imagem do botão "code"](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![a imagem do botão "codespaces"](https://img.shields.io/badge/Codespaces-white) 👉 ![a imagem do botão "create codespace on main"](https://img.shields.io/badge/Create_codespace_on_main-green) e criar uma nova instância do GitHub Codespace. Pode levar de 5-10 minutos dependendo do status da rede.
-
-   ![Iniciando com GitHub Codespaces](../../../docs/images/setup-01.png)
+1. Clique neste link 👉 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
 
 1. Uma vez que a instância do GitHub Codespace esteja pronta, abra um terminal e execute o seguinte comando para verificar se tudo que você precisa foi devidamente instalado ou não.
 
