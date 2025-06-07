@@ -18,6 +18,7 @@ Java開発者として、既存のFastAPIアプリをSpring Bootに移行する�
 - [カスタム指示を準備](#カスタム指示を準備)
 - [Spring Boot プロジェクトを準備](#spring-boot-プロジェクトを準備)
 - [FastAPI APIアプリを移行](#fastapi-apiアプリを移行)
+- [Spring Boot バックエンドアプリを検証](#spring-boot-バックエンドアプリを検証)
 
 ### GitHub Copilot エージェントモードを確認
 

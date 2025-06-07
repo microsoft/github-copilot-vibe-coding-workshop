@@ -17,7 +17,9 @@ Contosoは様々なアウトドア活動用製品を販売する会社です。C
 - [GitHub Copilot エージェントモードを確認](#github-copilot-エージェントモードを確認)
 - [カスタム指示を準備](#カスタム指示を準備)
 - [Blazor Webアプリプロジェクトを準備](#blazor-webアプリプロジェクトを準備)
+- [Spring Boot バックエンドアプリを実行](#spring-boot-バックエンドアプリを実行)
 - [React Webアプリを移行](#react-webアプリを移行)
+- [Blazor フロントエンドアプリを検証](#blazor-フロントエンドアプリを検証)
 
 ### GitHub Copilot エージェントモードを確認
 

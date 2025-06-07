@@ -16,6 +16,7 @@
   - [Docker Desktop をインストール](#docker-desktop-をインストール)
   - [Visual Studio Code をインストール](#visual-studio-code-をインストール)
   - [Visual Studio Code を起動](#visual-studio-code-を起動)
+  - [MCP サーバーを設定](#mcp-サーバーを設定)
 - [GitHub Copilot エージェントモードを確認](#github-copilot-エージェントモードを確認)
 - [カスタム指示を準備](#カスタム指示を準備)
 - [製品要求仕様書（PRD）を分析してAPIを設計](#製品要求仕様書prdを分析してapiを設計)
