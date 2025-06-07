@@ -25,7 +25,7 @@ Consulte a documentação [README](../README.md) para preparação.
 
 1. Dê uma olhada na imagem abaixo e siga os passos na ordem de clicar ![a imagem do botão "code"](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![a imagem do botão "codespaces"](https://img.shields.io/badge/Codespaces-white) 👉 ![a imagem do botão "create codespace on main"](https://img.shields.io/badge/Create_codespace_on_main-green) e criar uma nova instância do GitHub Codespace. Pode levar de 5-10 minutos dependendo do status da rede.
 
-   ![Iniciando com GitHub Codespaces](./images/setup-01.png)
+   ![Iniciando com GitHub Codespaces](../../../docs/images/setup-01.png)
 
 2. Uma vez que a instância do GitHub Codespace esteja pronta, abra um terminal e execute o seguinte comando para verificar se tudo que você precisa foi devidamente instalado ou não.
 
@@ -291,12 +291,12 @@ Consulte a documentação [README](../README.md) para preparação.
 
 1. Clique no ícone do GitHub Copilot no topo do GitHub Codespace ou VS Code e abra a janela do GitHub Copilot.
 
-   ![Abrir GitHub Copilot Chat](./images/setup-02.png)
+   ![Abrir GitHub Copilot Chat](.../../../docs/images/setup-02.png)
 
 1. Se você for solicitado a fazer login ou se inscrever, faça-o. É gratuito.
 1. Certifique-se de que você está usando o Modo Agente do GitHub Copilot.
 
-   ![Modo Agente do GitHub Copilot](./images/setup-03.png)
+   ![Modo Agente do GitHub Copilot](../../../docs/images/setup-03.png)
 
 1. Selecione o modelo para `GPT-4.1` ou `Claude Sonnet 4`.
 

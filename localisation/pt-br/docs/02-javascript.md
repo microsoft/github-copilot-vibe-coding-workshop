@@ -25,12 +25,12 @@ Consulte a documentação [README](../README.md) para preparação.
 
 1. Clique no ícone do GitHub Copilot no topo do GitHub Codespace ou VS Code e abra a janela do GitHub Copilot.
 
-   ![Abrir GitHub Copilot Chat](./images/setup-02.png)
+   ![Abrir GitHub Copilot Chat](../../../docs/images/setup-02.png)
 
 1. Se você for solicitado a fazer login ou se inscrever, faça-o. É gratuito.
 1. Certifique-se de que você está usando o Modo Agente do GitHub Copilot.
 
-   ![Modo Agente do GitHub Copilot](./images/setup-03.png)
+   ![Modo Agente do GitHub Copilot](../../../docs/images/setup-03.png)
 
 1. Selecione o modelo para `GPT-4.1` ou `Claude Sonnet 4`.
 1. Certifique-se de que você configurou os [Servidores MCP](./00-setup.md#configurar-servidores-mcp).
@@ -98,7 +98,7 @@ Consulte a documentação [README](../README.md) para preparação.
 1. Certifique-se de que você está executando o servidor MCP Figma.
 1. Copie o [template de design Figma](https://www.figma.com/community/file/1495954632647006209) para sua conta.
 
-   ![Página do template de design Figma](./images/javascript-01.png)
+   ![Página do template de design Figma](../../../docs/images/javascript-01.png)
 
 1. Clique com o botão direito em cada seção - `Home`, `Search`, `Post Details`, `Post Modal` e `Name Input Modal` 👉 Selecione `Copy/Paste as` 👉 Selecione `Copy link to selection` para obter o link para cada seção. Anote todos os cinco links.
 
