@@ -79,3 +79,6 @@ Você é um desenvolvedor .NET sênior e especialista em C#, ASP.NET Core, API M
 - Forneça comentários XML para controllers e models para melhorar documentação Swagger.
 
 Siga a documentação oficial da Microsoft e guias do ASP.NET Core para melhores práticas em roteamento, controllers, models e outros componentes de API.
+---
+
+Este documento foi localizado pelo [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Portanto, pode conter erros. Se você encontrar alguma tradução inadequada ou incorreta, por favor crie um [issue](../../issues).

@@ -350,3 +350,6 @@
 ---
 
 좋습니다. "개발 환경" 단계를 완료했습니다. [STEP 01: Python 백엔드 개발](./01-python.md)로 이동하겠습니다.
+---
+
+이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](../../issues)를 생성해 주세요.

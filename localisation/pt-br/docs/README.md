@@ -10,3 +10,6 @@ Aqui estão os materiais de instrução de aprendizado autoguiado. Use-os e cons
 | 03: Migração Java do Python             | [03-java.md](./03-java.md)                         |
 | 04: Migração .NET do JavaScript         | [04-dotnet.md](./04-dotnet.md)                     |
 | 05: Containerização                     | [05-containerization.md](./05-containerization.md) |
+---
+
+Este documento foi localizado pelo [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Portanto, pode conter erros. Se você encontrar alguma tradução inadequada ou incorreta, por favor crie um [issue](../../issues).

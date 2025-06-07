@@ -104,3 +104,6 @@ Consultez l'exemple complet de chaque application. Ils sont également vibe-cod�
 - [GitHub Copilot: Instructions Personnalisées](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub Copilot: Changer les Modèles IA](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
 - [Serveurs MCP Sélectionnés](https://github.com/modelcontextprotocol/servers)
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).

@@ -163,3 +163,6 @@ Consultez le document [README](../README.md) pour la préparation.
 ---
 
 OK. Vous avez terminé l'étape "JavaScript". Passons à [ÉTAPE 03: Migration Java depuis Python](./03-java.md).
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).

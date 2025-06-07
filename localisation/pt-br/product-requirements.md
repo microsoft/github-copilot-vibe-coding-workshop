@@ -146,3 +146,6 @@ A Contoso é uma empresa que vende produtos para várias atividades ao ar livre.
 * Atualizações em tempo real ou notificações
 * Ferramentas de moderação ou relatórios
 * Uploads multimídia (imagens, vídeo)
+---
+
+Este documento foi localizado pelo [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Portanto, pode conter erros. Se você encontrar alguma tradução inadequada ou incorreta, por favor crie um [issue](../../issues).

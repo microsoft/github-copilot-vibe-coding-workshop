@@ -171,3 +171,6 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 ---
 
 좋습니다. ".NET" 단계를 완료했습니다. [STEP 05: 컨테이너화](./05-containerization.md)로 이동하겠습니다.
+---
+
+이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](../../issues)를 생성해 주세요.

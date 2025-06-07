@@ -158,3 +158,6 @@ Java開発者として、既存のFastAPIアプリをSpring Bootに移行する�
 ---
 
 よくできました。「Java」ステップを完了しました。[STEP 04: JavaScript から .NET への移行](./04-dotnet.md)に移りましょう。
+---
+
+この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。

@@ -90,3 +90,6 @@
 - SpringのWebFluxを使用したSpringの@Asyncまたはリアクティブプログラミングを使用した非同期処理。
 
 Spring Bootアプリケーション設計でSOLID原則を遵守し、高い凝集性と低い結合度を維持してください。
+---
+
+この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。

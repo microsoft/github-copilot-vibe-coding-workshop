@@ -10,3 +10,6 @@
 | 03: Python から Java への移行      | [03-java.md](./03-java.md)                         |
 | 04: JavaScript から .NET への移行  | [04-dotnet.md](./04-dotnet.md)                     |
 | 05: コンテナ化                | [05-containerization.md](./05-containerization.md) |
+---
+
+この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。

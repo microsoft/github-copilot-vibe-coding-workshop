@@ -44,3 +44,6 @@
 - 説明的な変数と関数/const名を使用する。また、イベント関数は「handle」プレフィックスで命名し、onClickには「handleClick」、onKeyDownには「handleKeyDown」のようにする。
 - 要素にアクセシビリティ機能を実装する。例えば、aタグにはtabindex="0"、aria-label、on:click、on:keydownおよび類似の属性を持つべきである。
 - 関数の代わりにconstを使用する。例：「const toggle = () =>」。また、可能であれば型を定義する。
+---
+
+この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。

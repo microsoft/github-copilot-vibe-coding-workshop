@@ -117,3 +117,6 @@ Python 개발자로서, FastAPI를 사용하여 Python 백엔드 앱을 구축�
 ---
 
 좋습니다. "Python" 단계를 완료했습니다. [STEP 02: JavaScript 프론트엔드 개발](./02-javascript.md)로 이동하겠습니다.
+---
+
+이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](../../issues)를 생성해 주세요.

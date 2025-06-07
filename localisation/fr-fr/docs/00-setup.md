@@ -350,3 +350,6 @@ Consultez le document [README](../README.md) pour la préparation.
 ---
 
 OK. Vous avez terminé l'étape "Environnement de Développement". Passons à [ÉTAPE 01: Développement Backend Python](./01-python.md).
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).

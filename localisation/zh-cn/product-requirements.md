@@ -146,3 +146,6 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 * 实时更新或通知
 * 审核工具或举报功能
 * 多媒体上传（图片、视频）
+---
+
+本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](../../issues)。

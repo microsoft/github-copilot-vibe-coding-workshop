@@ -32,3 +32,6 @@
 - イメージサイズを最適化するためにDockerfileでマルチステージビルドを使用する。
 - Dockerfileが冪等であり、副作用なしに複数回ビルドできることを保証する。
 - ローカル開発とテスト環境にはDocker Composeを使用する。
+---
+
+この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。

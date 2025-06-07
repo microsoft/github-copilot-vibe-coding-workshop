@@ -90,3 +90,6 @@
 - 使用 Spring 的 @Async 或 Spring WebFlux 的响应式编程进行异步处理。
 
 在您的 Spring Boot 应用程序设计中遵循 SOLID 原则并保持高内聚和低耦合。
+---
+
+本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](../../issues)。

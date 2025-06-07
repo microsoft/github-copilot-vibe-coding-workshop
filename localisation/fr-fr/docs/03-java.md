@@ -158,3 +158,6 @@ Consultez le document [README](../README.md) pour la préparation.
 ---
 
 OK. Vous avez terminé l'étape "Java". Passons à [ÉTAPE 04: Migration .NET depuis JavaScript](./04-dotnet.md).
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).

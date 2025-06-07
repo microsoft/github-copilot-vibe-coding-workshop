@@ -10,3 +10,6 @@
 | 03: 从 Python 迁移到 Java         | [03-java.md](./03-java.md)                         |
 | 04: 从 JavaScript 迁移到 .NET     | [04-dotnet.md](./04-dotnet.md)                     |
 | 05: 容器化                        | [05-containerization.md](./05-containerization.md) |
+---
+
+本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](../../issues)。

@@ -44,3 +44,6 @@ Suivez ces règles quand vous écrivez du code :
 - Utilisez des noms de variables et de fonctions/const descriptifs. Aussi, les fonctions d'événement doivent être nommées avec un préfixe "handle", comme "handleClick" pour onClick et "handleKeyDown" pour onKeyDown.
 - Implémentez des fonctionnalités d'accessibilité sur les éléments. Par exemple, une balise devrait avoir un tabindex="0", aria-label, on:click, et on:keydown, et des attributs similaires.
 - Utilisez des consts au lieu de fonctions, par exemple, "const toggle = () =>". Aussi, définissez un type si possible.
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).

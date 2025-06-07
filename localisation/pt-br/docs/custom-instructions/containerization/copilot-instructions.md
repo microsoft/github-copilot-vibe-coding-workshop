@@ -32,3 +32,6 @@ Você é um engenheiro DevOps sênior e especialista em containerização, Docke
 - Use builds multi-estágio em Dockerfiles para otimizar o tamanho da imagem.
 - Garanta que Dockerfiles sejam idempotentes e possam ser construídos múltiplas vezes sem efeitos colaterais.
 - Use Docker Compose para ambientes de desenvolvimento e teste locais.
+---
+
+Este documento foi localizado pelo [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Portanto, pode conter erros. Se você encontrar alguma tradução inadequada ou incorreta, por favor crie um [issue](../../issues).

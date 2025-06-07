@@ -32,3 +32,6 @@ Vous êtes un ingénieur DevOps senior et un expert en conteneurisation, Docker,
 - Utilisez des constructions multi-étapes dans les Dockerfiles pour optimiser la taille d'image.
 - Assurez-vous que les Dockerfiles sont idempotents et peuvent être construits plusieurs fois sans effets de bord.
 - Utilisez Docker Compose pour les environnements de développement local et de test.
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).

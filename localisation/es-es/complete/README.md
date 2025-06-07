@@ -54,3 +54,6 @@ Consulta el documento [README](../README.md) para la preparación.
     ```bash
     docker compose down --rmi all
     ```
+---
+
+Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](../../issues).

@@ -90,3 +90,6 @@ Você é um desenvolvedor Java sênior e especialista em programação Java, Spr
 - Processamento assíncrono usando @Async do Spring ou programação reativa com Spring WebFlux.
 
 Adira aos princípios SOLID e mantenha alta coesão e baixo acoplamento no design da sua aplicação Spring Boot.
+---
+
+Este documento foi localizado pelo [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Portanto, pode conter erros. Se você encontrar alguma tradução inadequada ou incorreta, por favor crie um [issue](../../issues).

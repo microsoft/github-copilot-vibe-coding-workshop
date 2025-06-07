@@ -33,3 +33,6 @@ Utilisez [l'Échantillon d'Application Java](../java/).
     ```
 
 1. Vérifiez si l'application web fonctionne correctement.
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).

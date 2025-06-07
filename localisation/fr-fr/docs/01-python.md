@@ -117,3 +117,6 @@ Consultez le document [README](../README.md) pour la préparation.
 ---
 
 OK. Vous avez terminé l'étape "Python". Passons à [ÉTAPE 02: Développement Frontend JavaScript](./02-javascript.md).
+---
+
+Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).
