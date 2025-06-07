@@ -17,7 +17,9 @@ Refer to the [README](../README.md) doc for preparation.
 - [Check GitHub Copilot Agent Mode](#check-github-copilot-agent-mode)
 - [Prepare Custom Instructions](#prepare-custom-instructions)
 - [Prepare Blazor Web App Project](#prepare-blazor-web-app-project)
+- [Run Spring Boot Backend App](#run-spring-boot-backend-app)
 - [Migrate React Web App](#migrate-react-web-app)
+- [Verify Blazor Frontend App](#verify-blazor-frontend-app)
 
 ### Check GitHub Copilot Agent Mode
 
