@@ -23,15 +23,9 @@ Refer to the [README](../README.md) doc for preparation.
 
 ## Use GitHub Codespaces
 
-1. Take a look at the image below, and follow the steps in the order of clicking ![the "code" button image](https://img.shields.io/badge/%3C%3E_Code-green) 👉 ![the "codespaces" button image](https://img.shields.io/badge/Codespaces-white) 👉 ![the "create codespace on main" button image](https://img.shields.io/badge/Create_codespace_on_main-green) and create a new GitHub Codespace instance. It might take 5-10 mins depending on the network status.
+1. Click this link 👉 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
 
-   ![Starting with GitHub Codespaces](./images/setup-01.png)
-
-   Alternatively, click the link below:
-
-   [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/microsoft/github-copilot-vibe-coding-workshop)
-
-2. Once the GitHub Codespace instance is ready, open a terminal and run the following command to check out everything you need has been properly installed or not.
+1. Once the GitHub Codespace instance is ready, open a terminal and run the following command to check out everything you need has been properly installed or not.
 
     ```bash
     # Python
@@ -55,7 +49,7 @@ Refer to the [README](../README.md) doc for preparation.
     dotnet --list-sdks
     ```
 
-3. Check out your repository status.
+1. Check out your repository status.
 
     ```bash
     git remote -v
@@ -70,7 +64,7 @@ Refer to the [README](../README.md) doc for preparation.
 
    If you see something different from above, delete the GitHub Codespace instance and recreate it.
 
-4. Move down to the [Set-up MCP Servers](#set-up-mcp-servers) section.
+1. Move down to the [Set-up MCP Servers](#set-up-mcp-servers) section.
 
 **👇👇👇 Instead, if you'd like to use VS Code on your local machine, follow the instruction below. The section below doesn't apply to those who use GitHub Codespaces. 👇👇👇**
 

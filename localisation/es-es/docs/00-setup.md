@@ -27,7 +27,7 @@ Consulta el documento [README](../README.md) para la preparación.
 
    ![Comenzando con GitHub Codespaces](../../../docs/images/setup-01.png)
 
-2. Una vez que la instancia de GitHub Codespace esté lista, abre una terminal y ejecuta el siguiente comando para verificar si todo lo que necesitas ha sido instalado correctamente o no.
+1. Una vez que la instancia de GitHub Codespace esté lista, abre una terminal y ejecuta el siguiente comando para verificar si todo lo que necesitas ha sido instalado correctamente o no.
 
     ```bash
     # Python
@@ -51,7 +51,7 @@ Consulta el documento [README](../README.md) para la preparación.
     dotnet --list-sdks
     ```
 
-3. Verifica el estado de tu repositorio.
+1. Verifica el estado de tu repositorio.
 
     ```bash
     git remote -v
@@ -66,7 +66,7 @@ Consulta el documento [README](../README.md) para la preparación.
 
    Si ves algo diferente a lo anterior, elimina la instancia de GitHub Codespace y créala nuevamente.
 
-4. Ve a la sección [Configurar Servidores MCP](#configurar-servidores-mcp).
+1. Ve a la sección [Configurar Servidores MCP](#configurar-servidores-mcp).
 
 **👇👇👇 En su lugar, si prefieres usar VS Code en tu máquina local, sigue las instrucciones a continuación. La sección de abajo no aplica para aquellos que usan GitHub Codespaces. 👇👇👇**
 

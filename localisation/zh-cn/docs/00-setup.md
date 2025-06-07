@@ -27,7 +27,7 @@
 
    ![开始使用 GitHub Codespaces](../../../docs/images/setup-01.png)
 
-2. GitHub Codespace 实例准备就绪后，打开终端并运行以下命令检查所需的所有内容是否已正确安装。
+1. GitHub Codespace 实例准备就绪后，打开终端并运行以下命令检查所需的所有内容是否已正确安装。
 
     ```bash
     # Python
@@ -51,7 +51,7 @@
     dotnet --list-sdks
     ```
 
-3. 检查您的存储库状态。
+1. 检查您的存储库状态。
 
     ```bash
     git remote -v
@@ -66,7 +66,7 @@
 
    如果您看到与上述不同的内容，请删除 GitHub Codespace 实例并重新创建。
 
-4. 移至 [设置 MCP 服务器](#设置-mcp-服务器) 部分。
+1. 移至 [设置 MCP 服务器](#设置-mcp-服务器) 部分。
 
 **👇👇👇 相反，如果您想在本地机器上使用 VS Code，请按照下面的说明操作。下面的部分不适用于使用 GitHub Codespaces 的用户。👇👇👇**
 
