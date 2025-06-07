@@ -68,6 +68,7 @@
    - 読みやすさと保守性を最適化するため、ルートと依存関係を明確に構造化する。
 
 ベストプラクティスについては、データモデル、パス操作、ミドルウェアに関するFastAPIドキュメントを参照してください。
+
 ---
 
-この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。
+**免責事項**: この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)を作成してください。

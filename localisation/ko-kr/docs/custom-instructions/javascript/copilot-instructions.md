@@ -18,6 +18,7 @@
 - 간결하게 다른 산문을 최소화하세요.
 - 올바른 답이 없을 수 있다고 생각하면 그렇게 말하세요.
 - 답을 모르면 추측하는 대신 모른다고 말하세요.
+
 ---
 
-이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](../../issues)를 생성해 주세요.
+**면책조항**: 이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)를 생성해 주세요.

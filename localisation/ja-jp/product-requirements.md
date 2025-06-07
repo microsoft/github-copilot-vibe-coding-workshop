@@ -146,6 +146,7 @@ Contosoは様々なアウトドア活動用製品を販売する会社です。C
 * リアルタイム更新や通知
 * モデレーションツールやレポート機能
 * マルチメディアアップロード（画像、動画）
+
 ---
 
-この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。
+**免責事項**: この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)を作成してください。

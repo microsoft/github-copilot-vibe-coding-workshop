@@ -10,6 +10,7 @@ Voici les matériaux d'instructions d'apprentissage auto-rythmé. Utilisez-les e
 | 03: Migration Java depuis Python    | [03-java.md](./03-java.md)                         |
 | 04: Migration .NET depuis JavaScript | [04-dotnet.md](./04-dotnet.md)                     |
 | 05: Conteneurisation                | [05-containerization.md](./05-containerization.md) |
+
 ---
 
-Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).
+**Avertissement**: Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

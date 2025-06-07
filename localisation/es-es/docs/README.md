@@ -10,6 +10,7 @@ Aquí están los materiales de instrucción para el aprendizaje autodidacta. ¡�
 | 03: Migración Java desde Python     | [03-java.md](./03-java.md)                          |
 | 04: Migración .NET desde JavaScript | [04-dotnet.md](./04-dotnet.md)                      |
 | 05: Contenedorización               | [05-containerization.md](./05-containerization.md)  |
+
 ---
 
-Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](../../issues).
+**Disclaimer**: Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

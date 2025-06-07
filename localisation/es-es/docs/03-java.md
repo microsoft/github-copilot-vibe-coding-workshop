@@ -158,6 +158,7 @@ Consulta el documento [README](../README.md) para la preparación.
 ---
 
 Bien. Has completado el paso "Java". Vamos al [PASO 04: Migración .NET desde JavaScript](./04-dotnet.md).
+
 ---
 
-Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](../../issues).
+**Disclaimer**: Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

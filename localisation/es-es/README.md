@@ -104,6 +104,7 @@ Revisa el ejemplo completo de cada aplicación. También están programadas con 
 - [GitHub Copilot: Instrucciones Personalizadas](https://code.visualstudio.com/docs/copilot/copilot-customization)
 - [GitHub Copilot: Cambiar Modelos de IA](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
 - [Servidores MCP Curados](https://github.com/modelcontextprotocol/servers)
+
 ---
 
-Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](../../issues).
+**Disclaimer**: Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

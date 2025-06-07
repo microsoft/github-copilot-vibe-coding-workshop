@@ -32,6 +32,7 @@
 - 在 Dockerfile 中使用多阶段构建来优化镜像大小。
 - 确保 Dockerfile 是幂等的，可以多次构建而不产生副作用。
 - 使用 Docker Compose 进行本地开发和测试环境。
+
 ---
 
-本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](../../issues)。
+**免责声明**: 本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)。

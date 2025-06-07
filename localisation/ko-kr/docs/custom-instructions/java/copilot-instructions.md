@@ -16,6 +16,7 @@
 - 어노테이션의 적절한 사용을 구현하세요 (예: @SpringBootApplication, @RestController, @Service).
 - Spring Boot의 자동 구성 기능을 효과적으로 활용하세요.
 - @ControllerAdvice와 @ExceptionHandler를 사용하여 적절한 예외 처리를 구현하세요.
+
 ---
 
-이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](../../issues)를 생성해 주세요.
+**면책조항**: 이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)를 생성해 주세요.

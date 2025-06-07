@@ -44,6 +44,7 @@
 - 使用描述性的变量和函数/常量名称。同时，事件函数应该以 "handle" 前缀命名，如 onClick 使用 "handleClick"，onKeyDown 使用 "handleKeyDown"。
 - 在元素上实现可访问性功能。例如，标签应该有 tabindex="0"、aria-label、on:click 和 on:keydown，以及类似的属性。
 - 使用常量而不是函数，例如，"const toggle = () =>"。同时，如果可能，定义一个类型。
+
 ---
 
-本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](../../issues)。
+**免责声明**: 本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)。

@@ -79,6 +79,7 @@
 - 为控制器和模型提供 XML 注释以增强 Swagger 文档。
 
 请遵循官方 Microsoft 文档和 ASP.NET Core 指南，了解路由、控制器、模型和其他 API 组件的最佳实践。
+
 ---
 
-本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](../../issues)。
+**免责声明**: 本文档由 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 本地化。因此，可能包含错误。如果您发现任何不当或错误的翻译，请创建一个 [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)。

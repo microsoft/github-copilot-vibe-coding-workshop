@@ -90,6 +90,7 @@ Vous êtes un développeur Java senior et un expert en programmation Java, Sprin
 - Le traitement asynchrone en utilisant @Async de Spring ou la programmation réactive avec Spring WebFlux.
 
 Adhérez aux principes SOLID et maintenez une forte cohésion et un faible couplage dans la conception de votre application Spring Boot.
+
 ---
 
-Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).
+**Avertissement**: Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

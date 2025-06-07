@@ -163,6 +163,7 @@ JavaScript開発者として、Python バックエンドAPIアプリと通信す
 ---
 
 よくできました。「JavaScript」ステップを完了しました。[STEP 03: Python から Java への移行](./03-java.md)に移りましょう。
+
 ---
 
-この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](../../issues)を作成してください。
+**免責事項**: この文書は[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)によってローカライズされています。そのため、間違いを含む可能性があります。不適切または間違った翻訳を見つけた場合は、[issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)を作成してください。

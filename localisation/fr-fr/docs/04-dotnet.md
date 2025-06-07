@@ -171,6 +171,7 @@ Consultez le document [README](../README.md) pour la préparation.
 ---
 
 OK. Vous avez terminé l'étape ".NET". Passons à [ÉTAPE 05: Conteneurisation](./05-containerization.md).
+
 ---
 
-Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).
+**Avertissement**: Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

@@ -365,6 +365,7 @@ Para implantação em produção, considere:
 - Implementar Spring Security para autenticação
 - Adicionar limitação de taxa e sanitização de entrada
 - Usar criptografia HTTPS/TLS
+
 ---
 
-Este documento foi localizado pelo [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Portanto, pode conter erros. Se você encontrar alguma tradução inadequada ou incorreta, por favor crie um [issue](../../issues).
+**Aviso**: Este documento foi localizado pelo [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Portanto, pode conter erros. Se você encontrar alguma tradução inadequada ou incorreta, por favor crie um [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

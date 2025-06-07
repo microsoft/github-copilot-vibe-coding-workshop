@@ -79,6 +79,7 @@ Eres un desarrollador senior de .NET y un experto en C#, ASP.NET Core, Minimal A
 - Proporciona comentarios XML para controladores y modelos para mejorar la documentación de Swagger.
 
 Sigue la documentación oficial de Microsoft y las guías de ASP.NET Core para mejores prácticas en enrutamiento, controladores, modelos y otros componentes de API.
+
 ---
 
-Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](../../issues).
+**Disclaimer**: Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

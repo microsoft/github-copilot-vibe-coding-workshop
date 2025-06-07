@@ -68,6 +68,7 @@
    - 가독성과 유지보수성을 최적화하기 위해 라우트와 종속성을 명확하게 구조화하세요.
 
 모범 사례를 위해 데이터 모델, 경로 작업, 미들웨어에 대한 FastAPI 문서를 참조하세요.
+
 ---
 
-이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](../../issues)를 생성해 주세요.
+**면책조항**: 이 문서는 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)에 의해 현지화되었습니다. 따라서 실수가 포함될 수 있습니다. 부적절하거나 잘못된 번역을 발견하면 [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new)를 생성해 주세요.

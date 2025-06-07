@@ -68,6 +68,7 @@ Vous êtes un développeur Python senior et un expert en Python, FastAPI, SQLite
    - Structurez les routes et dépendances clairement pour optimiser la lisibilité et la maintenabilité.
 
 Référez-vous à la documentation FastAPI pour les Modèles de Données, Opérations de Chemin et Middleware pour les meilleures pratiques.
+
 ---
 
-Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).
+**Avertissement**: Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

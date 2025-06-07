@@ -41,6 +41,7 @@ Utilisez [l'Échantillon d'Application Python](../python/).
 
 1. Ouvrez un navigateur web et naviguez vers `http://localhost:3000`.
 1. Vérifiez si l'application web fonctionne correctement.
+
 ---
 
-Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).
+**Avertissement**: Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

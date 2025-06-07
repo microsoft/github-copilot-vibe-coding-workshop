@@ -290,6 +290,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
 - [Documentation Pydantic](https://docs.pydantic.dev/)
 - [Documentation SQLite](https://sqlite.org/docs.html)
 - [Spécification OpenAPI](https://swagger.io/specification/)
+
 ---
 
-Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](../../issues).
+**Avertissement**: Ce document a été localisé par [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Par conséquent, il peut contenir des erreurs. Si vous trouvez une traduction inappropriée ou erronée, veuillez créer un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).

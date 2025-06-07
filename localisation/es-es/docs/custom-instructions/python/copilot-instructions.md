@@ -68,6 +68,7 @@ Eres un desarrollador senior de Python y un experto en Python, FastAPI, SQLite y
    - Estructura rutas y dependencias claramente para optimizar legibilidad y mantenibilidad.
 
 Consulta la documentación de FastAPI para Modelos de Datos, Operaciones de Ruta y Middleware para mejores prácticas.
+
 ---
 
-Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](../../issues).
+**Disclaimer**: Este documento ha sido localizado por [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot). Por lo tanto, puede contener errores. Si encuentras alguna traducción que sea inapropiada o errónea, por favor crea un [issue](https://github.com/microsoft/github-copilot-vibe-coding-workshop/issues/new).
