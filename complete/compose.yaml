@@ -1,3 +1,9 @@
+version: '3.8'
+
+networks:
+  contoso:
+    driver: bridge
+
 services:
   contoso-backend:
     build:
@@ -9,10 +15,14 @@ services:
     environment:
       - CODESPACE_NAME=${CODESPACE_NAME}
       - GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN=${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}
-    volumes:
-      - ./java/socialapp/sns_api.db:/app/sns_api.db
     networks:
       - contoso
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 3s
+      start_period: 60s
+      retries: 3
 
   contoso-frontend:
     build:
@@ -21,13 +31,9 @@ services:
     container_name: contoso-frontend
     ports:
       - "3030:8080"
-    depends_on:
-      - contoso-backend
     environment:
-      - ApiSettings__BaseUrl=http://contoso-backend:8080/api/
+      - ApiSettings__BaseUrl=http://contoso-backend:8080/api
     networks:
       - contoso
-
-networks:
-  contoso:
-    name: contoso
+    depends_on:
+      - contoso-backend

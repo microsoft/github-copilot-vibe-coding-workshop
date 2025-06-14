@@ -1,55 +1,90 @@
-# Stage 1: Build the application
-FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu AS build
+# Multi-stage build for Java Spring Boot application
+# Stage 1: Build stage with Microsoft OpenJDK 21
+FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu AS builder
 
-WORKDIR /app
+# Set working directory for build
+WORKDIR /workspace
 
-# Copy gradle files for dependency resolution
-COPY java/socialapp/gradle/ ./gradle/
-COPY java/socialapp/gradlew java/socialapp/build.gradle java/socialapp/settings.gradle ./
+# Copy Gradle configuration files
+COPY java/socialapp/gradle ./gradle
+COPY java/socialapp/gradlew .
+COPY java/socialapp/gradlew.bat .
+COPY java/socialapp/build.gradle .
+COPY java/socialapp/settings.gradle .
 
-# Give executable permissions to gradlew
+# Make gradlew executable
 RUN chmod +x ./gradlew
 
-# Download dependencies to cache this layer
+# Download dependencies (for better Docker layer caching)
 RUN ./gradlew dependencies --no-daemon
 
 # Copy source code
 COPY java/socialapp/src ./src
 
 # Build the application
-RUN ./gradlew bootJar --no-daemon
+RUN ./gradlew build --no-daemon -x test
 
 # Stage 2: Extract JRE from JDK
-FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu AS jre-build
+FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu AS jre-builder
 
-# Create a custom JRE using jlink that only includes modules needed for the application
+# Create a custom JRE using jlink
 RUN jlink \
-    --add-modules java.base,java.compiler,java.desktop,java.instrument,java.management,java.naming,java.prefs,java.rmi,java.security.jgss,java.security.sasl,java.sql,jdk.crypto.ec,jdk.unsupported,jdk.zipfs,jdk.management \
+    --add-modules java.base,java.desktop,java.instrument,java.management,java.naming,java.net.http,java.security.jgss,java.sql,jdk.unsupported \
     --strip-debug \
     --no-man-pages \
     --no-header-files \
     --compress=2 \
-    --output /jre-minimal
+    --output /custom-jre
 
-# Stage 3: Create final image
+# Stage 3: Runtime stage with custom JRE
 FROM ubuntu:22.04
 
-# Set environment variables
-ENV JAVA_HOME=/opt/jre-minimal
+# Install required packages and clean up
+RUN apt-get update && \
+    apt-get install -y \
+        ca-certificates \
+        sqlite3 \
+        curl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy custom JRE from jre-builder stage
+COPY --from=jre-builder /custom-jre /opt/java/openjdk
+
+# Set JAVA_HOME and update PATH
+ENV JAVA_HOME=/opt/java/openjdk
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
-# Copy the extracted JRE from the jre-build stage
-COPY --from=jre-build /jre-minimal $JAVA_HOME
+# Create application user for security
+RUN groupadd -r appuser && useradd -r -g appuser appuser
 
-# Copy the built application from the build stage
+# Set working directory
 WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
 
-# Create a directory for persistent data
-RUN mkdir -p /app/data
+# Copy the built JAR from builder stage
+COPY --from=builder /workspace/build/libs/*.jar app.jar
 
-# Expose the application port
+# Create SQLite database file with proper permissions
+RUN touch sns_api.db && \
+    chown appuser:appuser sns_api.db && \
+    chmod 664 sns_api.db
+
+# Change ownership of the app directory
+RUN chown -R appuser:appuser /app
+
+# Switch to non-root user
+USER appuser
+
+# Set environment variables for GitHub Codespaces
+ENV CODESPACE_NAME="${CODESPACE_NAME}"
+ENV GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN="${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
+
+# Expose port 8080
 EXPOSE 8080
 
-# Set the entrypoint command to run the application
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8080/actuator/health || exit 1
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
