@@ -70,14 +70,16 @@ Consultez le document [README](../README.md) pour la préparation.
     ```text
     J'aimerais construire une image conteneur d'une application Java. Suivez les instructions ci-dessous.
 
-    - L'application Java se trouve dans `java`.
-    - Votre répertoire de travail est la racine du dépôt.
     - Identifiez d'abord toutes les étapes que vous allez effectuer.
+    - L'application Java se trouve dans `java/socialapp`.
+    - Votre répertoire de travail est la racine du dépôt.
     - Créez un Dockerfile, `Dockerfile.java`.
     - Utilisez Microsoft OpenJDK 21.
     - Utilisez l'approche de construction multi-étapes.
     - Extrayez JRE de JDK.
     - Utilisez le numéro de port cible `8080` pour l'image conteneur.
+    - Ajoutez les deux variables d'environnement, `CODESPACE_NAME` et `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN` de l'hôte à l'image conteneur.
+    - Créez un fichier de base de données SQLite, `sns_api.db`, dans l'image conteneur. NE copiez PAS le fichier de l'hôte.
     ```
 
 1. Cliquez sur le bouton ![l'image du bouton keep](https://img.shields.io/badge/keep-blue) de GitHub Copilot pour prendre les modifications.
@@ -101,6 +103,7 @@ Consultez le document [README](../README.md) pour la préparation.
     Utilisez l'image conteneur qui vient d'être construite, exécutez un conteneur et vérifiez si l'application fonctionne correctement.
     
     - Utilisez le port hôte `8080`.
+    - Les deux valeurs `CODESPACE_NAME` et `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN` doivent être celles de GitHub Codespaces.
     ```
 
 ### Conteneuriser l'Application .NET
@@ -111,13 +114,14 @@ Consultez le document [README](../README.md) pour la préparation.
     ```text
     J'aimerais construire une image conteneur d'une application .NET. Suivez les instructions ci-dessous.
 
+    - Identifiez d'abord toutes les étapes que vous allez effectuer.
     - L'application .NET se trouve dans `dotnet`.
     - Votre répertoire de travail est la racine du dépôt.
-    - Identifiez d'abord toutes les étapes que vous allez effectuer.
     - Créez un Dockerfile, `Dockerfile.dotnet`.
     - Utilisez .NET 9.
     - Utilisez l'approche de construction multi-étapes.
     - Utilisez le numéro de port cible `8080` pour l'image conteneur.
+    - Ajoutez la variable d'environnement, `ApiSettings__BaseUrl` au conteneur. Elle doit pointer vers l'application Java, `http://localhost:8080/api`.
     ```
 
 1. Cliquez sur le bouton ![l'image du bouton keep](https://img.shields.io/badge/keep-blue) de GitHub Copilot pour prendre les modifications.
@@ -141,12 +145,13 @@ Consultez le document [README](../README.md) pour la préparation.
     Utilisez l'image conteneur qui vient d'être construite, exécutez un conteneur et vérifiez si l'application fonctionne correctement.
     
     - Utilisez le port hôte `3030`.
+    - Passez la variable d'environnement `ApiSettings__BaseUrl` la valeur de `http://localhost:8080/api`.
     ```
 
 1. Assurez-vous que les applications frontend et backend ne communiquent PAS entre elles car elles ne se connaissent pas encore. Exécutez l'invite comme ci-dessous.
 
     ```text
-    Peu importe ou non, supprimez les deux conteneurs actuellement en cours d'exécution.
+    Supprimez les deux conteneurs Java et .NET et leurs images conteneur respectives.
     ```
 
 ### Orchestrer les Conteneurs
@@ -157,6 +162,7 @@ Consultez le document [README](../README.md) pour la préparation.
     ```text
     J'aimerais créer un fichier Docker Compose. Suivez les instructions ci-dessous.
     
+    - Identifiez d'abord toutes les étapes que vous allez effectuer.
     - Votre répertoire de travail est la racine du dépôt.
     - Utilisez `Dockerfile.java` comme application backend.
     - Utilisez `Dockerfile.dotnet` comme application frontend.
@@ -164,7 +170,8 @@ Consultez le document [README](../README.md) pour la préparation.
     - Utilisez `contoso` comme nom de réseau.
     - Utilisez `contoso-backend` comme nom de conteneur de l'application Java. Son port cible est 8080, et le port hôte est 8080.
     - Utilisez `contoso-frontend` comme nom de conteneur de l'application .NET. Son port cible est 8080, et le port hôte est 3030.
-    - Montez le volume pour la base de données que l'application Java utilise, `java/socialapp/sns_api.db`.
+    - Ajoutez les deux variables d'environnement, `CODESPACE_NAME` et `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN` de l'hôte au conteneur Java.
+    - Ajoutez la variable d'environnement, `ApiSettings__BaseUrl` au conteneur .NET. Elle doit pointer vers le `/api` de l'application Java.
     ```
 
 1. Cliquez sur le bouton ![l'image du bouton keep](https://img.shields.io/badge/keep-blue) de GitHub Copilot pour prendre les modifications.
@@ -172,7 +179,7 @@ Consultez le document [README](../README.md) pour la préparation.
 1. Une fois le fichier `compose.yaml` créé, exécutez-le et vérifiez si les deux applications fonctionnent correctement.
 
     ```text
-    Maintenant, exécutez le fichier Docker compose et vérifiez si les applications fonctionnent correctement.
+    Exécutez le fichier Docker compose et vérifiez si toutes les applications fonctionnent correctement.
     ```
 
 1. Ouvrez un navigateur web et naviguez vers `http://localhost:3030`, et vérifiez si les applications sont en marche et fonctionnent correctement.
