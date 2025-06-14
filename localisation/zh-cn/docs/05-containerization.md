@@ -70,14 +70,16 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
     ```text
     我想为 Java 应用构建容器镜像。请按照以下说明操作。
 
-    - Java 应用位于 `java`。
-    - 您的工作目录是存储库根目录。
     - 首先确定您要执行的所有步骤。
+    - Java 应用位于 `java/socialapp`。
+    - 您的工作目录是存储库根目录。
     - 创建一个 Dockerfile，`Dockerfile.java`。
     - 使用 Microsoft OpenJDK 21。
     - 使用多阶段构建方法。
     - 从 JDK 提取 JRE。
     - 为容器镜像使用目标端口号 `8080`。
+    - 从主机向容器镜像添加环境变量 `CODESPACE_NAME` 和 `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN`。
+    - 在容器镜像中创建 SQLite 数据库文件 `sns_api.db`。不要从主机复制文件。
     ```
 
 1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
@@ -101,6 +103,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
     使用刚刚构建的容器镜像，运行容器并验证应用是否正常运行。
     
     - 使用主机端口 `8080`。
+    - `CODESPACE_NAME` 和 `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN` 的值都应该是来自 GitHub Codespaces 的值。
     ```
 
 ### 容器化 .NET 应用程序
@@ -111,13 +114,14 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
     ```text
     我想为 .NET 应用构建容器镜像。请按照以下说明操作。
 
+    - 首先确定您要执行的所有步骤。
     - .NET 应用位于 `dotnet`。
     - 您的工作目录是存储库根目录。
-    - 首先确定您要执行的所有步骤。
     - 创建一个 Dockerfile，`Dockerfile.dotnet`。
     - 使用 .NET 9。
     - 使用多阶段构建方法。
     - 为容器镜像使用目标端口号 `8080`。
+    - 向容器添加环境变量 `ApiSettings__BaseUrl`。它应该指向 Java 应用程序 `http://localhost:8080/api`。
     ```
 
 1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
@@ -141,12 +145,13 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
     使用刚刚构建的容器镜像，运行容器并验证应用是否正常运行。
     
     - 使用主机端口 `3030`。
+    - 传递环境变量 `ApiSettings__BaseUrl` 值 `http://localhost:8080/api`。
     ```
 
 1. 确保前端和后端应用暂时无法相互通信，因为它们还不知道彼此。运行如下提示。
 
     ```text
-    无论如何，删除当前运行的两个容器。
+    删除 Java 和 .NET 容器以及它们各自的容器镜像。
     ```
 
 ### 编排容器
@@ -157,6 +162,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
     ```text
     我想创建一个 Docker Compose 文件。请按照以下说明操作。
     
+    - 首先确定您要执行的所有步骤。
     - 您的工作目录是存储库根目录。
     - 使用 `Dockerfile.java` 作为后端应用。
     - 使用 `Dockerfile.dotnet` 作为前端应用。
@@ -164,7 +170,8 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
     - 使用 `contoso` 作为网络名称。
     - 使用 `contoso-backend` 作为 Java 应用的容器名称。其目标端口是 8080，主机端口是 8080。
     - 使用 `contoso-frontend` 作为 .NET 应用的容器名称。其目标端口是 8080，主机端口是 3030。
-    - 为 Java 应用使用的数据库挂载卷，`java/socialapp/sns_api.db`。
+    - 从主机向 Java 容器添加环境变量 `CODESPACE_NAME` 和 `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN`。
+    - 向 .NET 容器添加环境变量 `ApiSettings__BaseUrl`。它应该指向 Java 应用的 `/api`。
     ```
 
 1. 点击 GitHub Copilot 的 ![保留按钮图片](https://img.shields.io/badge/keep-blue) 按钮接受更改。
@@ -172,7 +179,7 @@ Contoso 是一家销售各种户外活动产品的公司。Contoso 的市场部�
 1. 创建 `compose.yaml` 文件后，运行它并验证两个应用是否正常运行。
 
     ```text
-    现在，运行 Docker compose 文件并验证应用是否正常运行。
+    运行 Docker compose 文件并验证所有应用是否正常运行。
     ```
 
 1. 打开 Web 浏览器并导航到 `http://localhost:3030`，验证应用是否正常运行。

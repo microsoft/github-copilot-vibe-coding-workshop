@@ -70,14 +70,16 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
     ```text
     Java 앱의 컨테이너 이미지를 빌드하고 싶습니다. 아래 지침을 따르세요.
 
-    - Java 앱은 `java`에 위치합니다.
-    - 작업 디렉토리는 저장소 루트입니다.
     - 먼저 수행할 모든 단계를 식별하세요.
+    - Java 앱은 `java/socialapp`에 위치합니다.
+    - 작업 디렉토리는 저장소 루트입니다.
     - `Dockerfile.java` Dockerfile을 생성하세요.
     - Microsoft OpenJDK 21을 사용하세요.
     - 멀티 스테이지 빌드 방식을 사용하세요.
     - JDK에서 JRE를 추출하세요.
     - 컨테이너 이미지의 대상 포트 번호로 `8080`을 사용하세요.
+    - 호스트에서 컨테이너 이미지로 환경 변수 `CODESPACE_NAME`과 `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN` 모두를 추가하세요.
+    - 컨테이너 이미지에 SQLite 데이터베이스 파일 `sns_api.db`를 생성하세요. 호스트에서 파일을 복사하지 마세요.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -101,6 +103,7 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
     방금 빌드한 컨테이너 이미지를 사용하여 컨테이너를 실행하고 앱이 제대로 실행되는지 확인하세요.
     
     - 호스트 포트로 `8080`을 사용하세요.
+    - `CODESPACE_NAME`과 `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN` 값 모두 GitHub Codespaces의 값이어야 합니다.
     ```
 
 ### .NET 애플리케이션 컨테이너화
@@ -111,13 +114,14 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
     ```text
     .NET 앱의 컨테이너 이미지를 빌드하고 싶습니다. 아래 지침을 따르세요.
 
+    - 먼저 수행할 모든 단계를 식별하세요.
     - .NET 앱은 `dotnet`에 위치합니다.
     - 작업 디렉토리는 저장소 루트입니다.
-    - 먼저 수행할 모든 단계를 식별하세요.
     - `Dockerfile.dotnet` Dockerfile을 생성하세요.
     - .NET 9를 사용하세요.
     - 멀티 스테이지 빌드 방식을 사용하세요.
     - 컨테이너 이미지의 대상 포트 번호로 `8080`을 사용하세요.
+    - 컨테이너에 환경 변수 `ApiSettings__BaseUrl`을 추가하세요. 이는 Java 앱 `http://localhost:8080/api`를 가리켜야 합니다.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -141,12 +145,13 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
     방금 빌드한 컨테이너 이미지를 사용하여 컨테이너를 실행하고 앱이 제대로 실행되는지 확인하세요.
     
     - 호스트 포트로 `3030`을 사용하세요.
+    - 환경 변수 `ApiSettings__BaseUrl`에 `http://localhost:8080/api` 값을 전달하세요.
     ```
 
 1. 프론트엔드와 백엔드 앱이 서로를 알지 못하므로 아직 통신하지 않는지 확인하세요. 아래와 같은 프롬프트를 실행하세요.
 
     ```text
-    상관없이 현재 실행 중인 두 컨테이너를 모두 제거하세요.
+    Java와 .NET 컨테이너 모두와 각각의 컨테이너 이미지를 제거하세요.
     ```
 
 ### 컨테이너 오케스트레이션
@@ -157,6 +162,7 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
     ```text
     Docker Compose 파일을 생성하고 싶습니다. 아래 지침을 따르세요.
     
+    - 먼저 수행할 모든 단계를 식별하세요.
     - 작업 디렉토리는 저장소 루트입니다.
     - 백엔드 앱으로 `Dockerfile.java`를 사용하세요.
     - 프론트엔드 앱으로 `Dockerfile.dotnet`을 사용하세요.
@@ -164,7 +170,8 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
     - 네트워크 이름으로 `contoso`를 사용하세요.
     - Java 앱의 컨테이너 이름으로 `contoso-backend`를 사용하세요. 대상 포트는 8080이고 호스트 포트는 8080입니다.
     - .NET 앱의 컨테이너 이름으로 `contoso-frontend`를 사용하세요. 대상 포트는 8080이고 호스트 포트는 3030입니다.
-    - Java 앱이 사용하는 데이터베이스 `java/socialapp/sns_api.db`의 볼륨을 마운트하세요.
+    - 호스트에서 Java 컨테이너로 환경 변수 `CODESPACE_NAME`과 `GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN` 모두를 추가하세요.
+    - .NET 컨테이너에 환경 변수 `ApiSettings__BaseUrl`을 추가하세요. 이는 Java 앱의 `/api`를 가리켜야 합니다.
     ```
 
 1. GitHub Copilot의 ![the keep button image](https://img.shields.io/badge/keep-blue) 버튼을 클릭하여 변경사항을 적용하세요.
@@ -172,7 +179,7 @@ Contoso는 다양한 야외 활동 제품을 판매하는 회사입니다. Conto
 1. `compose.yaml` 파일이 생성되면, 실행하고 두 앱이 모두 제대로 실행되는지 확인하세요.
 
     ```text
-    이제 Docker compose 파일을 실행하고 앱들이 제대로 실행되는지 확인하세요.
+    Docker compose 파일을 실행하고 모든 앱들이 제대로 실행되는지 확인하세요.
     ```
 
 1. 웹 브라우저를 열고 `http://localhost:3030`으로 이동하여, 앱이 제대로 실행되고 있는지 확인하세요.
