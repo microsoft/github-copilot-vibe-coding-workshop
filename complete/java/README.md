@@ -171,6 +171,14 @@ Open your browser and navigate to:
 
 - `POST /api/posts/{postId}/like` - Like a post
 - `DELETE /api/posts/{postId}/like` - Unlike a post
+- `GET /api/posts/{postId}/likes/users` - Get all usernames who liked a post
+
+#### Example: Get users who liked a post
+
+```bash
+curl http://localhost:8080/api/posts/1/likes/users
+# Response: ["alice", "bob", "charlie"]
+```
 
 ### Spring Boot Actuator
 

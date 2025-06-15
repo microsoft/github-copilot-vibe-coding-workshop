@@ -68,4 +68,21 @@ public class LikeController {
             throw new RuntimeException("INTERNAL_SERVER_ERROR: " + e.getMessage());
         }
     }
+
+    @GetMapping("/users")
+    @Operation(summary = "Get users who liked a post", description = "Retrieve a list of usernames who have liked the specified post.")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved list of users who liked the post"),
+        @ApiResponse(responseCode = "404", description = "Post not found"),
+        @ApiResponse(responseCode = "500", description = "Internal server error")
+    })
+    public ResponseEntity<java.util.List<String>> getUsersWhoLikedPost(@PathVariable String postId) {
+        try {
+            java.util.List<String> users = likeService.getUsernamesByPostId(postId);
+            return ResponseEntity.ok(users);
+        } catch (Exception e) {
+            log.error("Error fetching users who liked post ID: " + postId, e);
+            throw new RuntimeException("INTERNAL_SERVER_ERROR: " + e.getMessage());
+        }
+    }
 }

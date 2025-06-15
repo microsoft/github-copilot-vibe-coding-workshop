@@ -26,6 +26,9 @@ export const postApi = {
   // 포스트 좋아요 취소 (DELETE)
   unlikePost: (postId) =>
     apiClient.delete(`/posts/${postId}/likes`),
+
+  // Lấy danh sách username đã like một post
+  getPostLikesUsers: (postId) => apiClient.get(`/posts/${postId}/likes/users`),
 };
 
 export const commentApi = {

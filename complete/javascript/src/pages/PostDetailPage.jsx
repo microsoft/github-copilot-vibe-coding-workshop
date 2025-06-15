@@ -49,6 +49,7 @@ const PostDetailPage = () => {
   const [error, setError] = useState("");
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(0);
+  const [likesUsers, setLikesUsers] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -83,6 +84,16 @@ const PostDetailPage = () => {
     }
   }, [postId]);
 
+  // Fetch users who liked this post
+  const fetchLikesUsers = useCallback(async () => {
+    try {
+      const response = await postApi.getPostLikesUsers(postId);
+      setLikesUsers(response.data);
+    } catch (error) {
+      setLikesUsers([]);
+    }
+  }, [postId]);
+
   useEffect(() => {
     fetchPostDetail();
   }, [fetchPostDetail]);
@@ -92,6 +103,10 @@ const PostDetailPage = () => {
       fetchComments();
     }
   }, [fetchComments, postId]);
+
+  useEffect(() => {
+    fetchLikesUsers();
+  }, [fetchLikesUsers]);
 
   const handleLikeToggle = async () => {
     if (!user) return;
@@ -105,6 +120,8 @@ const PostDetailPage = () => {
         setLikesCount(response.data.likesCount);
         setIsLiked(true);
       }
+      // Refetch likes users after like/unlike
+      fetchLikesUsers();
     } catch (error) {
       console.error("Error toggling like:", error);
     }
@@ -286,6 +303,9 @@ const PostDetailPage = () => {
               <HeartIcon filled={isLiked} />
               {likesCount > 0 && <span className="text-xs">{likesCount}</span>}
             </button>
+            {likesUsers.length > 0 && (
+              <span className="text-xs text-gray-500">Liked by: {likesUsers.join(", ")}</span>
+            )}
             <span className="text-sm text-gray-600">
               Comments {post.commentsCount}
             </span>

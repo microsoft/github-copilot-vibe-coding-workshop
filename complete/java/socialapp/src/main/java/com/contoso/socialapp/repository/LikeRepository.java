@@ -17,4 +17,7 @@ public interface LikeRepository extends JpaRepository<Like, LikeId> {
     
     @Query("DELETE FROM Like l WHERE l.post.id = :postId AND l.username = :username")
     void deleteByPostIdAndUsername(@Param("postId") String postId, @Param("username") String username);
+
+    @Query("SELECT l.username FROM Like l WHERE l.post.id = :postId")
+    java.util.List<String> findUsernamesByPostId(@Param("postId") String postId);
 }

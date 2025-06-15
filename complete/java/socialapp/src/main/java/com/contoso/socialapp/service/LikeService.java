@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -66,6 +67,11 @@ public class LikeService {
         return false;
     }
     
+    public List<String> getUsernamesByPostId(String postId) {
+        log.info("Fetching usernames who liked post ID: {}", postId);
+        return likeRepository.findUsernamesByPostId(postId);
+    }
+
     private LikeResponse convertToResponse(Like like) {
         return new LikeResponse(
                 like.getPostId(),
