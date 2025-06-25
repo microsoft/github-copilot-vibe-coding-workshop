@@ -1,6 +1,6 @@
 # Taller de Programación Vibe con GitHub Copilot
 
-![GitHub Copilot - Ghiblifiled](../../images/ghcp.jpg)
+![Taller de Programación Vibe con GitHub Copilot](../../images/banner.png)
 
 ¡Vamos a programar con vibe usando [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) y sus características más nuevas y mejores en varios lenguajes de programación como Python, JavaScript, Java y .NET, así como hacer que las aplicaciones sean nativas de la nube mediante contenedorización! ¿Estás listo para sumergirte?
 

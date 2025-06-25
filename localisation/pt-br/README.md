@@ -1,6 +1,6 @@
 # Workshop de Codificação GitHub Copilot Vibe
 
-![GitHub Copilot - Ghiblifiled](../../images/ghcp.jpg)
+![Workshop de Codificação GitHub Copilot Vibe](../../images/banner.png)
 
 Vamos codar com vibe usando o [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) e seus recursos mais novos e incríveis em várias linguagens de programação como Python, JavaScript, Java e .NET, além de tornar os aplicativos nativos da nuvem através da containerização. Você está pronto para mergulhar?
 

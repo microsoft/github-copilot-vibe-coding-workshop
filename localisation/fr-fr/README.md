@@ -1,6 +1,6 @@
 # Atelier de Codage Vibe GitHub Copilot
 
-![GitHub Copilot - Ghiblifiled](../../images/ghcp.jpg)
+![Atelier de Codage Vibe GitHub Copilot](../../images/banner.png)
 
 Vibrons-codons avec [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) et ses fonctionnalités les plus récentes et les plus avancées dans divers langages de programmation tels que Python, JavaScript, Java et .NET, ainsi que pour rendre les applications cloud-natives par conteneurisation. Êtes-vous prêt à vous lancer ?
 

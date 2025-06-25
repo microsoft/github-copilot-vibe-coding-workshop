@@ -1,6 +1,6 @@
 # GitHub Copilot Vibe コーディングワークショップ
 
-![GitHub Copilot - Ghiblifiled](../../images/ghcp.jpg)
+![GitHub Copilot Vibe コーディングワークショップ](../../images/banner.png)
 
 Python、JavaScript、Java、.NETなど様々なプログラミング言語で[GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot)と最新かつ最高の機能を使ってバイブコーディングを行い、コンテナ化によってアプリをクラウドネイティブにしましょう。飛び込む準備はできていますか？
 

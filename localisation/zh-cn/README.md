@@ -1,6 +1,6 @@
 # GitHub Copilot Vibe 编程工作坊
 
-![GitHub Copilot - Ghiblifiled](../../images/ghcp.jpg)
+![GitHub Copilot Vibe 编程工作坊](../../images/banner.png)
 
 让我们使用 [GitHub Copilot](https://docs.github.com/copilot/about-github-copilot/what-is-github-copilot) 及其在 Python、JavaScript、Java 和 .NET 等各种编程语言中的最新最强大功能进行氛围编程，并通过容器化让应用程序变得云原生。你准备好开始了吗？
 
