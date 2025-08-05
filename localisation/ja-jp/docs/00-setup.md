@@ -298,6 +298,40 @@
 
 1. モデルを `GPT-4.1` または `Claude Sonnet 4` のいずれかに選択します。
 
+## ビーストモードを設定
+
+1. `/mcp.awesome-copilot.get_search_prompt` を入力し、続いて "beast mode" のようなキーワードを入力します
+
+   ビーストチャットモードのリストが表示されます。`4.1 Beast Chat Mode` のようなプロンプトを入力します。すると、`.github/chatmodes` ディレクトリに保存されます。
+
+1. `Agent` モードの代わりに `4.1-Beast` モードを選択します。自動的にLLMが `GPT 4.1` に変更されます。
+
+1. `$REPOSITORY_ROOT` 環境変数を設定します。
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. ワークスペース設定をコピーします。
+
+    ```bash
+    # bash/zsh
+    cp $REPOSITORY_ROOT/docs/.vscode/settings.json \
+       $REPOSITORY_ROOT/.vscode/settings.json
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/settings.json `
+              -Destination $REPOSITORY_ROOT/.vscode/settings.json -Force
+    ```
+
 ## カスタム指示を準備
 
 1. `$REPOSITORY_ROOT` 環境変数を設定します。

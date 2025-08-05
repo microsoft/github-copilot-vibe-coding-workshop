@@ -298,6 +298,40 @@ Consulte a documentação [README](../README.md) para preparação.
 
 1. Selecione o modelo para `GPT-4.1` ou `Claude Sonnet 4`.
 
+## Configurar Modo Fera
+
+1. Digite `/mcp.awesome-copilot.get_search_prompt`, seguido de palavras-chave como "beast mode"
+
+   Isso deve mostrar a lista de modos de chat fera. Digite um prompt similar a `4.1 Beast Chat Mode`. Em seguida, será salvo no diretório `.github/chatmodes`.
+
+1. Escolha o modo `4.1-Beast` em vez do modo `Agent`. Ele mudará automaticamente o LLM para `GPT 4.1`.
+
+1. Defina a variável de ambiente `$REPOSITORY_ROOT`.
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. Copie as configurações do workspace.
+
+    ```bash
+    # bash/zsh
+    cp $REPOSITORY_ROOT/docs/.vscode/settings.json \
+       $REPOSITORY_ROOT/.vscode/settings.json
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/settings.json `
+              -Destination $REPOSITORY_ROOT/.vscode/settings.json -Force
+    ```
+
 ## Preparar Instruções Customizadas
 
 1. Defina a variável de ambiente `$REPOSITORY_ROOT`.

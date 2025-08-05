@@ -298,6 +298,40 @@ Consulta el documento [README](../README.md) para la preparación.
 
 1. Selecciona el modelo ya sea `GPT-4.1` o `Claude Sonnet 4`.
 
+## Configurar Modo Bestia
+
+1. Ingresa `/mcp.awesome-copilot.get_search_prompt`, seguido de palabras clave como "beast mode"
+
+   Debería mostrar la lista de modos de chat bestia. Ingresa un prompt similar a `4.1 Beast Chat Mode`. Luego se guardará bajo el directorio `.github/chatmodes`.
+
+1. Elige el modo `4.1-Beast` en lugar del modo `Agent`. Automáticamente cambiará el LLM a `GPT 4.1`.
+
+1. Establece la variable de entorno de `$REPOSITORY_ROOT`.
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. Copia la configuración del espacio de trabajo.
+
+    ```bash
+    # bash/zsh
+    cp $REPOSITORY_ROOT/docs/.vscode/settings.json \
+       $REPOSITORY_ROOT/.vscode/settings.json
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/settings.json `
+              -Destination $REPOSITORY_ROOT/.vscode/settings.json -Force
+    ```
+
 ## Preparar Instrucciones Personalizadas
 
 1. Establece la variable de entorno de `$REPOSITORY_ROOT`.

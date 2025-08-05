@@ -298,6 +298,40 @@
 
 1. 选择模型为 `GPT-4.1` 或 `Claude Sonnet 4`。
 
+## 配置野兽模式
+
+1. 输入 `/mcp.awesome-copilot.get_search_prompt`，然后输入类似 "beast mode" 的关键词
+
+   它应该显示野兽聊天模式列表。输入类似 `4.1 Beast Chat Mode` 的提示。然后它将保存在 `.github/chatmodes` 目录下。
+
+1. 选择 `4.1-Beast` 模式而不是 `Agent` 模式。它将自动将 LLM 更改为 `GPT 4.1`。
+
+1. 设置 `$REPOSITORY_ROOT` 环境变量。
+
+   ```bash
+   # bash/zsh
+   REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+   ```
+
+   ```powershell
+   # PowerShell
+   $REPOSITORY_ROOT = git rev-parse --show-toplevel
+   ```
+
+1. 复制工作区设置。
+
+    ```bash
+    # bash/zsh
+    cp $REPOSITORY_ROOT/docs/.vscode/settings.json \
+       $REPOSITORY_ROOT/.vscode/settings.json
+    ```
+
+    ```powershell
+    # PowerShell
+    Copy-Item -Path $REPOSITORY_ROOT/docs/.vscode/settings.json `
+              -Destination $REPOSITORY_ROOT/.vscode/settings.json -Force
+    ```
+
 ## 准备自定义指令
 
 1. 设置 `$REPOSITORY_ROOT` 环境变量。
