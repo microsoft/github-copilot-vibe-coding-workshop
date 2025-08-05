@@ -256,6 +256,7 @@
 
 ### MCP サーバーを設定
 
+1. ローカルマシンでVS Codeを使用している場合は、Docker Desktopが起動していることを確認してください。
 1. `$REPOSITORY_ROOT` 環境変数を設定します。
 
    ```bash
@@ -284,6 +285,7 @@
 
 1. F1 キーまたは Windows では `Ctrl`+`Shift`+`P`、Mac OS では `Cmd`+`Shift`+`P` を入力してコマンドパレットを開き、`MCP: List Servers` を検索します。
 1. `context7` を選択して `Start Server` をクリックします。
+1. `awesome-copilot` を選択して `Start Server` をクリックします。
 
 ## GitHub Copilot エージェントモードを確認
 

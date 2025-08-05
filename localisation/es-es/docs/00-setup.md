@@ -256,6 +256,7 @@ Consulta el documento [README](../README.md) para la preparación.
 
 ### Configurar Servidores MCP
 
+1. Asegúrate de que Docker Desktop esté funcionando si usas VS Code en tu máquina local.
 1. Establece la variable de entorno de `$REPOSITORY_ROOT`.
 
    ```bash
@@ -284,6 +285,7 @@ Consulta el documento [README](../README.md) para la preparación.
 
 1. Abre la Paleta de Comandos presionando F1 o `Ctrl`+`Shift`+`P` en Windows o `Cmd`+`Shift`+`P` en Mac OS, y busca `MCP: List Servers`.
 1. Elige `context7` y luego haz clic en `Start Server`.
+1. Elige `awesome-copilot` y luego haz clic en `Start Server`.
 
 ## Verificar Modo Agente de GitHub Copilot
 
