@@ -18,6 +18,7 @@ Consulte a documentação [README](../README.md) para preparação.
   - [Iniciar Visual Studio Code](#iniciar-visual-studio-code)
   - [Configurar Servidores MCP](#configurar-servidores-mcp)
 - [Verificar o Modo Agente do GitHub Copilot](#verificar-o-modo-agente-do-github-copilot)
+- [Configurar Modo Fera](#configurar-modo-fera)
 - [Preparar Instruções Customizadas](#preparar-instruções-customizadas)
 - [Analisar Documento de Requisitos do Produto (PRD) e Projetar API](#analisar-documento-de-requisitos-do-produto-prd-e-projetar-api)
 

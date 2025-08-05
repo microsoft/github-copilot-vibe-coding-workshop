@@ -18,6 +18,7 @@
   - [启动 Visual Studio Code](#启动-visual-studio-code)
   - [设置 MCP 服务器](#设置-mcp-服务器)
 - [检查 GitHub Copilot 代理模式](#检查-github-copilot-代理模式)
+- [配置野兽模式](#配置野兽模式)
 - [准备自定义指令](#准备自定义指令)
 - [分析产品需求文档 (PRD) 和设计 API](#分析产品需求文档-prd-和设计-api)
 

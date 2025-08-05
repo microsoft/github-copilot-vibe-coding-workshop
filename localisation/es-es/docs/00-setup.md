@@ -18,6 +18,7 @@ Consulta el documento [README](../README.md) para la preparación.
   - [Iniciar Visual Studio Code](#iniciar-visual-studio-code)
   - [Configurar Servidores MCP](#configurar-servidores-mcp)
 - [Verificar Modo Agente de GitHub Copilot](#verificar-modo-agente-de-github-copilot)
+- [Configurar Modo Bestia](#configurar-modo-bestia)
 - [Preparar Instrucciones Personalizadas](#preparar-instrucciones-personalizadas)
 - [Analizar Documento de Requisitos del Producto (PRD) y Diseñar API](#analizar-documento-de-requisitos-del-producto-prd-y-diseñar-api)
 
