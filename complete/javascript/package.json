@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@playwright-testing-library/test": "^4.5.0",
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.56.1",
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
