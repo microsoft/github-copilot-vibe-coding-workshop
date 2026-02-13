@@ -1,0 +1,59 @@
+services:
+  contoso-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.java
+    image: contoso-backend:latest
+    container_name: contoso-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - CODESPACE_NAME=${CODESPACE_NAME:-local}
+      - GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN=${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-localhost}
+    volumes:
+      - backend-data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - contoso-network
+    restart: unless-stopped
+
+  contoso-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dotnet
+    image: contoso-frontend:latest
+    container_name: contoso-frontend
+    ports:
+      - "5000:8000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8000
+      - API_BASE_URL=http://contoso-backend:8080
+      - CODESPACE_NAME=${CODESPACE_NAME:-local}
+      - GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN=${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-localhost}
+    depends_on:
+      contoso-backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+    networks:
+      - contoso-network
+    restart: unless-stopped
+
+volumes:
+  backend-data:
+    driver: local
+
+networks:
+  contoso-network:
+    driver: bridge
